@@ -1,17 +1,10 @@
 # raulpe7eira.github.io
 
-<!-- TODO: add screenshot of the new version -->
+<img width="3424" height="1964" alt="raulpe7eira tech_" src="https://github.com/user-attachments/assets/5d0625f1-fa62-4aa0-9af5-fbc47fc24cfc" />
 
 This project holds the contents for my personal website, hosted at <https://raulpe7eira.tech>.
 
 Single static HTML file with no build tools, no dependencies, and no frameworks. Everything is inline — CSS, JavaScript, and SVG icons.
-
-### Features
-
-- Bilingual (English / Portuguese)
-- 9 color themes (Dracula, Nord, Gruvbox, Catppuccin, Solarized, Tokyo Night, Rose Pine, One Dark, Dark)
-- Responsive design
-- SEO (Open Graph, Twitter Card, JSON-LD)
 
 ---
 
