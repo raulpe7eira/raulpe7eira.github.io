@@ -1,4 +1,5 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# macOS folder metadata
+.DS_Store
+
+# Playwright MCP server runtime data
+.playwright-mcp/

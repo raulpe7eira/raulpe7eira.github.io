@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: https://raulpe7eira.tech/sitemap.xml

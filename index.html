@@ -1,20 +1,681 @@
----
-layout: default
-title: raulpe7eira.tech
----
-{% assign lang = site.active_lang %}
-{% for post in paginator.posts limit:1 %}
-  <article class="post-container post-container--single">
-    <header class="post-header">
-      <h1 class="post-title">{{ post.title }}</h1>
-    </header>
-    <section class="post">
-      {{ post.content }}
-    </section>
-    <footer class="post-footer">
-      <div class="post-meta">
-        <time datetime="{{ post.date | date: "%Y-%m-%d %H:%M" }}" class="post-meta__date date">{{ site.data.index.update-label }} {{ post.date | date: site.dates_format[lang] }}</time>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Analytics (production only - won't fire on file:// or localhost) -->
+  <script defer data-domain="raulpe7eira.tech" src="https://plausible.io/js/script.outbound-links.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QXLD8YPLP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4QXLD8YPLP');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>raulpe7eira - Software Developer</title>
+  <meta name="description" content="Passionate coder, and cycling enthusiast, who loves being with the family. Software developer with +20 years of professional experience." />
+  <meta name="author" content="raulpe7eira" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="raulpe7eira - Software Developer" />
+  <meta property="og:description" content="Passionate coder, and cycling enthusiast, who loves being with the family. Software developer with +20 years of professional experience." />
+  <meta property="og:image" content="https://raulpe7eira.tech/images/favicons/favicon-194x194.png" />
+  <meta property="og:url" content="https://raulpe7eira.tech/" />
+  <meta property="og:site_name" content="raulpe7eira" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="raulpe7eira - Software Developer" />
+  <meta name="twitter:description" content="Passionate coder, and cycling enthusiast, who loves being with the family. Software developer with +20 years of professional experience." />
+  <meta name="twitter:image" content="https://raulpe7eira.tech/images/favicons/favicon-194x194.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://raulpe7eira.tech/" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png" />
+  <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicons/favicon-194x194.png" sizes="194x194" />
+  <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192" />
+  <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16" />
+  <link rel="manifest" href="images/favicons/manifest.json" />
+  <link rel="shortcut icon" href="images/favicons/favicon.ico" />
+  <meta name="msapplication-TileColor" content="#ffc40d" />
+  <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png" />
+  <meta name="theme-color" content="#282a36" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raul Pereira",
+    "alternateName": "raulpe7eira",
+    "url": "https://raulpe7eira.tech",
+    "image": "https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5",
+    "jobTitle": "Software Developer",
+    "sameAs": [
+      "https://github.com/raulpe7eira",
+      "https://linkedin.com/in/raulpe7eira",
+      "https://x.com/raulpe7eira",
+      "https://bsky.app/profile/raulpe7eira.bsky.social",
+      "https://instagram.com/raulpe7eira",
+      "https://facebook.com/raulpe7eira",
+      "https://strava.com/athletes/raulpe7eira",
+      "https://imdb.com/user/ur28106453",
+      "https://last.fm/user/raulpereira"
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #282a36;
+      --fg: #f8f8f2;
+      --comment: #6272a4;
+      --cyan: #8be9fd;
+      --green: #50fa7b;
+      --orange: #ffb86c;
+      --pink: #ff79c6;
+      --purple: #bd93f9;
+      --red: #ff5555;
+      --yellow: #f1fa8c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+
+    .hero {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/cover.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter: brightness(0.5);
+    }
+
+    main {
+      max-width: 900px;
+      width: 100%;
+      padding: 3rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+      margin: 5rem 1rem 3rem;
+      position: relative;
+    }
+
+    .toolbar {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 0.6rem;
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.75rem;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+
+    .theme-btn {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+
+    .theme-btn:hover {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .theme-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .theme-panel {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      backdrop-filter: blur(12px);
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 0.5rem;
+      gap: 0.15rem;
+      min-width: 140px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    .theme-panel[hidden] {
+      display: none;
+    }
+
+    .theme-panel:not([hidden]) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .theme-panel button {
+      all: unset;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: inherit;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .theme-panel button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .theme-panel button.active {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .theme-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--pink);
+    }
+
+    .title-container {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: var(--pink);
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--comment);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--cyan);
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--pink);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      position: relative;
+    }
+
+    nav::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--comment);
+      opacity: 0.4;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      border-bottom: none;
+      background: rgba(255, 255, 255, 0.06);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.1);
+    }
+
+    nav a svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--comment);
+      transition: fill 0.3s ease;
+    }
+
+    nav a:hover svg {
+      fill: var(--purple);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      margin-bottom: -1rem;
+      font-size: 0.85rem;
+      color: var(--comment);
+    }
+
+    footer p {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .title-container {
+        text-align: center;
+      }
+
+      .subtitle {
+        text-align: center;
+      }
+
+      main {
+        padding: 2rem 1.2rem;
+        margin: 3rem 0.5rem 2rem;
+        border-radius: 8px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+
+      .toolbar {
+        top: 2rem;
+        right: 1.2rem;
+      }
+
+      nav a {
+        width: 50px;
+        height: 50px;
+      }
+
+      nav a svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 1.5rem 1rem;
+        margin: 2rem 0.3rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .toolbar {
+        top: 1.5rem;
+        right: 1rem;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      main {
+        margin-top: 6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero" aria-hidden="true"></div>
+
+  <main>
+    <div class="toolbar">
+      <button class="lang-btn" id="lang-toggle" onclick="toggleLang()" aria-label="Change language">EN</button>
+      <div style="position:relative">
+        <button class="theme-btn" onclick="toggleThemePanel()" aria-label="Change theme" title="Change theme">
+          <svg viewBox="0 0 24 24"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0112 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 00-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 012.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></svg>
+        </button>
+        <div id="theme-panel" class="theme-panel" hidden>
+          <button onclick="setTheme('dracula')" data-theme="dracula"><span class="theme-dot" style="background:#bd93f9"></span>Dracula</button>
+          <button onclick="setTheme('nord')" data-theme="nord"><span class="theme-dot" style="background:#88c0d0"></span>Nord</button>
+          <button onclick="setTheme('gruvbox')" data-theme="gruvbox"><span class="theme-dot" style="background:#fe8019"></span>Gruvbox</button>
+          <button onclick="setTheme('catppuccin')" data-theme="catppuccin"><span class="theme-dot" style="background:#cba6f7"></span>Catppuccin</button>
+          <button onclick="setTheme('solarized')" data-theme="solarized"><span class="theme-dot" style="background:#2aa198"></span>Solarized</button>
+          <button onclick="setTheme('tokyonight')" data-theme="tokyonight"><span class="theme-dot" style="background:#bb9af7"></span>Tokyo Night</button>
+          <button onclick="setTheme('rosepine')" data-theme="rosepine"><span class="theme-dot" style="background:#c4a7e7"></span>Rose Pine</button>
+          <button onclick="setTheme('onedark')" data-theme="onedark"><span class="theme-dot" style="background:#c678dd"></span>One Dark</button>
+          <button onclick="setTheme('dark')" data-theme="dark"><span class="theme-dot" style="background:#555555"></span>Dark</button>
+        </div>
       </div>
+    </div>
+    <header class="profile">
+      <img class="avatar" src="https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5?s=240" alt="Photo of Raul Pereira (raulpe7eira)" width="120" height="120" />
+      <div class="title-container">
+        <h1>raulpe7eira</h1>
+        <p class="subtitle" id="subtitle-en">Passionate coder, and cycling enthusiast, who loves being with the family</p>
+        <p class="subtitle" id="subtitle-pt" style="display: none;">Programador apaixonado, e ciclista entusiasta, que ama estar com a família</p>
+      </div>
+    </header>
+
+    <article id="en-content">
+      <p>Hi!</p>
+      <p>I'm a software developer with +20 years of <a href="https://linkedin.com/in/raulpe7eira"
+          title="link to LinkedIn profile" target="_blank" rel="noopener noreferrer">professional experience</a>, currently providing solutions
+        with <a href="https://elixir-lang.org" title="link to Elixir website" target="_blank" rel="noopener noreferrer">Elixir</a>, but I've worked a lot with <a
+          href="https://kotlinlang.org" title="link to Kotlin website" target="_blank" rel="noopener noreferrer">Kotlin</a>, <a href="https://java.com"
+          title="link to Java website" target="_blank" rel="noopener noreferrer">Java</a>, and <a
+          href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262"
+          title="link to JavaScript specification" target="_blank" rel="noopener noreferrer">JavaScript</a> previously.</p>
+      <p>All my professional experience is based on my graduation in 2001 at the extinct UniverCidade and postgraduate
+        courses of <em>&ldquo;Analysis, Design and Management Systems&rdquo;</em> and <em>&ldquo;Ergonomics, Usability and HCI: Ergodesign
+          and Interfaces Assessment&rdquo;</em> at <a href="https://www.puc-rio.br" title="link to PUC-Rio website"
+          target="_blank" rel="noopener noreferrer">PUC-Rio</a>.</p>
+      <p>One of the best parts of my profession is that you are continually specializing and seeking ways to improve and
+        break challenges in various areas of human knowledge, this means that I'm always in a process of reconstruction.
+      </p>
+      <p>When I'm not working, you can find me taking care of my family, <a
+          href="https://strava.com/athletes/raulpe7eira" title="link to Strava profile" target="_blank" rel="noopener noreferrer">cycling</a>, <a
+          href="https://imdb.com/user/ur28106453" title="link to IMDb profile" target="_blank" rel="noopener noreferrer">watching a movie</a>, <a
+          href="https://last.fm/user/raulpereira" title="link to last.fm profile" target="_blank" rel="noopener noreferrer">listening to rock</a>
+        or podcast, reading a comic book or a book, be it technology or just a children's book for my little babies.</p>
+      <p>I also <a href="https://github.com/raulpe7eira" title="link to GitHub profile" target="_blank" rel="noopener noreferrer">push code</a>
+        quite often, and <a href="https://instagram.com/raulpe7eira" title="link to Instagram profile"
+          target="_blank" rel="noopener noreferrer">show off pictures</a> from time to time.</p>
+    </article>
+
+    <article id="pt-content" style="display: none;">
+      <p>Oi!</p>
+      <p>Eu sou desenvolvedor de software com +de 20 anos de <a href="https://linkedin.com/in/raulpe7eira"
+          title="link para meu LinkedIn" target="_blank" rel="noopener noreferrer">experiência profissional</a>, atualmente provendo soluções com
+        <a href="https://elixir-lang.org" title="link para o site do Elixir" target="_blank" rel="noopener noreferrer">Elixir</a>, mas já trabalhei bastante com
+        <a href="https://kotlinlang.org" title="link para o site do Kotlin" target="_blank" rel="noopener noreferrer">Kotlin</a>, <a href="https://java.com"
+          title="link para o site do Java" target="_blank" rel="noopener noreferrer">Java</a> e <a
+          href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262"
+          title="link para a especificação do JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a> anteriormente.
+      </p>
+      <p>Toda minha experiência profissional teve base na minha graduação em 2001, feita na extinta UniverCidade e nas
+        pós-graduações em <em>&ldquo;Análise, Projeto e Gestão de Sistemas&rdquo;</em> e <em>&ldquo;Ergonomia, Usabilidade e HCI:
+          Ergodesign e Avaliação de Interfaces&rdquo;</em> cursadas na <a href="https://www.puc-rio.br"
+          title="link para o site da PUC-Rio" target="_blank" rel="noopener noreferrer">PUC-Rio</a>.</p>
+      <p>Uma das melhores partes de minha profissão é estar continuamente me especializando e aprofundando para quebrar
+        desafios em várias áreas do conhecimento humano, isso significa que sempre estou em um processo de reconstrução.
+      </p>
+      <p>Quando não estou trabalhando, estou cuidando da minha família, <a
+          href="https://strava.com/athletes/raulpe7eira" title="link para meu Strava" target="_blank" rel="noopener noreferrer">pedalando</a>, <a
+          href="https://imdb.com/user/ur28106453" title="link para meu IMDb" target="_blank" rel="noopener noreferrer">assistindo um filme</a>, <a
+          href="https://last.fm/user/raulpereira" title="link para meu last.fm" target="_blank" rel="noopener noreferrer">escutando rock</a> ou
+        podcast, lendo um HQ ou livro, seja de tecnologia ou apenas um infantil para meus pequenos.</p>
+      <p>Eu também <a href="https://github.com/raulpe7eira" title="link para meu GitHub" target="_blank" rel="noopener noreferrer">subo
+          códigos</a> com bastante frequência, e <a href="https://instagram.com/raulpe7eira"
+          title="link para meu Instagram" target="_blank" rel="noopener noreferrer">publico fotos</a> de tempos em tempos.</p>
+    </article>
+
+    <nav aria-label="Social links">
+      <a href="https://github.com/raulpe7eira" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/raulpe7eira" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+      </a>
+      <a href="https://x.com/raulpe7eira" target="_blank" rel="noopener noreferrer" title="X" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </a>
+      <a href="https://bsky.app/profile/raulpe7eira.bsky.social" target="_blank" rel="noopener noreferrer" title="Bluesky" aria-label="Bluesky">
+        <svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.627 3.625 3.501 6.2 3.249-4.583.794-8.624 2.677-4.825 8.504 3.555 5.454 9.075-.522 10.001-2.951.926 2.429 6.446 8.405 10.001 2.951 3.799-5.827-.242-7.71-4.825-8.504 2.575.252 5.415-.622 6.2-3.249.246-.828.624-5.789.624-6.479 0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.621-4.3 1.24C16.046 4.747 13.087 8.686 12 10.8"/></svg>
+      </a>
+      <a href="https://instagram.com/raulpe7eira" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7.03.084c-1.277.06-2.149.264-2.911.563a5.874 5.874 0 00-2.123 1.388 5.878 5.878 0 00-1.38 2.127C.317 4.926.113 5.8.054 7.076-.006 8.354-.02 8.764.014 12.001c.006 3.258.02 3.667.082 4.947.061 1.277.264 2.149.564 2.911.306.789.72 1.457 1.388 2.123a5.872 5.872 0 002.129 1.38c.763.295 1.636.496 2.913.552 1.278.056 1.689.069 4.947.063 3.257-.007 3.668-.021 4.947-.082 1.28-.06 2.147-.265 2.91-.563a5.881 5.881 0 002.123-1.388 5.881 5.881 0 001.38-2.129c.295-.763.496-1.636.551-2.912.056-1.28.07-1.69.064-4.948-.007-3.258-.021-3.667-.082-4.947-.06-1.28-.264-2.148-.564-2.911a5.892 5.892 0 00-1.387-2.123 5.857 5.857 0 00-2.128-1.38C19.074.322 18.202.118 16.924.064 15.647.009 15.236-.006 11.977.001 8.718.008 8.31.022 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.736 3.736 0 01-1.382-.895 3.695 3.695 0 01-.9-1.378c-.165-.423-.363-1.058-.417-2.228-.06-1.264-.072-1.644-.08-4.848-.006-3.204.006-3.583.061-4.848.05-1.169.246-1.805.408-2.228.216-.561.477-.96.895-1.382a3.705 3.705 0 011.378-.9c.423-.165 1.058-.362 2.228-.417 1.265-.06 1.644-.072 4.848-.08 3.203-.006 3.583.006 4.85.062 1.168.05 1.804.244 2.227.408.561.216.96.477 1.382.895.421.42.681.817.9 1.378.165.424.362 1.058.417 2.228.06 1.265.074 1.645.08 4.848.005 3.203-.006 3.583-.061 4.848-.051 1.17-.245 1.805-.408 2.23-.216.56-.477.96-.895 1.38a3.705 3.705 0 01-1.378.9c-.424.165-1.058.362-2.226.418-1.266.06-1.645.072-4.85.079-3.204.007-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 101.437-1.442 1.44 1.44 0 00-1.437 1.442M5.839 12.012a6.161 6.161 0 1012.323-.024 6.161 6.161 0 00-12.323.024M8 12.008A4 4 0 1112.008 16 4 4 0 018 12.008"/></svg>
+      </a>
+      <a href="https://facebook.com/raulpe7eira" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://strava.com/athletes/raulpe7eira" target="_blank" rel="noopener noreferrer" title="Strava" aria-label="Strava">
+        <svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
+      </a>
+      <a href="https://imdb.com/user/ur28106453" target="_blank" rel="noopener noreferrer" title="IMDb" aria-label="IMDb">
+        <svg viewBox="0 0 24 24"><path d="M14.31 9.588v4.824h1.318V9.588h-1.318zm-4.078 0v4.824h1.318v-3.294l.783 3.294h.934l.754-3.344v3.344h1.318V9.588h-1.885l-.549 2.749-.549-2.749h-1.806zm-2.187 0v4.824h1.318V9.588H8.045zm-4.124 0v4.824h1.725c.579 0 .986-.087 1.256-.244.271-.158.398-.457.398-.9V10.69c0-.393-.141-.674-.389-.845-.248-.17-.6-.257-1.062-.257H3.921zm1.318 1.032h.322c.293 0 .445.145.445.441v2.204c0 .295-.152.441-.445.441h-.322V10.62zM2.403 4.044C1.074 4.044 0 5.118 0 6.447v11.106c0 1.329 1.074 2.403 2.403 2.403h19.194c1.329 0 2.403-1.074 2.403-2.403V6.447c0-1.329-1.074-2.403-2.403-2.403H2.403zm14.328 5.544h1.847c.803 0 1.386.169 1.711.519.325.35.486.963.486 1.839v1.17c0 .843-.168 1.453-.502 1.818-.336.364-.911.548-1.695.548h-1.847V9.588zm1.318 1.032v3.761h.393c.348 0 .515-.167.515-.506V11.12c0-.338-.167-.5-.515-.5h-.393z"/></svg>
+      </a>
+      <a href="https://last.fm/user/raulpereira" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+        <svg viewBox="0 0 24 24"><path d="M10.584 17.21l-.88-2.392s-1.43 1.594-3.573 1.594c-1.897 0-3.244-1.649-3.244-4.288 0-3.382 1.704-4.591 3.381-4.591 2.42 0 3.189 1.567 3.849 3.574l.88 2.749c.88 2.666 2.529 4.81 7.284 4.81 3.409 0 5.718-1.044 5.718-3.793 0-2.227-1.265-3.381-3.63-3.931l-1.758-.385c-1.21-.275-1.567-.77-1.567-1.595 0-.934.742-1.484 1.952-1.484 1.32 0 2.034.495 2.144 1.677l2.749-.33c-.22-2.474-1.924-3.492-4.729-3.492-2.474 0-4.893.935-4.893 3.932 0 1.87.907 3.051 3.189 3.601l1.87.44c1.402.33 1.869.907 1.869 1.704 0 1.017-.99 1.43-2.86 1.43-2.776 0-3.932-1.457-4.59-3.464l-.907-2.75c-1.155-3.573-2.997-4.893-6.653-4.893C2.144 5.333 0 7.89 0 12.233c0 4.18 2.144 6.434 5.993 6.434 3.106 0 4.591-1.457 4.591-1.457"/></svg>
+      </a>
+      <a href="mailto:raul.pereira@gmail.com" title="Email" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M2 4a2 2 0 00-2 2v.01L12 13l12-6.99V6a2 2 0 00-2-2H2zm22 4.27l-11.45 6.67a1 1 0 01-1.1 0L0 8.27V18a2 2 0 002 2h20a2 2 0 002-2V8.27z"/></svg>
+      </a>
+    </nav>
+
+    <footer>
+      <p id="footer-en">Made with <span style="color:#e25555">&hearts;</span> by <a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" style="color:inherit;border:none"><span style="color:#50c878">R3M</span> <span style="color:#9b6bdf">TECH</span></a></p>
+      <p id="footer-pt" style="display:none">Feito com <span style="color:#e25555">&hearts;</span> por <a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" style="color:inherit;border:none"><span style="color:#50c878">R3M</span> <span style="color:#9b6bdf">TECH</span></a></p>
     </footer>
-  </article>
-{% endfor %}
+  </main>
+
+  <script>
+    var en = document.getElementById("en-content");
+    var pt = document.getElementById("pt-content");
+    var subtitleEn = document.getElementById("subtitle-en");
+    var subtitlePt = document.getElementById("subtitle-pt");
+    var footerEn = document.getElementById("footer-en");
+    var footerPt = document.getElementById("footer-pt");
+    var themePanel = document.getElementById("theme-panel");
+    var langToggle = document.getElementById("lang-toggle");
+    var currentLang = "en";
+
+    var themes = {
+      dracula:    { bg:"#282a36", fg:"#f8f8f2", comment:"#6272a4", cyan:"#8be9fd", green:"#50fa7b", orange:"#ffb86c", pink:"#ff79c6", purple:"#bd93f9", red:"#ff5555", yellow:"#f1fa8c" },
+      nord:       { bg:"#2e3440", fg:"#eceff4", comment:"#616e88", cyan:"#88c0d0", green:"#a3be8c", orange:"#d08770", pink:"#b48ead", purple:"#81a1c1", red:"#bf616a", yellow:"#ebcb8b" },
+      gruvbox:    { bg:"#282828", fg:"#ebdbb2", comment:"#928374", cyan:"#83a598", green:"#b8bb26", orange:"#fe8019", pink:"#d3869b", purple:"#d3869b", red:"#fb4934", yellow:"#fabd2f" },
+      catppuccin: { bg:"#1e1e2e", fg:"#cdd6f4", comment:"#6c7086", cyan:"#89dceb", green:"#a6e3a1", orange:"#fab387", pink:"#f5c2e7", purple:"#cba6f7", red:"#f38ba8", yellow:"#f9e2af" },
+      solarized:  { bg:"#002b36", fg:"#839496", comment:"#586e75", cyan:"#2aa198", green:"#859900", orange:"#cb4b16", pink:"#d33682", purple:"#6c71c4", red:"#dc322f", yellow:"#b58900" },
+      tokyonight: { bg:"#1a1b26", fg:"#c0caf5", comment:"#565f89", cyan:"#7dcfff", green:"#9ece6a", orange:"#ff9e64", pink:"#f7768e", purple:"#bb9af7", red:"#f7768e", yellow:"#e0af68" },
+      rosepine:   { bg:"#191724", fg:"#e0def4", comment:"#6e6a86", cyan:"#9ccfd8", green:"#31748f", orange:"#f6c177", pink:"#ebbcba", purple:"#c4a7e7", red:"#eb6f92", yellow:"#f6c177" },
+      onedark:    { bg:"#282c34", fg:"#abb2bf", comment:"#5c6370", cyan:"#56b6c2", green:"#98c379", orange:"#d19a66", pink:"#c678dd", purple:"#c678dd", red:"#e06c75", yellow:"#e5c07b" },
+      dark:       { bg:"#000000", fg:"#aaaaaa", comment:"#666666", cyan:"#777777", green:"#777777", orange:"#777777", pink:"#aaaaaa", purple:"#666666", red:"#777777", yellow:"#777777" }
+    };
+
+    function toggleThemePanel() {
+      var isHidden = themePanel.hasAttribute("hidden");
+      if (isHidden) {
+        themePanel.removeAttribute("hidden");
+      } else {
+        themePanel.setAttribute("hidden", "");
+      }
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === "en" ? "pt" : "en";
+      setLang(currentLang);
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".theme-btn") && !e.target.closest(".theme-panel")) {
+        themePanel.setAttribute("hidden", "");
+      }
+    });
+
+    function setTheme(name) {
+      var t = themes[name];
+      if (!t) return;
+      var root = document.documentElement.style;
+      root.setProperty("--bg", t.bg);
+      root.setProperty("--fg", t.fg);
+      root.setProperty("--comment", t.comment);
+      root.setProperty("--cyan", t.cyan);
+      root.setProperty("--green", t.green);
+      root.setProperty("--orange", t.orange);
+      root.setProperty("--pink", t.pink);
+      root.setProperty("--purple", t.purple);
+      root.setProperty("--red", t.red);
+      root.setProperty("--yellow", t.yellow);
+      document.querySelector('meta[name="theme-color"]').content = t.bg;
+      themePanel.querySelectorAll("button").forEach(function (btn) {
+        btn.classList.toggle("active", btn.dataset.theme === name);
+      });
+      themePanel.setAttribute("hidden", "");
+      try { localStorage.setItem("theme", name); } catch (e) {}
+    }
+
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        if (saved && themes[saved]) setTheme(saved);
+        else {
+          var def = themePanel.querySelector('[data-theme="dracula"]');
+          if (def) def.classList.add("active");
+        }
+      } catch (e) {
+        var def = themePanel.querySelector('[data-theme="dracula"]');
+        if (def) def.classList.add("active");
+      }
+    })();
+
+    function setLang(lang) {
+      var ispt = lang === "pt";
+      document.documentElement.lang = ispt ? "pt-BR" : "en";
+      document.querySelector('meta[http-equiv="Content-Language"]').content = ispt ? "pt-BR" : "en";
+
+      en.style.display = ispt ? "none" : "block";
+      pt.style.display = ispt ? "block" : "none";
+      subtitleEn.style.display = ispt ? "none" : "block";
+      subtitlePt.style.display = ispt ? "block" : "none";
+      footerEn.style.display = ispt ? "none" : "block";
+      footerPt.style.display = ispt ? "block" : "none";
+
+      langToggle.textContent = ispt ? "PT" : "EN";
+    }
+  </script>
+</body>
+
+</html>
