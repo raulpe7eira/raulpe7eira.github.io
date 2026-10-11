@@ -1,6 +1,6 @@
 # raulpe7eira.github.io
 
-<img width="2006" height="1195" alt="Me cycling somewhere in Minas Gerais" src="https://github.com/user-attachments/assets/7785a2fb-fb25-4cb4-b398-2273b9e8dbd7" />
+<img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech: bio card over a photo of me cycling in Minas Gerais" src="https://github.com/user-attachments/assets/dfc73f39-344c-450d-96da-0b382a4860c4" />
 
 This project holds the contents for my personal website, hosted at <https://raulpe7eira.tech>.
 
