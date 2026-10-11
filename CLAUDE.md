@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal website for Raul Pereira (raulpe7eira) — a software developer with +20 years of experience. Hosted on GitHub Pages at https://raulpe7eira.tech.
+Personal website for Raul Pereira (raulpe7eira) — a software engineer with 20+ years of experience. Hosted on GitHub Pages at https://raulpe7eira.tech.
 
 ## Architecture
 
