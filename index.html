@@ -384,17 +384,20 @@
 
     footer {
       text-align: center;
-      margin-top: 1.5rem;
-      margin-bottom: -1rem;
+      margin: 0 -3rem -3rem;
       font-size: 0.85rem;
       color: var(--comment);
     }
 
     footer p {
+      margin: 0;
       text-align: center;
     }
 
     footer a {
+      display: block;
+      padding: 1.5rem 3rem 3rem;
+      border-radius: 0 0 10px 10px;
       cursor: pointer;
       text-decoration: none;
       transition: opacity 0.2s ease;
@@ -425,6 +428,15 @@
         border-radius: 8px;
       }
 
+      footer {
+        margin: 0 -1.2rem -2rem;
+      }
+
+      footer a {
+        padding: 1.5rem 1.2rem 2rem;
+        border-radius: 0 0 8px 8px;
+      }
+
       h1 {
         font-size: 2rem;
       }
@@ -450,6 +462,14 @@
       main {
         padding: 1.5rem 1rem;
         margin: 2rem 0.3rem 1.5rem;
+      }
+
+      footer {
+        margin: 0 -1rem -1.5rem;
+      }
+
+      footer a {
+        padding: 1.5rem 1rem;
       }
 
       h1 {
@@ -574,7 +594,7 @@
     </nav>
 
     <footer>
-      <p id="footer-en"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" style="color:inherit;border:none">Made with <span style="color:#e25555">&hearts;</span> by <span style="color:#50c878">R3M</span> <span style="color:#9b6bdf">TECH</span></a></p>
+      <p id="footer-en"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" aria-label="R3M Tech" style="color:inherit;border:none">Made with <span style="color:#e25555">&hearts;</span> by <span style="color:#50c878">R3M</span> <span style="color:#9b6bdf">TECH</span></a></p>
     </footer>
   </main>
 
