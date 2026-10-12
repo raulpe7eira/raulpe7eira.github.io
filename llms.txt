@@ -6,6 +6,17 @@
 
 Raul Pereira (raulpe7eira) is a software engineer based in Brazil with 20+ years of professional experience, currently focused on Elixir and AI, with previous extensive work in Kotlin, Java, and JavaScript. He completed his undergraduate degree in 2001 at the former UniverCidade, and holds postgraduate degrees in "Systems Analysis, Design and Management" and "Ergonomics, Usability and Human-Computer Interaction: Ergodesign and Interface Evaluation" at PUC-Rio.
 
+## Resume
+
+Full resume (experience, clients, education and skills), generated from his LinkedIn profile:
+
+- Resume (EN): https://raulpe7eira.tech/resume/
+- Resume (PT): https://raulpe7eira.tech/pt/resume/
+- Resume PDF (EN): https://raulpe7eira.tech/resume/raul-pereira-da-silva-resume.pdf
+- Resume PDF (PT): https://raulpe7eira.tech/pt/resume/raul-pereira-da-silva-curriculo.pdf
+
+Career highlights: Arionkoder (contractor, client iSeatz, Elixir/Phoenix), CloudWalk (JIM, an AI agent for banking operations on InfinitePay, built with Elixir), Coverflex (backend engineer, Elixir/Phoenix), Jaya Tech (backend developer, tech lead and tech coordinator for clients such as C6 Bank, Mercado Livre and PayGo), BRQ and Atos (Petrobras and Bradesco Seguros projects). Founder of R3M Tech (since 2012).
+
 ## Links
 
 - Website: https://raulpe7eira.tech

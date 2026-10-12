@@ -10,10 +10,17 @@ Two static HTML pages — `index.html` (English, served at `/`) and `pt/index.ht
 
 **Any text, markup, style, or script change must be made in both pages** (translated where applicable), keeping them in sync. In `pt/index.html`, local asset paths use `../` (e.g. `../images/cover.jpg`).
 
+There are also two resume pages — `resume/index.html` (English, `/resume/`) and `pt/resume/index.html` (Portuguese, `/pt/resume/`) — generated from the LinkedIn export. They share the home pages' header (avatar + name + subtitle linking to the home), toolbar (Resume/Currículo toggle, EN/PT, theme) and footer. **Any change to these shared parts must be made in all 4 pages** (`index.html`, `pt/index.html`, `resume/index.html`, `pt/resume/index.html`).
+
 ## Key Files
 
 - `index.html` — English page (HTML + CSS + JS in one file)
 - `pt/index.html` — Portuguese (PT-BR) page, same structure as `index.html`
+- `resume/index.html` — English resume page (generated from the LinkedIn export)
+- `pt/resume/index.html` — Portuguese resume page, same structure as `resume/index.html`
+- `resume/raul-pereira-da-silva-resume.pdf` / `pt/resume/raul-pereira-da-silva-curriculo.pdf` — downloadable resume PDFs
+- `resume/thumb.png` / `pt/resume/thumb.png` — resume thumbnails
+- `resume/lg/` — company/client logos used by both resume pages (`sq-*` square employer logos, `cl-*` client logos)
 - `CNAME` — custom domain config (`raulpe7eira.tech`)
 - `robots.txt` — search engine directives
 - `sitemap.xml` — sitemap for search engines
@@ -25,6 +32,7 @@ Two static HTML pages — `index.html` (English, served at `/`) and `pt/index.ht
 ## Features
 
 - **Bilingual**: English (`/`, default) and Portuguese (`/pt/`) as separate indexable pages, linked via `hreflang` alternates (in `<head>` and `sitemap.xml`); the EN/PT button is a link to the other page
+- **Resume**: `/resume/` and `/pt/resume/`, reached via the Resume/Currículo toggle in the toolbar and the "professional experience" link; listed in `sitemap.xml` and `llms.txt`
 - **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — persisted in localStorage
 - **SEO**: Open Graph, Twitter Card, JSON-LD (Person schema), canonical URL, meta description, hreflang alternates — all localized per page
 - **Analytics**: Google Analytics (G-4QXLD8YPLP) + Plausible Analytics

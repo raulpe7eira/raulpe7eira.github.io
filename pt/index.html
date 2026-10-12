@@ -330,6 +330,48 @@
       color: var(--pink);
     }
 
+
+
+    footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      margin-bottom: -1rem;
+      font-size: 0.85rem;
+      color: var(--comment);
+    }
+
+    footer p {
+      margin: 0;
+      text-align: center;
+    }
+
+    footer a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    footer a:hover {
+      transform: scale(1.1);
+    }
+
+
+    .page-btn { all: unset; display: flex; align-items: center; gap: 0.5rem; height: 32px; padding: 0 0.5rem 0 0.65rem; border-radius: 8px;
+      backdrop-filter: blur(6px); background-color: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.6); font-size: 0.75rem; font-family: inherit; font-weight: 600; cursor: pointer;
+      transition: color 0.3s ease, background 0.3s ease; }
+    .page-btn:hover { color: #fff; background-color: rgba(255, 255, 255, 0.12); }
+    .page-btn .sw { position: relative; width: 28px; height: 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.25); transition: background 0.2s ease; flex: none; }
+    .page-btn .sw::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform 0.2s ease; }
+    .page-btn.on { color: #fff; }
+    .page-btn.on .sw { background: var(--pink); }
+    .page-btn.on .sw::after { transform: translateX(12px); }
+    @media (max-width: 768px) { .toolbar { position: static; justify-content: flex-end; margin-bottom: 1rem; } }
+
+    .home-link, .home-link:hover { color: inherit; border: none; text-decoration: none; display: inline-block; }
+
     nav {
       display: flex;
       justify-content: center;
@@ -382,30 +424,9 @@
       fill: var(--purple);
     }
 
-    footer {
-      text-align: center;
-      margin: 0 -3rem -3rem;
-      font-size: 0.85rem;
-      color: var(--comment);
-    }
 
-    footer p {
-      margin: 0;
-      text-align: center;
-    }
 
-    footer a {
-      display: block;
-      padding: 1.5rem 3rem 3rem;
-      border-radius: 0 0 10px 10px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
 
-    footer a:hover {
-      opacity: 0.7;
-    }
 
     @media (max-width: 768px) {
       .profile {
@@ -428,14 +449,6 @@
         border-radius: 8px;
       }
 
-      footer {
-        margin: 0 -1.2rem -2rem;
-      }
-
-      footer a {
-        padding: 1.5rem 1.2rem 2rem;
-        border-radius: 0 0 8px 8px;
-      }
 
       h1 {
         font-size: 2rem;
@@ -464,13 +477,6 @@
         margin: 2rem 0.3rem 1.5rem;
       }
 
-      footer {
-        margin: 0 -1rem -1.5rem;
-      }
-
-      footer a {
-        padding: 1.5rem 1rem;
-      }
 
       h1 {
         font-size: 1.7rem;
@@ -508,6 +514,7 @@
 
   <main>
     <div class="toolbar">
+      <a class="page-btn" href="/pt/resume/" role="switch" aria-checked="false" onclick="event.preventDefault();this.classList.toggle('on');var u=this.href;setTimeout(function(){location.href=u},180)">Currículo<span class="sw" aria-hidden="true"></span></a>
       <a class="lang-btn" href="/" hreflang="en" lang="en" aria-label="View in English" title="View in English">PT</a>
       <div style="position:relative">
         <button class="theme-btn" onclick="toggleThemePanel()" aria-label="Change theme" title="Change theme">
@@ -527,17 +534,16 @@
       </div>
     </div>
     <header class="profile">
-      <img class="avatar" src="https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5?s=240" alt="Foto de Raul Pereira (raulpe7eira)" width="120" height="120" />
+      <a class="home-link" href="/pt/" aria-label="Home"><img class="avatar" src="https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5?s=240" alt="Foto de Raul Pereira (raulpe7eira)" width="120" height="120" /></a>
       <div class="title-container">
-        <h1>raulpe7eira</h1>
-        <p class="subtitle" id="subtitle-pt">Programador apaixonado, e ciclista entusiasta, que ama estar com a família</p>
+        <h1><a class="home-link" href="/pt/">raulpe7eira</a></h1>
+        <p class="subtitle" id="subtitle-pt"><a class="home-link" href="/pt/">Programador apaixonado, e ciclista entusiasta, que ama estar com a família</a></p>
       </div>
     </header>
 
     <article id="pt-content">
       <p>Oi!</p>
-      <p>Eu sou engenheiro de software com mais de 20 anos de <a href="https://linkedin.com/in/raulpe7eira"
-          title="link para meu LinkedIn" target="_blank" rel="noopener noreferrer">experiência profissional</a>, atualmente focado em
+      <p>Eu sou engenheiro de software com mais de 20 anos de <a href="/pt/resume/" title="Currículo">experiência profissional</a>, atualmente focado em
         <a href="https://elixir-lang.org" title="link para o site do Elixir" target="_blank" rel="noopener noreferrer">Elixir</a> e IA, mas já trabalhei bastante com
         <a href="https://kotlinlang.org" title="link para o site do Kotlin" target="_blank" rel="noopener noreferrer">Kotlin</a>, <a href="https://java.com"
           title="link para o site do Java" target="_blank" rel="noopener noreferrer">Java</a> e <a

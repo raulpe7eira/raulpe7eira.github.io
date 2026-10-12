@@ -19,4 +19,22 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://raulpe7eira.tech/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://raulpe7eira.tech/resume/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/resume/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/resume/" />
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://raulpe7eira.tech/pt/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://raulpe7eira.tech/resume/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/resume/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/resume/" />
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
