@@ -48,6 +48,9 @@
 
   <!-- Canonical -->
   <link rel="canonical" href="https://raulpe7eira.tech/" />
+  <link rel="alternate" hreflang="en" href="https://raulpe7eira.tech/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/" />
+  <link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/" />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png" />
@@ -484,7 +487,7 @@
 
   <main>
     <div class="toolbar">
-      <button class="lang-btn" id="lang-toggle" onclick="toggleLang()" aria-label="Change language">EN</button>
+      <a class="lang-btn" href="/pt/" hreflang="pt-BR" lang="pt-BR" aria-label="Ver em português" title="Ver em português">EN</a>
       <div style="position:relative">
         <button class="theme-btn" onclick="toggleThemePanel()" aria-label="Change theme" title="Change theme">
           <svg viewBox="0 0 24 24"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0112 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 00-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 012.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></svg>
@@ -507,7 +510,6 @@
       <div class="title-container">
         <h1>raulpe7eira</h1>
         <p class="subtitle" id="subtitle-en">Passionate coder, and cycling enthusiast, who loves being with the family</p>
-        <p class="subtitle" id="subtitle-pt" style="display: none;">Programador apaixonado, e ciclista entusiasta, que ama estar com a família</p>
       </div>
     </header>
 
@@ -535,33 +537,6 @@
       <p>I also <a href="https://github.com/raulpe7eira" title="link to GitHub profile" target="_blank" rel="noopener noreferrer">push code</a>
         quite often, and <a href="https://instagram.com/raulpe7eira" title="link to Instagram profile"
           target="_blank" rel="noopener noreferrer">show off pictures</a> from time to time.</p>
-    </article>
-
-    <article id="pt-content" style="display: none;">
-      <p>Oi!</p>
-      <p>Eu sou engenheiro de software com mais de 20 anos de <a href="https://linkedin.com/in/raulpe7eira"
-          title="link para meu LinkedIn" target="_blank" rel="noopener noreferrer">experiência profissional</a>, atualmente focado em
-        <a href="https://elixir-lang.org" title="link para o site do Elixir" target="_blank" rel="noopener noreferrer">Elixir</a> e IA, mas já trabalhei bastante com
-        <a href="https://kotlinlang.org" title="link para o site do Kotlin" target="_blank" rel="noopener noreferrer">Kotlin</a>, <a href="https://java.com"
-          title="link para o site do Java" target="_blank" rel="noopener noreferrer">Java</a> e <a
-          href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262"
-          title="link para a especificação do JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a> anteriormente.
-      </p>
-      <p>Toda minha experiência profissional teve base na minha graduação, concluída em 2001 na extinta UniverCidade, e nas
-        pós-graduações em <em>&ldquo;Análise, Projeto e Gerência de Sistemas&rdquo;</em> e <em>&ldquo;Ergonomia, Usabilidade e
-          Interação Humano-Computador: Ergodesign e Avaliação de Interfaces&rdquo;</em>, cursadas na <a href="https://www.puc-rio.br"
-          title="link para o site da PUC-Rio" target="_blank" rel="noopener noreferrer">PUC-Rio</a>.</p>
-      <p>Uma das melhores partes de minha profissão é estar continuamente me especializando e aprofundando para quebrar
-        desafios em várias áreas do conhecimento humano, isso significa que sempre estou em um processo de reconstrução.
-      </p>
-      <p>Quando não estou trabalhando, estou cuidando da minha família, <a
-          href="https://strava.com/athletes/raulpe7eira" title="link para meu Strava" target="_blank" rel="noopener noreferrer">pedalando</a>, <a
-          href="https://imdb.com/user/ur28106453" title="link para meu IMDb" target="_blank" rel="noopener noreferrer">assistindo um filme</a>, <a
-          href="https://last.fm/user/raulpereira" title="link para meu last.fm" target="_blank" rel="noopener noreferrer">escutando rock</a> ou
-        podcast, lendo um HQ ou livro, seja de tecnologia ou apenas um infantil para meus pequenos.</p>
-      <p>Eu também <a href="https://github.com/raulpe7eira" title="link para meu GitHub" target="_blank" rel="noopener noreferrer">subo
-          códigos</a> com bastante frequência, e <a href="https://instagram.com/raulpe7eira"
-          title="link para meu Instagram" target="_blank" rel="noopener noreferrer">publico fotos</a> de tempos em tempos.</p>
     </article>
 
     <nav aria-label="Social links">
@@ -599,20 +574,11 @@
 
     <footer>
       <p id="footer-en"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" style="color:inherit;border:none">Made with <span style="color:#e25555">&hearts;</span> by <span style="color:#50c878">R3M</span> <span style="color:#9b6bdf">TECH</span></a></p>
-      <p id="footer-pt" style="display:none"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" style="color:inherit;border:none">Feito com <span style="color:#e25555">&hearts;</span> por <span style="color:#50c878">R3M</span> <span style="color:#9b6bdf">TECH</span></a></p>
     </footer>
   </main>
 
   <script>
-    var en = document.getElementById("en-content");
-    var pt = document.getElementById("pt-content");
-    var subtitleEn = document.getElementById("subtitle-en");
-    var subtitlePt = document.getElementById("subtitle-pt");
-    var footerEn = document.getElementById("footer-en");
-    var footerPt = document.getElementById("footer-pt");
     var themePanel = document.getElementById("theme-panel");
-    var langToggle = document.getElementById("lang-toggle");
-    var currentLang = "en";
 
     var themes = {
       dracula:    { bg:"#282a36", fg:"#f8f8f2", comment:"#6272a4", cyan:"#8be9fd", green:"#50fa7b", orange:"#ffb86c", pink:"#ff79c6", purple:"#bd93f9", red:"#ff5555", yellow:"#f1fa8c" },
@@ -633,11 +599,6 @@
       } else {
         themePanel.setAttribute("hidden", "");
       }
-    }
-
-    function toggleLang() {
-      currentLang = currentLang === "en" ? "pt" : "en";
-      setLang(currentLang);
     }
 
     document.addEventListener("click", function (e) {
@@ -681,21 +642,6 @@
         if (def) def.classList.add("active");
       }
     })();
-
-    function setLang(lang) {
-      var ispt = lang === "pt";
-      document.documentElement.lang = ispt ? "pt-BR" : "en";
-      document.querySelector('meta[http-equiv="Content-Language"]').content = ispt ? "pt-BR" : "en";
-
-      en.style.display = ispt ? "none" : "block";
-      pt.style.display = ispt ? "block" : "none";
-      subtitleEn.style.display = ispt ? "none" : "block";
-      subtitlePt.style.display = ispt ? "block" : "none";
-      footerEn.style.display = ispt ? "none" : "block";
-      footerPt.style.display = ispt ? "block" : "none";
-
-      langToggle.textContent = ispt ? "PT" : "EN";
-    }
   </script>
 </body>
 

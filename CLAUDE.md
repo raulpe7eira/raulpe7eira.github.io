@@ -6,11 +6,14 @@ Personal website for Raul Pereira (raulpe7eira) — a software engineer with 20+
 
 ## Architecture
 
-Single static HTML file (`index.html`) with no build tools, no dependencies, and no frameworks. Everything is inline — CSS, JavaScript, and SVG icons.
+Two static HTML pages — `index.html` (English, served at `/`) and `pt/index.html` (Portuguese, served at `/pt/`) — with no build tools, no dependencies, and no frameworks. Each page is self-contained: CSS, JavaScript, and SVG icons are inline and duplicated in both files.
+
+**Any text, markup, style, or script change must be made in both pages** (translated where applicable), keeping them in sync. In `pt/index.html`, local asset paths use `../` (e.g. `../images/cover.jpg`).
 
 ## Key Files
 
-- `index.html` — the entire site (HTML + CSS + JS in one file)
+- `index.html` — English page (HTML + CSS + JS in one file)
+- `pt/index.html` — Portuguese (PT-BR) page, same structure as `index.html`
 - `CNAME` — custom domain config (`raulpe7eira.tech`)
 - `robots.txt` — search engine directives
 - `sitemap.xml` — sitemap for search engines
@@ -21,9 +24,9 @@ Single static HTML file (`index.html`) with no build tools, no dependencies, and
 
 ## Features
 
-- **Bilingual**: English (default) and Portuguese (PT-BR), toggled client-side via JS
+- **Bilingual**: English (`/`, default) and Portuguese (`/pt/`) as separate indexable pages, linked via `hreflang` alternates (in `<head>` and `sitemap.xml`); the EN/PT button is a link to the other page
 - **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — persisted in localStorage
-- **SEO**: Open Graph, Twitter Card, JSON-LD (Person schema), canonical URL, meta description
+- **SEO**: Open Graph, Twitter Card, JSON-LD (Person schema), canonical URL, meta description, hreflang alternates — all localized per page
 - **Analytics**: Google Analytics (G-4QXLD8YPLP) + Plausible Analytics
 - **Social icons**: GitHub, LinkedIn, X, Bluesky, Instagram, Facebook, Strava, IMDb, Last.fm, Email — using inline SVG from Simple Icons
 - **Responsive**: 3 breakpoints (480px, 768px, 1200px)
