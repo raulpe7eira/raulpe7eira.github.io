@@ -43,7 +43,7 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 - **Resume**: `/resume/` and `/pt/resume/`, reached via the Resume/Currículo toggle in the toolbar and the "professional experience" link; listed in `sitemap.xml` and `llms.txt`
 - **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — defined in `base.css`, selected via `data-theme` on `<html>`, persisted in localStorage (`theme`)
 - **SEO**: Open Graph, Twitter Card, JSON-LD (Person schema), canonical URL, meta description, hreflang alternates — all localized per page
-- **Analytics**: Google Analytics (G-4QXLD8YPLP) + Plausible Analytics
+- **Analytics**: Google Analytics (G-4QXLD8YPLP, loaded by `docs/assets/js/analytics.js` only on raulpe7eira.tech) + Plausible Analytics (ignores localhost by itself)
 - **Social icons**: GitHub, LinkedIn, X, Bluesky, Instagram, Facebook, Strava, IMDb, Last.fm, Email — using inline SVG from Simple Icons
 - **Responsive**: 3 breakpoints (480px, 768px, 1200px)
 - **Accessibility**: Semantic HTML, ARIA labels, keyboard navigable
@@ -57,7 +57,7 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 
 ## Conventions
 
-- No inline `style="…"` attributes, `<style>` blocks or `onclick` handlers (except the standalone `404.html`): CSS in `docs/assets/css/`, JS in `docs/assets/js/` (loaded with `defer`); the only inline scripts are analytics and the head theme snippet
+- No inline `style="…"` attributes, `<style>` blocks or `onclick` handlers (except the standalone `404.html`): CSS in `docs/assets/css/`, JS in `docs/assets/js/` (loaded with `defer`); the only inline script is the head theme snippet
 - Theme colors use CSS variables (`--bg`, `--fg`, `--comment`, `--cyan`, `--green`, `--orange`, `--pink`, `--purple`, `--red`, `--yellow`)
 - Footer colors (heart red, R3M green, TECH purple) and theme-panel swatches are fixed in `base.css` and do not change with themes; hovering the footer link scales it and makes the heart beat
 - Header hover grows the header and spins the avatar; when the site is entered, reloaded or opened in a new tab (not on internal navigation or back/forward) `nav.js` replays that hover once via the `.intro` class; disabled with `prefers-reduced-motion`
