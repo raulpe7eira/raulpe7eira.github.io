@@ -43,7 +43,7 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 - **Resume**: `/resume/` and `/pt/resume/`, reached via the Resume/Currículo toggle in the toolbar and the "professional experience" link; listed in `sitemap.xml` and `llms.txt`
 - **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — defined in `base.css`, selected via `data-theme` on `<html>`, persisted in localStorage (`theme`)
 - **SEO**: Open Graph, Twitter Card, JSON-LD (Person schema), canonical URL, meta description, hreflang alternates — all localized per page
-- **Analytics**: Google Analytics (G-4QXLD8YPLP, loaded by `docs/assets/js/analytics.js` only on raulpe7eira.tech) + Plausible Analytics (ignores localhost by itself)
+- **Analytics**: Google Analytics (G-4QXLD8YPLP, loaded by `docs/assets/js/analytics.js` only on raulpe7eira.tech) + Plausible Analytics (site script `pa-*.js`, init in `analytics.js`; outbound links and file downloads toggled in the Plausible dashboard; ignores localhost by itself)
 - **Social icons**: GitHub, LinkedIn, X, Bluesky, Instagram, Facebook, Strava, IMDb, Last.fm, Email — using inline SVG from Simple Icons
 - **Responsive**: 3 breakpoints (480px, 768px, 1200px)
 - **Accessibility**: Semantic HTML, ARIA labels, keyboard navigable
