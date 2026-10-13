@@ -59,7 +59,7 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 
 - No inline `style="…"` attributes, `<style>` blocks or `onclick` handlers (except the standalone `404.html`): CSS in `docs/assets/css/`, JS in `docs/assets/js/` (loaded with `defer`); the only inline scripts are analytics and the head theme snippet
 - Theme colors use CSS variables (`--bg`, `--fg`, `--comment`, `--cyan`, `--green`, `--orange`, `--pink`, `--purple`, `--red`, `--yellow`)
-- Footer colors (heart red, R3M green, TECH purple) and theme-panel swatches are fixed in `base.css` and do not change with themes
+- Footer colors (heart red, R3M green, TECH purple) and theme-panel swatches are fixed in `base.css` and do not change with themes; hovering the footer link scales it and makes the heart beat
 - Header hover grows the header and spins the avatar; when the site is entered, reloaded or opened in a new tab (not on internal navigation or back/forward) `nav.js` replays that hover once via the `.intro` class; disabled with `prefers-reduced-motion`
 - External links use `target="_blank" rel="noopener noreferrer"`
 - Portuguese content elements have `-pt` suffix IDs, English have `-en` suffix
