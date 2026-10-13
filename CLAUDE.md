@@ -23,7 +23,7 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 - `assets/css/base.css` — shared styles (tokens, 9 themes as `html[data-theme=…]`, layout, header, toolbar, footer)
 - `assets/css/resume.css` — resume-only styles, scoped under `.rs`
 - `assets/js/theme.js` — theme panel; a one-line inline script in each `<head>` applies the saved theme before first paint
-- `assets/js/nav.js` — Resume/Currículo toggle (slide, then navigate)
+- `assets/js/nav.js` — Resume/Currículo toggle (slide, then navigate) and the header intro on entry/reload
 - `resume/raul-pereira-da-silva-resume.pdf` / `pt/resume/raul-pereira-da-silva-curriculo.pdf` — downloadable resume PDFs
 - `resume/thumb.png` / `pt/resume/thumb.png` — resume thumbnails
 - `resume/lg/` — company/client logos used by both resume pages (`sq-*` square employer logos, `cl-*` client logos)
@@ -57,9 +57,10 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 
 ## Conventions
 
-- No inline `<style>` blocks or `onclick` handlers: CSS in `docs/assets/css/`, JS in `docs/assets/js/` (loaded with `defer`); the only inline scripts are analytics and the head theme snippet
+- No inline `style="…"` attributes, `<style>` blocks or `onclick` handlers (except the standalone `404.html`): CSS in `docs/assets/css/`, JS in `docs/assets/js/` (loaded with `defer`); the only inline scripts are analytics and the head theme snippet
 - Theme colors use CSS variables (`--bg`, `--fg`, `--comment`, `--cyan`, `--green`, `--orange`, `--pink`, `--purple`, `--red`, `--yellow`)
-- Footer colors (heart red, R3M green, TECH purple) are hardcoded and do not change with themes
+- Footer colors (heart red, R3M green, TECH purple) and theme-panel swatches are fixed in `base.css` and do not change with themes
+- Header hover grows the header and spins the avatar; when the site is entered, reloaded or opened in a new tab (not on internal navigation or back/forward) `nav.js` replays that hover once via the `.intro` class; disabled with `prefers-reduced-motion`
 - External links use `target="_blank" rel="noopener noreferrer"`
 - Portuguese content elements have `-pt` suffix IDs, English have `-en` suffix
 - SVG icons use `viewBox="0 0 24 24"` from Simple Icons

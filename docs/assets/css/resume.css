@@ -1,4 +1,5 @@
 /* Resume page only (scoped under .rs) */
+.rs .rb{flex:1;min-width:0}
 .rs .st{color:var(--comment);font-size:13px}
 .rs .pv{flex-direction:column;gap:4px;padding:6px 8px}
 .rs .pv img{height:68px;width:auto;display:block;border-radius:2px}
