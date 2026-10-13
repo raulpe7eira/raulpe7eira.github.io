@@ -6,34 +6,42 @@ Personal website for Raul Pereira (raulpe7eira) — a software engineer with 20+
 
 ## Architecture
 
-Two static HTML pages — `index.html` (English, served at `/`) and `pt/index.html` (Portuguese, served at `/pt/`) — with no build tools, no dependencies, and no frameworks. Each page is self-contained: CSS, JavaScript, and SVG icons are inline and duplicated in both files.
+The published site lives in `docs/` (GitHub Pages source: branch `main`, folder `/docs`; `docs/.nojekyll` disables Jekyll). Everything outside `docs/` (README, LICENSE, this file, future generator) is not served.
 
-**Any text, markup, style, or script change must be made in both pages** (translated where applicable), keeping them in sync. In `pt/index.html`, local asset paths use `../` (e.g. `../images/cover.jpg`).
+Two static HTML pages — `docs/index.html` (English, served at `/`) and `docs/pt/index.html` (Portuguese, served at `/pt/`) — with no build tools, no dependencies, and no frameworks. Styles and scripts are shared files under `docs/assets/`; SVG icons stay inline in the HTML.
 
-There are also two resume pages — `resume/index.html` (English, `/resume/`) and `pt/resume/index.html` (Portuguese, `/pt/resume/`) — generated from the LinkedIn export. They share the home pages' header (avatar + name + subtitle linking to the home), toolbar (Resume/Currículo toggle, EN/PT, theme) and footer. **Any change to these shared parts must be made in all 4 pages** (`index.html`, `pt/index.html`, `resume/index.html`, `pt/resume/index.html`).
+**Any text or markup change must be made in both pages** (translated where applicable), keeping them in sync. Style and script changes go in `docs/assets/` and apply to all pages at once. Local paths are root-absolute (e.g. `/images/cover.jpg`, `/assets/css/base.css`), so test with a local server rooted at `docs/`, not `file://`.
 
-## Key Files
+There are also two resume pages — `resume/index.html` (English, `/resume/`) and `pt/resume/index.html` (Portuguese, `/pt/resume/`) — generated from the LinkedIn export. They share the home pages' header (avatar + name + subtitle linking to the home), toolbar (Resume/Currículo toggle, EN/PT, theme) and footer. **Any markup change to these shared parts must be made in all 4 pages** (`docs/index.html`, `docs/pt/index.html`, `docs/resume/index.html`, `docs/pt/resume/index.html`); their styles and scripts are already shared via `docs/assets/`.
 
-- `index.html` — English page (HTML + CSS + JS in one file)
+## Key Files (all under `docs/`)
+
+- `index.html` — English page
 - `pt/index.html` — Portuguese (PT-BR) page, same structure as `index.html`
-- `resume/index.html` — English resume page (generated from the LinkedIn export)
+- `resume/index.html` — English resume page (generated from the LinkedIn data)
 - `pt/resume/index.html` — Portuguese resume page, same structure as `resume/index.html`
+- `assets/css/base.css` — shared styles (tokens, 9 themes as `html[data-theme=…]`, layout, header, toolbar, footer)
+- `assets/css/resume.css` — resume-only styles, scoped under `.rs`
+- `assets/js/theme.js` — theme panel; a one-line inline script in each `<head>` applies the saved theme before first paint
+- `assets/js/nav.js` — Resume/Currículo toggle (slide, then navigate)
 - `resume/raul-pereira-da-silva-resume.pdf` / `pt/resume/raul-pereira-da-silva-curriculo.pdf` — downloadable resume PDFs
 - `resume/thumb.png` / `pt/resume/thumb.png` — resume thumbnails
 - `resume/lg/` — company/client logos used by both resume pages (`sq-*` square employer logos, `cl-*` client logos)
 - `CNAME` — custom domain config (`raulpe7eira.tech`)
+- `.nojekyll` — serve files as-is (no Jekyll)
+- `404.html` — any unknown address redirects to the home page (`/pt/` for paths under `/pt`)
 - `robots.txt` — search engine directives
 - `sitemap.xml` — sitemap for search engines
-- `404.html` — custom error page
 - `llms.txt` — LLM-readable site description
 - `images/cover.jpg` — hero background image
-- `images/favicons/` — all favicon and app icon files (31 files)
+- `images/og-image.jpg` — social preview image
+- `images/favicons/` — all favicon and app icon files
 
 ## Features
 
 - **Bilingual**: English (`/`, default) and Portuguese (`/pt/`) as separate indexable pages, linked via `hreflang` alternates (in `<head>` and `sitemap.xml`); the EN/PT button is a link to the other page
 - **Resume**: `/resume/` and `/pt/resume/`, reached via the Resume/Currículo toggle in the toolbar and the "professional experience" link; listed in `sitemap.xml` and `llms.txt`
-- **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — persisted in localStorage
+- **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — defined in `base.css`, selected via `data-theme` on `<html>`, persisted in localStorage (`theme`)
 - **SEO**: Open Graph, Twitter Card, JSON-LD (Person schema), canonical URL, meta description, hreflang alternates — all localized per page
 - **Analytics**: Google Analytics (G-4QXLD8YPLP) + Plausible Analytics
 - **Social icons**: GitHub, LinkedIn, X, Bluesky, Instagram, Facebook, Strava, IMDb, Last.fm, Email — using inline SVG from Simple Icons
@@ -42,15 +50,14 @@ There are also two resume pages — `resume/index.html` (English, `/resume/`) an
 
 ## Tech Stack
 
-- Plain HTML/CSS/JS (no build step)
+- Plain HTML/CSS/JS (no build step; resume pages are generated offline)
 - Google Fonts (Inter)
 - GitHub Pages (static hosting)
 - CSS custom properties for theming
 
 ## Conventions
 
-- All CSS is in a `<style>` tag in the `<head>`
-- All JS is in a `<script>` tag before `</body>`
+- No inline `<style>` blocks or `onclick` handlers: CSS in `docs/assets/css/`, JS in `docs/assets/js/` (loaded with `defer`); the only inline scripts are analytics and the head theme snippet
 - Theme colors use CSS variables (`--bg`, `--fg`, `--comment`, `--cyan`, `--green`, `--orange`, `--pink`, `--purple`, `--red`, `--yellow`)
 - Footer colors (heart red, R3M green, TECH purple) are hardcoded and do not change with themes
 - External links use `target="_blank" rel="noopener noreferrer"`
