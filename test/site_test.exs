@@ -17,7 +17,7 @@ defmodule SiteTest do
     test "prints no PDF unless asked", %{tmp_dir: dir} do
       Site.build(dir, pdf: false)
 
-      refute File.exists?(Path.join(dir, "resume/raul-pereira-da-silva-resume.pdf"))
+      refute File.exists?(Path.join(dir, "downloads/raul-pereira-da-silva-resume-en-us.pdf"))
     end
   end
 end

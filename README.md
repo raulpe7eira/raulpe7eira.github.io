@@ -17,7 +17,7 @@ Requires Erlang/OTP and Elixir as pinned in `mise.toml` (`mise install`).
 
 ```sh
 mix deps.get
-mix site.build    # render the pages and the resume PDFs into docs/ (needs Chrome and poppler)
+mix site.build    # render the pages and the resume PDFs into docs/ (needs Chrome)
 mix site.build --no-pdf   # pages only
 mix precommit     # compile with warnings as errors, format, credo, deps audit, tests with coverage
 ```
@@ -30,7 +30,8 @@ Preview with any static server rooted at `docs/`, e.g. `python3 -m http.server -
 | `data/` | resume data (JSON, validated by Ecto schemas) |
 | `test/` | ExUnit tests |
 | `docs/` | published site; HTML pages here are generated, don't edit them by hand |
-| `docs/assets/`, `docs/images/` | CSS, JS and images, edited directly |
+| `docs/assets/` | CSS, JS, icons and images, edited directly |
+| `docs/downloads/` | resume PDFs (generated) |
 
 CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/`. Dependabot keeps Mix deps and GitHub Actions up to date.
 

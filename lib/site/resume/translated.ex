@@ -7,14 +7,14 @@ defmodule Site.Resume.Translated do
 
   @primary_key false
   embedded_schema do
-    field :en, :string
-    field :pt, :string
+    field :en_us, :string
+    field :pt_br, :string
   end
 
   @doc false
   def changeset(translated, attrs) do
     translated
-    |> cast(attrs, [:en, :pt])
-    |> validate_required([:en, :pt])
+    |> cast(attrs, [:en_us, :pt_br])
+    |> validate_required([:en_us, :pt_br])
   end
 end

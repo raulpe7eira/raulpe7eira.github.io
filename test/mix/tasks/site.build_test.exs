@@ -31,7 +31,7 @@ defmodule Mix.Tasks.Site.BuildTest do
     test "skips the PDFs with --no-pdf", %{tmp_dir: dir} do
       Build.run(["--output", dir, "--no-pdf"])
 
-      refute File.exists?(Path.join(dir, "resume/raul-pereira-da-silva-resume.pdf"))
+      refute File.exists?(Path.join(dir, "downloads/raul-pereira-da-silva-resume-en-us.pdf"))
     end
 
     test "rejects unknown options" do

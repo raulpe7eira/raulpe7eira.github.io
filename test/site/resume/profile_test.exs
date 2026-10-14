@@ -5,8 +5,8 @@ defmodule Site.Resume.ProfileTest do
 
   @valid %{
     "name" => "Raul Pereira da Silva",
-    "summary" => %{"en" => "Backend engineer.", "pt" => "Engenheiro backend."},
-    "location" => %{"en" => "Rio de Janeiro, Brazil", "pt" => "Rio de Janeiro, Brasil"},
+    "summary" => %{"en_us" => "Backend engineer.", "pt_br" => "Engenheiro backend."},
+    "location" => %{"en_us" => "Rio de Janeiro, Brazil", "pt_br" => "Rio de Janeiro, Brasil"},
     "email" => "raul.pereira@gmail.com",
     "website" => "https://raulpe7eira.tech",
     "linkedin" => "https://linkedin.com/in/raulpe7eira",

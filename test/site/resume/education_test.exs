@@ -8,10 +8,10 @@ defmodule Site.Resume.EducationTest do
     "url" =>
       "https://en.wikipedia.org/wiki/Centro_Universit%C3%A1rio_da_Cidade_do_Rio_de_Janeiro",
     "closed_in" => 2014,
-    "degree" => %{"en" => "Undergraduate", "pt" => "Graduação"},
+    "degree" => %{"en_us" => "Undergraduate", "pt_br" => "Graduação"},
     "field_of_study" => %{
-      "en" => "Technologist in Data Processing",
-      "pt" => "Tecnólogo em Processamento de Dados"
+      "en_us" => "Technologist in Data Processing",
+      "pt_br" => "Tecnólogo em Processamento de Dados"
     },
     "started_on" => "1998-01-01",
     "finished_on" => "2001-09-01"

@@ -14,7 +14,7 @@ defmodule Site.ResumeView do
   # under "Earlier experience" to keep it at two pages.
   @earlier_until 2012
 
-  @doc "The resume in `lang` (`:en` or `:pt`), ready for the templates."
+  @doc "The resume in `lang` (`:en_us` or `:pt_br`), ready for the templates."
   def build(%Resume{} = resume, lang) do
     profile = resume.profile
 

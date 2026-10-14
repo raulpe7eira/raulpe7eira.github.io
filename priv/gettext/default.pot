@@ -6,7 +6,7 @@ msgstr ""
 #: lib/site/pages.ex:60
 #: lib/site/pages.ex:96
 #: lib/site/pages.ex:102
-#: lib/site/pages.ex:130
+#: lib/site/pages.ex:131
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr ""
@@ -16,32 +16,32 @@ msgstr ""
 msgid "home.description"
 msgstr ""
 
-#: lib/site/pages.ex:137
+#: lib/site/pages.ex:138
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr ""
 
-#: lib/site/pages.ex:141
+#: lib/site/pages.ex:142
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr ""
 
-#: lib/site/pages.ex:143
+#: lib/site/pages.ex:144
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr ""
 
-#: lib/site/pages.ex:144
+#: lib/site/pages.ex:145
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr ""
 
-#: lib/site/pages.ex:145
+#: lib/site/pages.ex:146
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr ""
 
-#: lib/site/pages.ex:146
+#: lib/site/pages.ex:147
 #, elixir-autogen
 msgid "footer.by"
 msgstr ""

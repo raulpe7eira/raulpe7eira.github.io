@@ -1,22 +1,22 @@
 [
   {
     "name": {
-      "en": "Portuguese",
-      "pt": "Português"
+      "en_us": "Portuguese",
+      "pt_br": "Português"
     },
     "proficiency": "native_or_bilingual"
   },
   {
     "name": {
-      "en": "English",
-      "pt": "Inglês"
+      "en_us": "English",
+      "pt_br": "Inglês"
     },
     "proficiency": "professional_working"
   },
   {
     "name": {
-      "en": "Spanish",
-      "pt": "Espanhol"
+      "en_us": "Spanish",
+      "pt_br": "Espanhol"
     },
     "proficiency": "elementary"
   }

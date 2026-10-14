@@ -23,7 +23,7 @@ defmodule Site.Pages do
     for lang <- Locale.langs(), page <- [home(lang), resume(lang, resume)], do: page
   end
 
-  @doc "Renders the home page in `lang` (`:en` or `:pt`)."
+  @doc "Renders the home page in `lang` (`:en_us` or `:pt_br`)."
   def home(lang) do
     Locale.with_locale(lang, fn -> render_home(lang) end)
   end
@@ -51,7 +51,7 @@ defmodule Site.Pages do
           view: view
         )
 
-      {Path.join(page_dir(lang, :resume), Locale.pdf_file(lang)),
+      {String.trim_leading(Locale.pdf_path(lang), "/"),
        html |> Html.strip_whitespace_between_tags() |> String.trim()}
     end)
   end
@@ -63,8 +63,8 @@ defmodule Site.Pages do
 
     article =
       case lang do
-        :en -> Templates.home_en([])
-        :pt -> Templates.home_pt([])
+        :en_us -> Templates.home_en_us([])
+        :pt_br -> Templates.home_pt_br([])
       end
 
     jsonld = Templates.jsonld_home(job_title: job_title, description: description)
@@ -101,7 +101,8 @@ defmodule Site.Pages do
         view: ResumeView.build(resume, lang),
         job_title: gettext("profile.job_title"),
         home_path: Locale.path(lang, :home),
-        pdf_file: Locale.pdf_file(lang)
+        pdf_path: Locale.pdf_path(lang),
+        pdf_download_name: Locale.pdf_download_name(lang)
       )
 
     assigns =
@@ -125,12 +126,12 @@ defmodule Site.Pages do
 
     %{
       lang: locale.lang,
-      lang_key: Atom.to_string(lang),
+      lang_key: String.downcase(locale.lang),
       lang_code: locale.code,
       job_title: gettext("profile.job_title"),
       url: Locale.url(lang, page),
-      url_en: Locale.url(:en, page),
-      url_pt: Locale.url(:pt, page),
+      url_en_us: Locale.url(:en_us, page),
+      url_pt_br: Locale.url(:pt_br, page),
       og_locale: locale.og_locale,
       og_locale_alternate: other_locale.og_locale,
       page_btn_attrs: page_btn_attrs(lang, page),
