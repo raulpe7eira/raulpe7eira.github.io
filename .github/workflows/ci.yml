@@ -40,3 +40,6 @@ jobs:
         run: |
           mix site.build --no-pdf
           git diff --exit-code docs/
+
+      - name: No broken references in docs/
+        run: mix site.check

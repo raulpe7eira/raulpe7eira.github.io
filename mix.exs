@@ -32,6 +32,7 @@ defmodule Site.MixProject do
       {:chromic_pdf, "~> 1.17"},
       {:ecto, "~> 3.14"},
       {:gettext, "~> 1.0"},
+      {:bandit, "~> 1.8", only: [:dev, :test]},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.18", only: :test},
       {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false}
