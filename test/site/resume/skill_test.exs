@@ -4,7 +4,7 @@ defmodule Site.Resume.SkillTest do
   alias Site.Resume.Skill
 
   describe "changeset/2" do
-    test "accepts a type key and items" do
+    test "accepts a known type and items" do
       assert changeset(%{"type" => "practices", "items" => ["Scrum", "Kanban"]}).valid?
     end
 
@@ -17,9 +17,8 @@ defmodule Site.Resume.SkillTest do
                errors(%{"type" => "practices", "items" => ["Scrum", "Scrum"]})
     end
 
-    test "rejects a type that is not a key" do
-      assert %{type: ["has invalid format"]} =
-               errors(%{"type" => "Practices", "items" => ["Scrum"]})
+    test "rejects an unknown type" do
+      assert %{type: ["is invalid"]} = errors(%{"type" => "cooking", "items" => ["Scrum"]})
     end
   end
 

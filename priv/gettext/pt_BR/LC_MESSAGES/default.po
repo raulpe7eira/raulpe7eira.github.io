@@ -2,43 +2,283 @@ msgid ""
 msgstr ""
 "Language: pt_BR\n"
 
-#: lib/site/pages.ex:27
-#: lib/site/pages.ex:62
+#: lib/site/pages.ex:49
+#: lib/site/pages.ex:60
+#: lib/site/pages.ex:96
+#: lib/site/pages.ex:102
+#: lib/site/pages.ex:130
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Engenheiro de Software"
 
-#: lib/site/pages.ex:29
+#: lib/site/pages.ex:62
 #, elixir-autogen
 msgid "home.description"
 msgstr "Engenheiro de software com mais de 20 anos de experiência, focado em Elixir e IA. Ciclista entusiasta que ama estar com a família."
 
-#: lib/site/pages.ex:69
+#: lib/site/pages.ex:137
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Currículo"
 
-#: lib/site/pages.ex:73
+#: lib/site/pages.ex:141
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "Ver em português"
 
-#: lib/site/pages.ex:75
+#: lib/site/pages.ex:143
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Foto de Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:76
+#: lib/site/pages.ex:144
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Programador apaixonado, e ciclista entusiasta,<br />que ama estar com a família"
 
-#: lib/site/pages.ex:77
+#: lib/site/pages.ex:145
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Feito com"
 
-#: lib/site/pages.ex:78
+#: lib/site/pages.ex:146
 #, elixir-autogen
 msgid "footer.by"
 msgstr "por"
+
+#: lib/site/pages.ex:48
+#: lib/site/pages.ex:87
+#, elixir-autogen
+msgid "resume.title"
+msgstr "Currículo"
+
+#: lib/site/pages.ex:88
+#, elixir-autogen
+msgid "resume.description"
+msgstr "Currículo de Raul Pereira da Silva (raulpe7eira), engenheiro de software com 20+ anos em backend, integração e liderança técnica, com foco em Elixir e IA."
+
+#: priv/templates/resume/page.html.eex:13
+#, elixir-autogen
+msgid "resume.download_pdf"
+msgstr "Baixar PDF"
+
+#: priv/templates/resume/page.html.eex:13
+#, elixir-autogen
+msgid "resume.pdf_details"
+msgstr "2 páginas · compatível com ATS"
+
+#: priv/templates/resume/page.html.eex:18
+#: priv/templates/resume/pdf.html.eex:48
+#, elixir-autogen
+msgid "resume.summary"
+msgstr "Resumo"
+
+#: priv/templates/resume/page.html.eex:25
+#: priv/templates/resume/pdf.html.eex:55
+#, elixir-autogen
+msgid "resume.experience"
+msgstr "Experiência"
+
+#: priv/templates/resume/pdf.html.eex:78
+#, elixir-autogen
+msgid "resume.earlier_experience"
+msgstr "Experiência anterior"
+
+#: priv/templates/resume/page.html.eex:91
+#: priv/templates/resume/pdf.html.eex:83
+#, elixir-autogen
+msgid "resume.education"
+msgstr "Formação"
+
+#: priv/templates/resume/page.html.eex:102
+#: priv/templates/resume/pdf.html.eex:88
+#, elixir-autogen
+msgid "resume.skills"
+msgstr "Competências"
+
+#: priv/templates/resume/page.html.eex:114
+#: priv/templates/resume/pdf.html.eex:92
+#, elixir-autogen
+msgid "resume.spoken_languages"
+msgstr "Idiomas"
+
+#: lib/site/labels.ex:40
+#, elixir-autogen
+msgid "resume.clients"
+msgstr "Clientes"
+
+#: lib/site/labels.ex:41
+#, elixir-autogen
+msgid "resume.projects"
+msgstr "Projetos"
+
+#: lib/site/templates.ex:38
+#: priv/templates/resume/page.html.eex:76
+#, elixir-autogen
+msgid "resume.stack"
+msgstr "Stack"
+
+#: priv/templates/resume/page.html.eex:33
+#: priv/templates/resume/page.html.eex:37
+#, elixir-autogen
+msgid "resume.logo_alt"
+msgstr "%{name} logo"
+
+#: priv/templates/resume/page.html.eex:34
+#: priv/templates/resume/page.html.eex:68
+#, elixir-autogen
+msgid "resume.acquired"
+msgstr "adquirida"
+
+#: priv/templates/resume/page.html.eex:33
+#: priv/templates/resume/page.html.eex:34
+#: priv/templates/resume/page.html.eex:66
+#, elixir-autogen
+msgid "resume.acquired_by"
+msgstr "adquirida pela %{company}"
+
+#: priv/templates/resume/page.html.eex:95
+#: priv/templates/resume/page.html.eex:95
+#, elixir-autogen
+msgid "resume.closed_in"
+msgstr "Encerrado em %{year}"
+
+#: lib/site/labels.ex:15
+#, elixir-autogen
+msgid "date.present"
+msgstr "Atual"
+
+#: lib/site/labels.ex:43
+#, elixir-autogen
+msgid "date.month.jan"
+msgstr "Jan"
+
+#: lib/site/labels.ex:44
+#, elixir-autogen
+msgid "date.month.feb"
+msgstr "Fev"
+
+#: lib/site/labels.ex:45
+#, elixir-autogen
+msgid "date.month.mar"
+msgstr "Mar"
+
+#: lib/site/labels.ex:46
+#, elixir-autogen
+msgid "date.month.apr"
+msgstr "Abr"
+
+#: lib/site/labels.ex:47
+#, elixir-autogen
+msgid "date.month.may"
+msgstr "Mai"
+
+#: lib/site/labels.ex:48
+#, elixir-autogen
+msgid "date.month.jun"
+msgstr "Jun"
+
+#: lib/site/labels.ex:49
+#, elixir-autogen
+msgid "date.month.jul"
+msgstr "Jul"
+
+#: lib/site/labels.ex:50
+#, elixir-autogen
+msgid "date.month.aug"
+msgstr "Ago"
+
+#: lib/site/labels.ex:51
+#, elixir-autogen
+msgid "date.month.sep"
+msgstr "Set"
+
+#: lib/site/labels.ex:52
+#, elixir-autogen
+msgid "date.month.oct"
+msgstr "Out"
+
+#: lib/site/labels.ex:53
+#, elixir-autogen
+msgid "date.month.nov"
+msgstr "Nov"
+
+#: lib/site/labels.ex:54
+#, elixir-autogen
+msgid "date.month.dec"
+msgstr "Dez"
+
+#: lib/site/labels.ex:18
+#, elixir-autogen
+msgid "work_mode.remote"
+msgstr "Remoto"
+
+#: lib/site/labels.ex:19
+#, elixir-autogen
+msgid "work_mode.hybrid"
+msgstr "Híbrido"
+
+#: lib/site/labels.ex:20
+#, elixir-autogen
+msgid "work_mode.on_site"
+msgstr "Presencial"
+
+#: lib/site/labels.ex:24
+#, elixir-autogen
+msgid "skills.ai"
+msgstr "IA"
+
+#: lib/site/labels.ex:25
+#, elixir-autogen
+msgid "skills.ai_coding"
+msgstr "Assistentes de código IA"
+
+#: lib/site/labels.ex:26
+#, elixir-autogen
+msgid "skills.programming"
+msgstr "Programação"
+
+#: lib/site/labels.ex:27
+#, elixir-autogen
+msgid "skills.frameworks"
+msgstr "Frameworks"
+
+#: lib/site/labels.ex:28
+#, elixir-autogen
+msgid "skills.data"
+msgstr "Dados e mensageria"
+
+#: lib/site/labels.ex:29
+#, elixir-autogen
+msgid "skills.observability"
+msgstr "Observabilidade e infra"
+
+#: lib/site/labels.ex:30
+#, elixir-autogen
+msgid "skills.practices"
+msgstr "Práticas"
+
+#: lib/site/labels.ex:33
+#, elixir-autogen
+msgid "proficiency.elementary"
+msgstr "básico"
+
+#: lib/site/labels.ex:34
+#, elixir-autogen
+msgid "proficiency.limited_working"
+msgstr "limitado"
+
+#: lib/site/labels.ex:35
+#, elixir-autogen
+msgid "proficiency.professional_working"
+msgstr "profissional"
+
+#: lib/site/labels.ex:36
+#, elixir-autogen
+msgid "proficiency.full_professional"
+msgstr "profissional completo"
+
+#: lib/site/labels.ex:37
+#, elixir-autogen
+msgid "proficiency.native_or_bilingual"
+msgstr "nativo"

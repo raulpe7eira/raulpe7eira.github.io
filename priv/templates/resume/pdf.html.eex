@@ -1,0 +1,94 @@
+<%!-- Printed to PDF by Site.Pdf (not served). Whitespace between tags is stripped after rendering. --%>
+<!DOCTYPE html>
+<html lang="<%= @lang %>">
+<head>
+<meta charset="utf-8">
+<title><%= escape(@title) %></title>
+<style>
+a{color:inherit;text-decoration:none}
+@font-face{font-family:CV;src:url("<%= @fonts_dir %>/Inter-Regular.ttf")}
+@font-face{font-family:CV;font-style:italic;src:url("<%= @fonts_dir %>/Inter-Italic.ttf")}
+@font-face{font-family:CV;font-weight:600;src:url("<%= @fonts_dir %>/Inter-SemiBold.ttf")}
+@font-face{font-family:CV;font-weight:700;src:url("<%= @fonts_dir %>/Inter-Bold.ttf")}
+@page{size:A4;margin:7mm 13mm}
+*{margin:0;box-sizing:border-box}
+body{font-family:CV,sans-serif;font-feature-settings:"calt" 0;font-size:8.6pt;line-height:1.25;color:#111}
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #111;padding-bottom:6px}
+h1{font-size:21pt;line-height:1.1}
+.ti{font-size:11pt;color:#444;margin-top:2px}
+.ct{text-align:right;font-size:8.6pt;line-height:1.45}
+h2{font-size:10pt;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid #999;margin:7px 0 3px;padding-bottom:1px}
+.j{margin-bottom:4px}
+.jh,.rt{break-after:avoid-page}
+li,p{break-inside:avoid-page}
+.jh,.rt{display:flex;justify-content:space-between}
+.jh{font-weight:600}
+.rt{font-style:italic;color:#222;margin-top:1px}
+.rt span:last-child,.jh span:last-child{color:#444;font-weight:400}
+ul{padding-left:15px;margin:2px 0}
+p{margin:2px 0}
+.sum p+p{margin-top:4px}
+.st{font-size:8.8pt;color:#333}
+.sk{display:grid;grid-template-columns:42mm 1fr;column-gap:3mm}
+.ed{display:grid;grid-template-columns:42mm 1fr auto;column-gap:3mm;margin:1px 0}
+.ed>span:last-child{color:#444;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="top">
+  <div><h1><%= escape(@view.name) %></h1><div class="ti"><%= @job_title %></div></div>
+  <div class="ct">
+    <a href="mailto:<%= @view.email %>"><%= @view.email %></a><br>
+    <a href="<%= @view.website.url %>"><%= @view.website.label %></a><br>
+    <a href="<%= @view.linkedin.url %>"><%= @view.linkedin.label %></a><br>
+    <a href="<%= @view.github.url %>"><%= @view.github.label %></a><br><%= escape(@view.location) %>
+  </div>
+</div>
+
+<h2><%= gettext("resume.summary") %></h2>
+<div class="sum">
+  <%= for paragraph <- @view.summary do %>
+    <p><%= escape(paragraph) %></p>
+  <% end %>
+</div>
+
+<h2><%= gettext("resume.experience") %></h2>
+<%= for experience <- @view.experiences, not experience.earlier? do %>
+  <div class="j">
+    <div class="jh"><span><a href="<%= experience.url %>"><%= escape(experience.name) %></a></span><span><%= escape(experience.location) %></span></div>
+    <%= for role <- experience.roles do %>
+      <div class="rt"><span><%= escape(role.title) %></span><span><%= role.period %></span></div>
+      <%= for paragraph <- role.paragraphs do %>
+        <p><%= escape(paragraph) %></p>
+      <% end %>
+      <%= if role.bullets != [] do %>
+        <ul>
+          <%= for bullet <- role.bullets do %>
+            <li><%= escape(bullet) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= for note <- pdf_notes(role) do %>
+        <p class="st"><%= note %></p>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<h2><%= gettext("resume.earlier_experience") %></h2>
+<%= for experience <- @view.experiences, experience.earlier?, role <- experience.roles do %>
+  <div class="ed"><b><a href="<%= experience.url %>"><%= escape(experience.name) %></a></b><span><%= escape(role.title) %> · <%= escape(role.location) %></span><span><%= role.period %></span></div>
+<% end %>
+
+<h2><%= gettext("resume.education") %></h2>
+<%= for education <- @view.educations do %>
+  <div class="ed"><b><a href="<%= education.url %>"><%= escape(education.name) %></a></b><span><%= escape(education.degree) %></span><span><%= education.period %></span></div>
+<% end %>
+
+<h2><%= gettext("resume.skills") %></h2>
+<%= for skill <- @view.skills do %>
+  <p class="sk"><b><%= skill.label %></b><span><%= Enum.map_join(skill.items, ", ", &escape/1) %></span></p>
+<% end %>
+<p class="sk"><b><%= gettext("resume.spoken_languages") %></b><%= Enum.map_join(@view.languages, ", ", &escape/1) %></p>
+</body>
+</html>

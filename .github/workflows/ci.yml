@@ -38,5 +38,5 @@ jobs:
 
       - name: Generated pages are up to date
         run: |
-          mix site.build
+          mix site.build --no-pdf
           git diff --exit-code docs/

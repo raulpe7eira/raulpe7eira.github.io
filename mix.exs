@@ -29,6 +29,7 @@ defmodule Site.MixProject do
 
   defp deps do
     [
+      {:chromic_pdf, "~> 1.17"},
       {:ecto, "~> 3.14"},
       {:gettext, "~> 1.0"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},

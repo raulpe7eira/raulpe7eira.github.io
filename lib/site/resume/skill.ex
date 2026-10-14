@@ -1,7 +1,7 @@
 defmodule Site.Resume.Skill do
   @moduledoc """
-  A group of skills. `type` is a key whose label comes from Gettext
-  (`skills.<type>`); items stay as on LinkedIn, untranslated.
+  A group of skills. `type` is one of the known groups, whose labels come
+  from Gettext (`Site.Labels.skill/1`); items stay as on LinkedIn, untranslated.
   """
 
   use Ecto.Schema
@@ -9,9 +9,11 @@ defmodule Site.Resume.Skill do
   import Ecto.Changeset
   import Site.Resume.Validations
 
+  @types [:ai, :ai_coding, :programming, :frameworks, :data, :observability, :practices]
+
   @primary_key false
   embedded_schema do
-    field :type, :string
+    field :type, Ecto.Enum, values: @types
     field :items, {:array, :string}
   end
 
@@ -20,7 +22,6 @@ defmodule Site.Resume.Skill do
     skill
     |> cast(attrs, [:type, :items])
     |> validate_required([:type, :items])
-    |> validate_format(:type, ~r/^[a-z_]+$/)
     |> validate_length(:items, min: 1)
     |> validate_unique_items(:items)
   end

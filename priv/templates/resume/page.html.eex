@@ -1,0 +1,121 @@
+<%!-- Whitespace between tags is stripped after rendering (Site.Html.strip_whitespace_between_tags/1). --%>
+<section class="rs">
+  <div class="idn">
+    <div>
+      <h2><%= escape(@view.name) %></h2>
+      <div class="tag"><%= @job_title %></div>
+      <div class="links"><span><a href="<%= @home_path %>"><%= @view.website.label %></a></span> · <span><a href="<%= @view.linkedin.url %>"><%= @view.linkedin.label %></a></span> · <span><a href="<%= @view.github.url %>"><%= @view.github.label %></a></span></div>
+      <div class="where"><%= escape(@view.location) %></div>
+    </div>
+    <a class="pv" href="<%= @pdf_file %>" download>
+      <img src="thumb.png" alt="PDF">
+      <span class="pl"><svg viewBox="0 0 24 24"><use href="/assets/icons.svg#download"/></svg>PDF</span>
+      <span class="pt"><b><%= gettext("resume.download_pdf") %></b><small><%= gettext("resume.pdf_details") %></small></span>
+      <span class="pd"><svg viewBox="0 0 24 24"><use href="/assets/icons.svg#download"/></svg></span>
+    </a>
+  </div>
+
+  <h2><%= gettext("resume.summary") %></h2>
+  <div class="sum">
+    <%= for paragraph <- @view.summary do %>
+      <p><%= escape(paragraph) %></p>
+    <% end %>
+  </div>
+
+  <h2><%= gettext("resume.experience") %></h2>
+  <div class="tl">
+    <%= for experience <- @view.experiences do %>
+      <div class="it">
+        <div class="dot"></div>
+        <a href="<%= experience.url %>">
+          <%= if experience.acquired_by do %>
+            <span class="lw">
+              <img class="lo" src="/resume/lg/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %> · <%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>">
+              <span class="acq" title="<%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>"><%= gettext("resume.acquired") %></span>
+            </span>
+          <% else %>
+            <img class="lo" src="/resume/lg/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %>">
+          <% end %>
+        </a>
+        <div class="rb">
+          <div class="jh"><b><a href="<%= experience.url %>"><%= escape(experience.name) %></a></b><span><%= experience.period %></span></div>
+          <div class="co"><a href="<%= experience.url %>" tabindex="-1"><%= escape(experience.location) %></a></div>
+          <%= for role <- experience.roles do %>
+            <div class="rl">
+              <div class="jh">
+                <i><%= escape(role.title) %></i>
+                <%= if length(experience.roles) > 1 do %><span><%= role.period %></span><% end %>
+              </div>
+              <%= for paragraph <- role.paragraphs do %>
+                <p><%= escape(paragraph) %></p>
+              <% end %>
+              <%= if role.bullets != [] do %>
+                <ul>
+                  <%= for bullet <- role.bullets do %>
+                    <li><%= escape(bullet) %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+              <%= for group <- role.references do %>
+                <div class="cl">
+                  <b><%= group.label %></b>
+                  <div class="tiles">
+                    <%= for reference <- group.items do %>
+                      <span class="tile">
+                        <%= if reference.url do %><a href="<%= reference.url %>"><% end %>
+                        <img src="/resume/lg/<%= reference.logo %>.png" alt="<%= escape(reference.name) %>" title="<%= escape(reference.name) %><%= if reference.acquired_by do %> · <%= escape(gettext("resume.acquired_by", company: reference.acquired_by)) %><% end %>">
+                        <%= if reference.url do %></a><% end %>
+                        <%= if reference.acquired_by do %><span class="acq"><%= gettext("resume.acquired") %></span><% end %>
+                      </span>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <%= if role.stack != [] do %>
+                <div class="cl stk">
+                  <b><%= gettext("resume.stack") %></b>
+                  <div class="chips">
+                    <%= for item <- role.stack do %>
+                      <span><%= escape(item) %></span>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h2><%= gettext("resume.education") %></h2>
+  <%= for education <- @view.educations do %>
+    <div class="ed">
+      <b>
+        <a href="<%= education.url %>" title="<%= escape(education.school) %>"><%= escape(education.name) %><%= if education.closed_in do %><span class="closed" role="img" title="<%= gettext("resume.closed_in", year: education.closed_in) %>" aria-label="<%= gettext("resume.closed_in", year: education.closed_in) %>"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg></span><% end %></a>
+      </b>
+      <span><%= escape(education.degree) %></span>
+      <span><%= education.period %></span>
+    </div>
+  <% end %>
+
+  <h2><%= gettext("resume.skills") %></h2>
+  <%= for skill <- @view.skills do %>
+    <div class="sk">
+      <b><%= skill.label %></b>
+      <div class="chips">
+        <%= for item <- skill.items do %>
+          <span><%= escape(item) %></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="sk">
+    <b><%= gettext("resume.spoken_languages") %></b>
+    <div class="chips">
+      <%= for language <- @view.languages do %>
+        <span><%= escape(language) %></span>
+      <% end %>
+    </div>
+  </div>
+</section>
