@@ -1,0 +1,29 @@
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raul Pereira",
+    "alternateName": "raulpe7eira",
+    "url": "https://raulpe7eira.tech",
+    "image": "https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5",
+    "jobTitle": "<%= @job_title %>",
+    "worksFor": { "@type": "Organization", "name": "R3M Tech", "url": "https://r3m.tech/" },
+    "description": "<%= @description %>",
+    "knowsAbout": ["Elixir", "Phoenix", "AI", "Kotlin", "Java", "JavaScript"],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "PUC-Rio" },
+      { "@type": "CollegeOrUniversity", "name": "UniverCidade" }
+    ],
+    "sameAs": [
+      "https://github.com/raulpe7eira",
+      "https://linkedin.com/in/raulpe7eira",
+      "https://x.com/raulpe7eira",
+      "https://bsky.app/profile/raulpe7eira.tech",
+      "https://instagram.com/raulpe7eira",
+      "https://facebook.com/raulpe7eira",
+      "https://strava.com/athletes/raulpe7eira",
+      "https://imdb.com/user/ur28106453",
+      "https://last.fm/user/raulpereira"
+    ]
+  }
+  </script>
