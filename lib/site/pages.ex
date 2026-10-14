@@ -9,15 +9,69 @@ defmodule Site.Pages do
   alias Site.ResumeView
   alias Site.Templates
 
+  @sitemap_pages [:home, :resume]
+
   @doc """
-  Returns `{relative_output_path, html}` for every page, in both languages.
+  Returns `{relative_output_path, content}` for every page, in both
+  languages, plus `llms.txt` and `404.html`. The sitemap is separate
+  (`sitemap/1`): its dates depend on what is already published.
 
   Pure: renders in memory and touches no files (apart from reading the
   resume data when none is given), so it can back other front ends (a Mix
   task today, maybe an MCP server later).
   """
   def all(resume \\ Resume.load!()) do
-    for lang <- Locale.langs(), page <- [home(lang), resume(lang, resume)], do: page
+    pages = for lang <- Locale.langs(), page <- [home(lang), resume(lang, resume)], do: page
+    pages ++ [llms(resume), not_found()]
+  end
+
+  @doc "`{output_path, url}` of every page listed in the sitemap, in sitemap order."
+  def sitemap_pages do
+    for page <- @sitemap_pages,
+        lang <- Locale.langs(),
+        do: {output_file(lang, page), Locale.url(lang, page)}
+  end
+
+  @doc """
+  Renders `sitemap.xml`. `lastmods` maps each page URL to the date the page
+  last changed (`Site.build/2` works it out).
+  """
+  def sitemap(lastmods) do
+    entries =
+      for page <- @sitemap_pages, lang <- Locale.langs() do
+        url = Locale.url(lang, page)
+        %{url: url, lastmod: Map.fetch!(lastmods, url), alternates: alternates(page)}
+      end
+
+    {"sitemap.xml", Templates.sitemap(entries: entries)}
+  end
+
+  @doc "Renders `llms.txt`, the plain-text summary of the site for LLMs (English only)."
+  def llms(resume) do
+    text =
+      Templates.llms(
+        base_url: Locale.base_url(),
+        home_pt_br: Locale.url(:pt_br, :home),
+        resume_en_us: Locale.url(:en_us, :resume),
+        resume_pt_br: Locale.url(:pt_br, :resume),
+        pdf_en_us: Locale.base_url() <> Locale.pdf_path(:en_us),
+        pdf_pt_br: Locale.base_url() <> Locale.pdf_path(:pt_br),
+        highlights: resume.highlights.en_us
+      )
+
+    {"llms.txt", text}
+  end
+
+  @doc "Renders `404.html`, which sends unknown addresses to the home page of their language."
+  def not_found do
+    [default | _others] = Locale.langs()
+
+    homes =
+      Locale.langs()
+      |> Enum.map(&Locale.path(&1, :home))
+      |> Enum.reject(&(&1 == "/"))
+
+    {"404.html", Templates.not_found(lang: Locale.get(default).lang, homes: JSON.encode!(homes))}
   end
 
   @doc "Renders the home page in `lang` (`:en_us` or `:pt_br`)."
@@ -152,6 +206,13 @@ defmodule Site.Pages do
   defp page_btn_attrs(lang, :resume),
     do:
       ~s(class="page-btn on" href="#{Locale.path(lang, :home)}" role="switch" aria-checked="true" aria-current="page")
+
+  # every locale, plus x-default pointing to the default (first) one
+  defp alternates(page) do
+    [default | _others] = Locale.langs()
+    links = for lang <- Locale.langs(), do: {Locale.get(lang).lang, Locale.url(lang, page)}
+    links ++ [{"x-default", Locale.url(default, page)}]
+  end
 
   defp output_file(lang, page), do: Path.join(page_dir(lang, page), "index.html")
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<%= for entry <- @entries do %>  <url>
+    <loc><%= entry.url %></loc>
+<%= for {hreflang, href} <- entry.alternates do %>    <xhtml:link rel="alternate" hreflang="<%= hreflang %>" href="<%= href %>" />
+<% end %>    <lastmod><%= Date.to_iso8601(entry.lastmod) %></lastmod>
+  </url>
+<% end %></urlset>

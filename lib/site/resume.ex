@@ -9,18 +9,20 @@ defmodule Site.Resume do
 
   alias Site.Resume.Education
   alias Site.Resume.Experience
+  alias Site.Resume.Highlights
   alias Site.Resume.Language
   alias Site.Resume.Profile
   alias Site.Resume.Skill
 
-  defstruct [:profile, :experiences, :educations, :skills, :languages]
+  defstruct [:profile, :experiences, :educations, :skills, :languages, :highlights]
 
   @sources [
     profile: {Profile, :one},
     experiences: {Experience, :many},
     educations: {Education, :many},
     skills: {Skill, :many},
-    languages: {Language, :many}
+    languages: {Language, :many},
+    highlights: {Highlights, :one}
   ]
 
   # LinkedIn names that read better shortened on the resume; everything else is kept as is.

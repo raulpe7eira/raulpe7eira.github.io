@@ -22,7 +22,10 @@ defmodule Site.Templates do
     {:resume_pdf, "resume/pdf.html.eex", [:assigns]},
     {:social, "partials/social.html.eex", [:_assigns]},
     {:jsonld_home, "partials/jsonld_home.html.eex", [:assigns]},
-    {:jsonld_resume, "partials/jsonld_resume.html.eex", [:assigns]}
+    {:jsonld_resume, "partials/jsonld_resume.html.eex", [:assigns]},
+    {:sitemap, "sitemap.xml.eex", [:assigns]},
+    {:llms, "llms.txt.eex", [:assigns]},
+    {:not_found, "404.html.eex", [:assigns]}
   ]
 
   for {name, file, args} <- @templates do
