@@ -1,0 +1,72 @@
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "<%= @url %>",
+  "name": "<%= @title %>",
+  "inLanguage": "<%= @lang %>",
+  "description": "<%= @description %>",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Raul Pereira da Silva",
+    "alternateName": [
+      "Raul Pereira",
+      "raulpe7eira"
+    ],
+    "url": "https://raulpe7eira.tech",
+    "image": "https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5",
+    "jobTitle": "<%= @job_title %>",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rio de Janeiro",
+      "addressCountry": "BR"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "R3M Tech",
+      "url": "https://r3m.tech/"
+    },
+    "knowsAbout": [
+      "Elixir",
+      "Phoenix",
+      "LiveView",
+      "Oban",
+      "Erlang",
+      "AI agents",
+      "LLM",
+      "OpenTelemetry",
+      "Kafka",
+      "PostgreSQL",
+      "Redis",
+      "Kotlin",
+      "Java",
+      "JavaScript",
+      "Distributed Systems",
+      "Microservices",
+      "Technical Leadership"
+    ],
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "PUC-Rio",
+        "url": "https://www.puc-rio.br"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "UniverCidade"
+      }
+    ],
+    "knowsLanguage": [
+      "pt-BR",
+      "en",
+      "es"
+    ],
+    "sameAs": [
+      "https://github.com/raulpe7eira",
+      "https://linkedin.com/in/raulpe7eira",
+      "https://x.com/raulpe7eira",
+      "https://bsky.app/profile/raulpe7eira.tech"
+    ]
+  }
+}
+  </script>

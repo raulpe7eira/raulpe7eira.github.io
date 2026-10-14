@@ -66,6 +66,16 @@ defmodule Site.LocaleTest do
     end
   end
 
+  describe "pdf_file/1" do
+    test "English PDF is the resume" do
+      assert Locale.pdf_file(:en) == "raul-pereira-da-silva-resume.pdf"
+    end
+
+    test "Portuguese PDF is the curriculo" do
+      assert Locale.pdf_file(:pt) == "raul-pereira-da-silva-curriculo.pdf"
+    end
+  end
+
   describe "with_locale/2" do
     test "translates into Portuguese" do
       assert Locale.with_locale(:pt, fn -> gettext("toolbar.resume") end) == "Currículo"

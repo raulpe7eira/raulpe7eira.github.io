@@ -4,8 +4,22 @@ defmodule Site.Locale do
   @base_url "https://raulpe7eira.tech"
 
   @locales %{
-    en: %{lang: "en", gettext: "en", code: "EN", prefix: "/", og_locale: "en_US"},
-    pt: %{lang: "pt-BR", gettext: "pt_BR", code: "PT", prefix: "/pt/", og_locale: "pt_BR"}
+    en: %{
+      lang: "en",
+      gettext: "en",
+      code: "EN",
+      prefix: "/",
+      og_locale: "en_US",
+      pdf: "raul-pereira-da-silva-resume.pdf"
+    },
+    pt: %{
+      lang: "pt-BR",
+      gettext: "pt_BR",
+      code: "PT",
+      prefix: "/pt/",
+      og_locale: "pt_BR",
+      pdf: "raul-pereira-da-silva-curriculo.pdf"
+    }
   }
 
   @doc "Supported languages, default first."
@@ -27,6 +41,9 @@ defmodule Site.Locale do
 
   @doc "Absolute URL of `page` in `lang`."
   def url(lang, page), do: @base_url <> path(lang, page)
+
+  @doc "File name of the resume PDF in `lang`, next to the resume page."
+  def pdf_file(lang), do: get(lang).pdf
 
   @doc "Runs `fun` with the Gettext locale of `lang`, returning its result."
   def with_locale(lang, fun), do: Gettext.with_locale(Site.Gettext, get(lang).gettext, fun)

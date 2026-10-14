@@ -1,23 +1,33 @@
 defmodule Mix.Tasks.Site.Build do
   @shortdoc "Generates the site into docs/"
   @moduledoc """
-  Generates the static pages into `docs/`, the folder GitHub Pages serves.
+  Generates the static pages and the resume PDFs into `docs/`, the folder
+  GitHub Pages serves.
 
       mix site.build
+
+  Printing the PDFs needs Chrome and poppler (`pdftoppm`); see `Site.Pdf`.
 
   ## Options
 
     * `--output` - write somewhere else instead of `docs/`
+    * `--no-pdf` - skip the PDFs and thumbnails (CI uses it: no Chrome
+      there, and Chrome stamps each PDF with its creation date)
   """
   use Mix.Task
 
+  @switches [output: :string, pdf: :boolean]
+
   @impl Mix.Task
   def run(args) do
-    {opts, _args} = OptionParser.parse!(args, strict: [output: :string])
+    {opts, _args} = OptionParser.parse!(args, strict: @switches)
 
-    Mix.Task.run("compile")
+    # starts the dependencies too (ChromicPDF needs :telemetry running)
+    Mix.Task.run("app.start")
 
-    for path <- Site.build(Keyword.get(opts, :output, "docs")) do
+    out = Keyword.get(opts, :output, "docs")
+
+    for path <- Site.build(out, pdf: Keyword.get(opts, :pdf, true)) do
       Mix.shell().info("wrote #{path}")
     end
   end
