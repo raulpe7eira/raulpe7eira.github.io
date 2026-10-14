@@ -6,12 +6,12 @@ defmodule Mix.Tasks.Site.Build do
 
       mix site.build
 
-  Printing the PDFs needs Chrome and poppler (`pdftoppm`); see `Site.Pdf`.
+  Printing the PDFs needs Chrome; see `Site.Pdf`.
 
   ## Options
 
     * `--output` - write somewhere else instead of `docs/`
-    * `--no-pdf` - skip the PDFs and thumbnails (CI uses it: no Chrome
+    * `--no-pdf` - skip the PDFs (CI uses it: no Chrome
       there, and Chrome stamps each PDF with its creation date)
   """
   use Mix.Task

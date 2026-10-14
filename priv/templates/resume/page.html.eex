@@ -7,8 +7,8 @@
       <div class="links"><span><a href="<%= @home_path %>"><%= @view.website.label %></a></span> · <span><a href="<%= @view.linkedin.url %>"><%= @view.linkedin.label %></a></span> · <span><a href="<%= @view.github.url %>"><%= @view.github.label %></a></span></div>
       <div class="where"><%= escape(@view.location) %></div>
     </div>
-    <a class="pv" href="<%= @pdf_file %>" download>
-      <img src="thumb.png" alt="PDF">
+    <a class="pv" href="<%= @pdf_path %>" download="<%= @pdf_download_name %>">
+      <svg class="thumb" viewBox="0 0 155 136" aria-hidden="true"><use href="/assets/icons.svg#resume-page"/></svg>
       <span class="pl"><svg viewBox="0 0 24 24"><use href="/assets/icons.svg#download"/></svg>PDF</span>
       <span class="pt"><b><%= gettext("resume.download_pdf") %></b><small><%= gettext("resume.pdf_details") %></small></span>
       <span class="pd"><svg viewBox="0 0 24 24"><use href="/assets/icons.svg#download"/></svg></span>
@@ -30,11 +30,11 @@
         <a href="<%= experience.url %>">
           <%= if experience.acquired_by do %>
             <span class="lw">
-              <img class="lo" src="/resume/lg/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %> · <%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>">
+              <img class="lo" src="/assets/images/logos/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %> · <%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>">
               <span class="acq" title="<%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>"><%= gettext("resume.acquired") %></span>
             </span>
           <% else %>
-            <img class="lo" src="/resume/lg/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %>">
+            <img class="lo" src="/assets/images/logos/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %>">
           <% end %>
         </a>
         <div class="rb">
@@ -63,7 +63,7 @@
                     <%= for reference <- group.items do %>
                       <span class="tile">
                         <%= if reference.url do %><a href="<%= reference.url %>"><% end %>
-                        <img src="/resume/lg/<%= reference.logo %>.png" alt="<%= escape(reference.name) %>" title="<%= escape(reference.name) %><%= if reference.acquired_by do %> · <%= escape(gettext("resume.acquired_by", company: reference.acquired_by)) %><% end %>">
+                        <img src="/assets/images/logos/<%= reference.logo %>.png" alt="<%= escape(reference.name) %>" title="<%= escape(reference.name) %><%= if reference.acquired_by do %> · <%= escape(gettext("resume.acquired_by", company: reference.acquired_by)) %><% end %>">
                         <%= if reference.url do %></a><% end %>
                         <%= if reference.acquired_by do %><span class="acq"><%= gettext("resume.acquired") %></span><% end %>
                       </span>

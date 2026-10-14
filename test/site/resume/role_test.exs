@@ -4,10 +4,10 @@ defmodule Site.Resume.RoleTest do
   alias Site.Resume.Role
 
   @valid %{
-    "title" => %{"en" => "Tech Lead", "pt" => "Líder Técnico"},
+    "title" => %{"en_us" => "Tech Lead", "pt_br" => "Líder Técnico"},
     "started_on" => "2019-02-01",
     "finished_on" => "2021-04-01",
-    "description" => %{"en" => "Led the team.", "pt" => "Liderei o time."},
+    "description" => %{"en_us" => "Led the team.", "pt_br" => "Liderei o time."},
     "stack" => ["Kotlin", "Java"]
   }
 

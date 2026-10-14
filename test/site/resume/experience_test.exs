@@ -39,10 +39,10 @@ defmodule Site.Resume.ExperienceTest do
 
   defp role(started_on, finished_on) do
     %{
-      "title" => %{"en" => "Role", "pt" => "Cargo"},
+      "title" => %{"en_us" => "Role", "pt_br" => "Cargo"},
       "started_on" => started_on,
       "finished_on" => finished_on,
-      "description" => %{"en" => "Did things.", "pt" => "Fiz coisas."}
+      "description" => %{"en_us" => "Did things.", "pt_br" => "Fiz coisas."}
     }
   end
 end

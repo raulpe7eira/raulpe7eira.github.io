@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
-"Language: en\n"
+"Language: en_US\n"
 
 #: lib/site/pages.ex:49
 #: lib/site/pages.ex:60
 #: lib/site/pages.ex:96
 #: lib/site/pages.ex:102
-#: lib/site/pages.ex:130
+#: lib/site/pages.ex:131
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Software Engineer"
@@ -16,32 +16,32 @@ msgstr "Software Engineer"
 msgid "home.description"
 msgstr "Software engineer with 20+ years of experience, focused on Elixir and AI. Cycling enthusiast who loves being with the family."
 
-#: lib/site/pages.ex:137
+#: lib/site/pages.ex:138
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Resume"
 
-#: lib/site/pages.ex:141
+#: lib/site/pages.ex:142
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "View in English"
 
-#: lib/site/pages.ex:143
+#: lib/site/pages.ex:144
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Photo of Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:144
+#: lib/site/pages.ex:145
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Passionate coder, and cycling enthusiast,<br />who loves being with the family"
 
-#: lib/site/pages.ex:145
+#: lib/site/pages.ex:146
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Made with"
 
-#: lib/site/pages.ex:146
+#: lib/site/pages.ex:147
 #, elixir-autogen
 msgid "footer.by"
 msgstr "by"

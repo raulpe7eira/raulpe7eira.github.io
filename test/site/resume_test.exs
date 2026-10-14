@@ -25,7 +25,10 @@ defmodule Site.ResumeTest do
     test "reports errors from more than one file", %{tmp_dir: dir} do
       copy_data(dir)
       write(dir, "skills.json", [%{"type" => "ai", "items" => []}])
-      write(dir, "languages.json", [%{"name" => %{"en" => "German"}, "proficiency" => "native"}])
+
+      write(dir, "languages.json", [
+        %{"name" => %{"en_us" => "German"}, "proficiency" => "native"}
+      ])
 
       assert {:error, errors} = Resume.load(dir)
 

@@ -16,8 +16,8 @@ defmodule Site.Templates do
   # {function, file, args}: templates that don't read assigns take `_assigns`
   @templates [
     {:layout, "layout.html.eex", [:assigns]},
-    {:home_en, "home/en.html.eex", [:_assigns]},
-    {:home_pt, "home/pt.html.eex", [:_assigns]},
+    {:home_en_us, "home/en-us.html.eex", [:_assigns]},
+    {:home_pt_br, "home/pt-br.html.eex", [:_assigns]},
     {:resume, "resume/page.html.eex", [:assigns]},
     {:resume_pdf, "resume/pdf.html.eex", [:assigns]},
     {:social, "partials/social.html.eex", [:_assigns]},

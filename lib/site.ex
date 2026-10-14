@@ -18,8 +18,7 @@ defmodule Site do
 
   ## Options
 
-    * `:pdf` - also print the resume PDFs and thumbnails (needs Chrome and
-      poppler). Defaults to `false`.
+    * `:pdf` - also print the resume PDFs (needs Chrome). Defaults to `false`.
   """
   def build(out \\ @out, opts \\ []) do
     resume = Resume.load!()

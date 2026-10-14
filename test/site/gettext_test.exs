@@ -4,9 +4,9 @@ defmodule Site.GettextTest do
   # msgids are keys (e.g. "footer.made_with"), so every locale needs the text,
   # English included; a missing entry would render the raw key.
 
-  describe "en translations" do
+  describe "en_US translations" do
     test "every key has English text" do
-      assert untranslated("en") == []
+      assert untranslated("en_US") == []
     end
   end
 
@@ -18,7 +18,7 @@ defmodule Site.GettextTest do
 
   describe "known locales" do
     test "has English and Brazilian Portuguese" do
-      assert Enum.sort(Gettext.known_locales(Site.Gettext)) == ["en", "pt_BR"]
+      assert Enum.sort(Gettext.known_locales(Site.Gettext)) == ["en_US", "pt_BR"]
     end
   end
 

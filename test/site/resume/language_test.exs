@@ -3,7 +3,10 @@ defmodule Site.Resume.LanguageTest do
 
   alias Site.Resume.Language
 
-  @valid %{"name" => %{"en" => "Spanish", "pt" => "Espanhol"}, "proficiency" => "elementary"}
+  @valid %{
+    "name" => %{"en_us" => "Spanish", "pt_br" => "Espanhol"},
+    "proficiency" => "elementary"
+  }
 
   describe "changeset/2" do
     test "accepts a LinkedIn proficiency level" do
@@ -15,8 +18,8 @@ defmodule Site.Resume.LanguageTest do
     end
 
     test "requires the name in both languages" do
-      assert %{name: %{pt: ["can't be blank"]}} =
-               errors(Map.put(@valid, "name", %{"en" => "Spanish"}))
+      assert %{name: %{pt_br: ["can't be blank"]}} =
+               errors(Map.put(@valid, "name", %{"en_us" => "Spanish"}))
     end
   end
 

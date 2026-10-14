@@ -3,12 +3,12 @@
     "school": "Pontifícia Universidade Católica do Rio de Janeiro",
     "url": "https://www.puc-rio.br",
     "degree": {
-      "en": "Postgraduate",
-      "pt": "Pós-graduação"
+      "en_us": "Postgraduate",
+      "pt_br": "Pós-graduação"
     },
     "field_of_study": {
-      "en": "Ergonomics, Usability and Human-Computer Interaction: Ergodesign and Interface Evaluation",
-      "pt": "Ergonomia, Usabilidade e Interação Humano-Computador: Ergodesign e Avaliação de Interfaces"
+      "en_us": "Ergonomics, Usability and Human-Computer Interaction: Ergodesign and Interface Evaluation",
+      "pt_br": "Ergonomia, Usabilidade e Interação Humano-Computador: Ergodesign e Avaliação de Interfaces"
     },
     "started_on": "2006-03-01",
     "finished_on": "2006-12-01"
@@ -17,12 +17,12 @@
     "school": "Pontifícia Universidade Católica do Rio de Janeiro",
     "url": "https://www.puc-rio.br",
     "degree": {
-      "en": "Postgraduate",
-      "pt": "Pós-graduação"
+      "en_us": "Postgraduate",
+      "pt_br": "Pós-graduação"
     },
     "field_of_study": {
-      "en": "Systems Analysis, Design and Management",
-      "pt": "Análise, Projeto e Gerência de Sistemas"
+      "en_us": "Systems Analysis, Design and Management",
+      "pt_br": "Análise, Projeto e Gerência de Sistemas"
     },
     "started_on": "2002-09-01",
     "finished_on": "2004-08-01"
@@ -32,12 +32,12 @@
     "url": "https://en.wikipedia.org/wiki/Centro_Universit%C3%A1rio_da_Cidade_do_Rio_de_Janeiro",
     "closed_in": 2014,
     "degree": {
-      "en": "Undergraduate",
-      "pt": "Graduação"
+      "en_us": "Undergraduate",
+      "pt_br": "Graduação"
     },
     "field_of_study": {
-      "en": "Technologist in Data Processing",
-      "pt": "Tecnólogo em Processamento de Dados"
+      "en_us": "Technologist in Data Processing",
+      "pt_br": "Tecnólogo em Processamento de Dados"
     },
     "started_on": "1998-01-01",
     "finished_on": "2001-09-01"

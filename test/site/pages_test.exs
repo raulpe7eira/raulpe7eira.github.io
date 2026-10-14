@@ -10,254 +10,258 @@ defmodule Site.PagesTest do
 
   describe "home/1" do
     test "writes the English page to index.html" do
-      assert {"index.html", _html} = Pages.home(:en)
+      assert {"index.html", _html} = Pages.home(:en_us)
     end
 
     test "writes the Portuguese page to pt/index.html" do
-      assert {"pt/index.html", _html} = Pages.home(:pt)
+      assert {"pt/index.html", _html} = Pages.home(:pt_br)
     end
 
-    test "sets lang=en on the English page" do
-      assert home(:en) =~ ~s(<html lang="en">)
+    test "sets lang=en-US on the English page" do
+      assert home(:en_us) =~ ~s(<html lang="en-US">)
     end
 
     test "sets lang=pt-BR on the Portuguese page" do
-      assert home(:pt) =~ ~s(<html lang="pt-BR">)
+      assert home(:pt_br) =~ ~s(<html lang="pt-BR">)
     end
 
     test "has the English title" do
-      assert home(:en) =~ "<title>Raul Pereira (raulpe7eira) - Software Engineer</title>"
+      assert home(:en_us) =~ "<title>Raul Pereira (raulpe7eira) - Software Engineer</title>"
     end
 
     test "has the Portuguese title" do
-      assert home(:pt) =~ "<title>Raul Pereira (raulpe7eira) - Engenheiro de Software</title>"
+      assert home(:pt_br) =~ "<title>Raul Pereira (raulpe7eira) - Engenheiro de Software</title>"
     end
 
     test "has the English description" do
-      assert home(:en) =~ ~s(<meta name="description" content="Software engineer with 20+ years)
+      assert home(:en_us) =~
+               ~s(<meta name="description" content="Software engineer with 20+ years)
     end
 
     test "has the Portuguese description" do
-      assert home(:pt) =~ ~s(<meta name="description" content="Engenheiro de software)
+      assert home(:pt_br) =~ ~s(<meta name="description" content="Engenheiro de software)
     end
 
     test "English canonical points to itself" do
-      assert home(:en) =~ ~s(<link rel="canonical" href="https://raulpe7eira.tech/" />)
+      assert home(:en_us) =~ ~s(<link rel="canonical" href="https://raulpe7eira.tech/" />)
     end
 
     test "Portuguese canonical points to itself" do
-      assert home(:pt) =~ ~s(<link rel="canonical" href="https://raulpe7eira.tech/pt/" />)
+      assert home(:pt_br) =~ ~s(<link rel="canonical" href="https://raulpe7eira.tech/pt/" />)
     end
 
-    test "hreflang en points to the English page" do
-      assert home(:pt) =~ ~s(hreflang="en" href="https://raulpe7eira.tech/")
+    test "hreflang en-US points to the English page" do
+      assert home(:pt_br) =~ ~s(hreflang="en-US" href="https://raulpe7eira.tech/")
     end
 
     test "hreflang pt-BR points to the Portuguese page" do
-      assert home(:en) =~ ~s(hreflang="pt-BR" href="https://raulpe7eira.tech/pt/")
+      assert home(:en_us) =~ ~s(hreflang="pt-BR" href="https://raulpe7eira.tech/pt/")
     end
 
     test "hreflang x-default points to the English page" do
-      assert home(:pt) =~ ~s(hreflang="x-default" href="https://raulpe7eira.tech/")
+      assert home(:pt_br) =~ ~s(hreflang="x-default" href="https://raulpe7eira.tech/")
     end
 
     test "English language switch links to the Portuguese page" do
-      assert home(:en) =~ ~s(<a class="lang-btn" href="/pt/" hreflang="pt-BR")
+      assert home(:en_us) =~ ~s(<a class="lang-btn" href="/pt/" hreflang="pt-BR")
     end
 
     test "Portuguese language switch links to the English page" do
-      assert home(:pt) =~ ~s(<a class="lang-btn" href="/" hreflang="en")
+      assert home(:pt_br) =~ ~s(<a class="lang-btn" href="/" hreflang="en-US")
     end
 
     test "English resume switch is off and links to /resume/" do
-      assert home(:en) =~
+      assert home(:en_us) =~
                ~s(<a class="page-btn" href="/resume/" role="switch" aria-checked="false">)
     end
 
     test "Portuguese resume switch is off and links to /pt/resume/" do
-      assert home(:pt) =~
+      assert home(:pt_br) =~
                ~s(<a class="page-btn" href="/pt/resume/" role="switch" aria-checked="false">)
     end
 
     test "English JSON-LD is a valid Person with the English job title" do
-      assert %{"@type" => "Person", "jobTitle" => "Software Engineer"} = jsonld(home(:en))
+      assert %{"@type" => "Person", "jobTitle" => "Software Engineer"} = jsonld(home(:en_us))
     end
 
     test "Portuguese JSON-LD is a valid Person with the Portuguese job title" do
-      assert %{"@type" => "Person", "jobTitle" => "Engenheiro de Software"} = jsonld(home(:pt))
+      assert %{"@type" => "Person", "jobTitle" => "Engenheiro de Software"} = jsonld(home(:pt_br))
     end
 
     test "English page uses only icons defined in the sprite" do
-      assert icon_refs(home(:en)) -- sprite_ids() == []
+      assert icon_refs(home(:en_us)) -- sprite_ids() == []
     end
 
     test "Portuguese page uses only icons defined in the sprite" do
-      assert icon_refs(home(:pt)) -- sprite_ids() == []
+      assert icon_refs(home(:pt_br)) -- sprite_ids() == []
     end
 
     test "leaves no template tags in the English page" do
-      refute home(:en) =~ "<%"
+      refute home(:en_us) =~ "<%"
     end
 
     test "leaves no template tags in the Portuguese page" do
-      refute home(:pt) =~ "<%"
+      refute home(:pt_br) =~ "<%"
     end
   end
 
   describe "resume/2" do
     test "writes the English resume to resume/index.html", %{resume: resume} do
-      assert {"resume/index.html", _html} = Pages.resume(:en, resume)
+      assert {"resume/index.html", _html} = Pages.resume(:en_us, resume)
     end
 
     test "writes the Portuguese resume to pt/resume/index.html", %{resume: resume} do
-      assert {"pt/resume/index.html", _html} = Pages.resume(:pt, resume)
+      assert {"pt/resume/index.html", _html} = Pages.resume(:pt_br, resume)
     end
 
     test "has the English title", %{resume: resume} do
-      assert resume(:en, resume) =~ "<title>Raul Pereira (raulpe7eira) - Resume</title>"
+      assert resume(:en_us, resume) =~ "<title>Raul Pereira (raulpe7eira) - Resume</title>"
     end
 
     test "has the Portuguese title", %{resume: resume} do
-      assert resume(:pt, resume) =~ "<title>Raul Pereira (raulpe7eira) - Currículo</title>"
+      assert resume(:pt_br, resume) =~ "<title>Raul Pereira (raulpe7eira) - Currículo</title>"
     end
 
     test "English canonical points to itself", %{resume: resume} do
-      assert resume(:en, resume) =~
+      assert resume(:en_us, resume) =~
                ~s(<link rel="canonical" href="https://raulpe7eira.tech/resume/" />)
     end
 
     test "Portuguese canonical points to itself", %{resume: resume} do
-      assert resume(:pt, resume) =~
+      assert resume(:pt_br, resume) =~
                ~s(<link rel="canonical" href="https://raulpe7eira.tech/pt/resume/" />)
     end
 
     test "English language switch links to the Portuguese resume", %{resume: resume} do
-      assert resume(:en, resume) =~ ~s(<a class="lang-btn" href="/pt/resume/" hreflang="pt-BR")
+      assert resume(:en_us, resume) =~ ~s(<a class="lang-btn" href="/pt/resume/" hreflang="pt-BR")
     end
 
     test "English resume switch is on and links back home", %{resume: resume} do
-      assert resume(:en, resume) =~
+      assert resume(:en_us, resume) =~
                ~s(<a class="page-btn on" href="/" role="switch" aria-checked="true" aria-current="page">)
     end
 
     test "Portuguese resume switch is on and links back home", %{resume: resume} do
-      assert resume(:pt, resume) =~
+      assert resume(:pt_br, resume) =~
                ~s(<a class="page-btn on" href="/pt/" role="switch" aria-checked="true" aria-current="page">)
     end
 
     test "loads the resume styles", %{resume: resume} do
-      assert resume(:en, resume) =~ ~s(<link rel="stylesheet" href="/assets/css/resume.css" />)
+      assert resume(:en_us, resume) =~ ~s(<link rel="stylesheet" href="/assets/css/resume.css" />)
     end
 
     test "English JSON-LD is a ProfilePage in English", %{resume: resume} do
-      assert %{"@type" => "ProfilePage", "inLanguage" => "en"} = jsonld(resume(:en, resume))
+      assert %{"@type" => "ProfilePage", "inLanguage" => "en-US"} = jsonld(resume(:en_us, resume))
     end
 
     test "Portuguese JSON-LD is a ProfilePage in Portuguese", %{resume: resume} do
-      assert %{"@type" => "ProfilePage", "inLanguage" => "pt-BR"} = jsonld(resume(:pt, resume))
+      assert %{"@type" => "ProfilePage", "inLanguage" => "pt-BR"} = jsonld(resume(:pt_br, resume))
     end
 
     test "English page links the English PDF", %{resume: resume} do
-      assert resume(:en, resume) =~ ~s(href="raul-pereira-da-silva-resume.pdf" download)
+      assert resume(:en_us, resume) =~
+               ~s(href="/downloads/raul-pereira-da-silva-resume-en-us.pdf" download="raul-pereira-da-silva-resume.pdf")
     end
 
     test "Portuguese page links the Portuguese PDF", %{resume: resume} do
-      assert resume(:pt, resume) =~ ~s(href="raul-pereira-da-silva-curriculo.pdf" download)
+      assert resume(:pt_br, resume) =~
+               ~s(href="/downloads/raul-pereira-da-silva-resume-pt-br.pdf" download="raul-pereira-da-silva-curriculo.pdf")
     end
 
     test "has the English section titles", %{resume: resume} do
-      assert resume(:en, resume) =~ "<h2>Experience</h2>"
+      assert resume(:en_us, resume) =~ "<h2>Experience</h2>"
     end
 
     test "has the Portuguese section titles", %{resume: resume} do
-      assert resume(:pt, resume) =~ "<h2>Experiência</h2>"
+      assert resume(:pt_br, resume) =~ "<h2>Experiência</h2>"
     end
 
     test "escapes text from the data", %{resume: resume} do
-      assert resume(:en, resume) =~ "Amex&#x27;s travel platform"
+      assert resume(:en_us, resume) =~ "Amex&#x27;s travel platform"
     end
 
     test "marks companies that were acquired", %{resume: resume} do
-      assert resume(:en, resume) =~
+      assert resume(:en_us, resume) =~
                ~s(<span class="acq" title="acquired by Evertec">acquired</span>)
     end
 
     test "marks schools that closed", %{resume: resume} do
-      assert resume(:pt, resume) =~ ~s(title="Encerrado em 2014")
+      assert resume(:pt_br, resume) =~ ~s(title="Encerrado em 2014")
     end
 
     test "leaves no whitespace between the stack chips", %{resume: resume} do
-      assert resume(:en, resume) =~ "<span>Elixir</span><span>Phoenix</span>"
+      assert resume(:en_us, resume) =~ "<span>Elixir</span><span>Phoenix</span>"
     end
 
     test "uses only logos that exist", %{resume: resume} do
       logos =
-        ~r{src="/resume/lg/([\w-]+\.png)"}
-        |> Regex.scan(resume(:en, resume), capture: :all_but_first)
+        ~r{src="/assets/images/logos/([\w-]+\.png)"}
+        |> Regex.scan(resume(:en_us, resume), capture: :all_but_first)
         |> List.flatten()
 
-      assert Enum.reject(logos, &File.exists?(Path.join("docs/resume/lg", &1))) == []
+      assert Enum.reject(logos, &File.exists?(Path.join("docs/assets/images/logos", &1))) == []
     end
 
     test "English page uses only icons defined in the sprite", %{resume: resume} do
-      assert icon_refs(resume(:en, resume)) -- sprite_ids() == []
+      assert icon_refs(resume(:en_us, resume)) -- sprite_ids() == []
     end
 
     test "Portuguese page uses only icons defined in the sprite", %{resume: resume} do
-      assert icon_refs(resume(:pt, resume)) -- sprite_ids() == []
+      assert icon_refs(resume(:pt_br, resume)) -- sprite_ids() == []
     end
 
     test "leaves no template tags in the English page", %{resume: resume} do
-      refute resume(:en, resume) =~ "<%"
+      refute resume(:en_us, resume) =~ "<%"
     end
 
     test "leaves no template tags in the Portuguese page", %{resume: resume} do
-      refute resume(:pt, resume) =~ "<%"
+      refute resume(:pt_br, resume) =~ "<%"
     end
   end
 
   describe "resume_pdf/3" do
     test "names the English PDF", %{resume: resume} do
-      assert {"resume/raul-pereira-da-silva-resume.pdf", _html} =
-               Pages.resume_pdf(:en, resume, "/fonts")
+      assert {"downloads/raul-pereira-da-silva-resume-en-us.pdf", _html} =
+               Pages.resume_pdf(:en_us, resume, "/fonts")
     end
 
     test "names the Portuguese PDF", %{resume: resume} do
-      assert {"pt/resume/raul-pereira-da-silva-curriculo.pdf", _html} =
-               Pages.resume_pdf(:pt, resume, "/fonts")
+      assert {"downloads/raul-pereira-da-silva-resume-pt-br.pdf", _html} =
+               Pages.resume_pdf(:pt_br, resume, "/fonts")
     end
 
     test "sets the English document title", %{resume: resume} do
-      assert pdf(:en, resume) =~ "<title>Raul Pereira da Silva - Resume</title>"
+      assert pdf(:en_us, resume) =~ "<title>Raul Pereira da Silva - Resume</title>"
     end
 
     test "sets the Portuguese document title", %{resume: resume} do
-      assert pdf(:pt, resume) =~ "<title>Raul Pereira da Silva - Currículo</title>"
+      assert pdf(:pt_br, resume) =~ "<title>Raul Pereira da Silva - Currículo</title>"
     end
 
     test "loads the fonts from fonts_dir", %{resume: resume} do
-      assert pdf(:en, resume) =~ ~s{url("/fonts/Inter-Regular.ttf")}
+      assert pdf(:en_us, resume) =~ ~s{url("/fonts/Inter-Regular.ttf")}
     end
 
     test "condenses roles that ended up to 2012 under earlier experience", %{resume: resume} do
-      assert pdf(:en, resume) =~
+      assert pdf(:en_us, resume) =~
                ~s(<b><a href="https://atos.net">Atos</a></b><span>Senior System Analyst · )
     end
 
     test "keeps the full entry of roles that ended after 2012", %{resume: resume} do
-      assert pdf(:en, resume) =~ ~s(<div class="jh"><span><a href="https://www.brq.com">BRQ</a>)
+      assert pdf(:en_us, resume) =~
+               ~s(<div class="jh"><span><a href="https://www.brq.com">BRQ</a>)
     end
 
     test "joins references and stack on one line", %{resume: resume} do
-      assert pdf(:en, resume) =~ "<i>Projects:</i> iSeatz &nbsp;·&nbsp; <i>Stack:</i> Elixir"
+      assert pdf(:en_us, resume) =~ "<i>Projects:</i> iSeatz &nbsp;·&nbsp; <i>Stack:</i> Elixir"
     end
 
     test "joins clients and projects on one line", %{resume: resume} do
-      assert pdf(:en, resume) =~ "Bioxxi &nbsp;·&nbsp; <i>Projects:</i> ARCA (Fiocruz)"
+      assert pdf(:en_us, resume) =~ "Bioxxi &nbsp;·&nbsp; <i>Projects:</i> ARCA (Fiocruz)"
     end
 
     test "leaves no template tags", %{resume: resume} do
-      refute pdf(:en, resume) =~ "<%"
+      refute pdf(:en_us, resume) =~ "<%"
     end
   end
 
