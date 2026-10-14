@@ -1,0 +1,33 @@
+# raulpe7eira
+
+> Software engineer with 20+ years of experience, focused on Elixir and AI. Cycling enthusiast who loves being with the family.
+
+## About
+
+Raul Pereira (raulpe7eira) is a software engineer based in Brazil with 20+ years of professional experience, currently focused on Elixir and AI, with previous extensive work in Kotlin, Java, and JavaScript. He completed his undergraduate degree in 2001 at the former UniverCidade, and holds postgraduate degrees in "Systems Analysis, Design and Management" and "Ergonomics, Usability and Human-Computer Interaction: Ergodesign and Interface Evaluation" at PUC-Rio.
+
+## Resume
+
+Full resume (experience, clients, education and skills), generated from his LinkedIn profile:
+
+- Resume (EN): <%= @resume_en_us %>
+- Resume (PT): <%= @resume_pt_br %>
+- Resume PDF (EN): <%= @pdf_en_us %>
+- Resume PDF (PT): <%= @pdf_pt_br %>
+
+Career highlights: <%= @highlights %>
+
+## Links
+
+- Website: <%= @base_url %>
+- Website (PT): <%= @home_pt_br %>
+- GitHub: https://github.com/raulpe7eira
+- LinkedIn: https://linkedin.com/in/raulpe7eira
+- X: https://x.com/raulpe7eira
+- Bluesky: https://bsky.app/profile/raulpe7eira.tech
+- Instagram: https://instagram.com/raulpe7eira
+- Facebook: https://facebook.com/raulpe7eira
+- Strava: https://strava.com/athletes/raulpe7eira
+- IMDb: https://imdb.com/user/ur28106453
+- Last.fm: https://last.fm/user/raulpereira
+- Email: raul.pereira@gmail.com

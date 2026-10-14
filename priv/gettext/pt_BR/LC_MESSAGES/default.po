@@ -2,57 +2,57 @@ msgid ""
 msgstr ""
 "Language: pt_BR\n"
 
-#: lib/site/pages.ex:46
-#: lib/site/pages.ex:57
-#: lib/site/pages.ex:92
-#: lib/site/pages.ex:98
-#: lib/site/pages.ex:126
+#: lib/site/pages.ex:100
+#: lib/site/pages.ex:111
+#: lib/site/pages.ex:146
+#: lib/site/pages.ex:152
+#: lib/site/pages.ex:180
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Engenheiro de Software"
 
-#: lib/site/pages.ex:59
+#: lib/site/pages.ex:113
 #, elixir-autogen
 msgid "home.description"
 msgstr "Engenheiro de software com mais de 20 anos de experiência, focado em Elixir e IA. Ciclista entusiasta que ama estar com a família."
 
-#: lib/site/pages.ex:133
+#: lib/site/pages.ex:187
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Currículo"
 
-#: lib/site/pages.ex:137
+#: lib/site/pages.ex:191
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "Ver em português"
 
-#: lib/site/pages.ex:139
+#: lib/site/pages.ex:193
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Foto de Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:140
+#: lib/site/pages.ex:194
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Programador apaixonado, e ciclista entusiasta,<br />que ama estar com a família"
 
-#: lib/site/pages.ex:141
+#: lib/site/pages.ex:195
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Feito com"
 
-#: lib/site/pages.ex:142
+#: lib/site/pages.ex:196
 #, elixir-autogen
 msgid "footer.by"
 msgstr "por"
 
-#: lib/site/pages.ex:45
-#: lib/site/pages.ex:83
+#: lib/site/pages.ex:99
+#: lib/site/pages.ex:137
 #, elixir-autogen
 msgid "resume.title"
 msgstr "Currículo"
 
-#: lib/site/pages.ex:84
+#: lib/site/pages.ex:138
 #, elixir-autogen
 msgid "resume.description"
 msgstr "Currículo de Raul Pereira da Silva (raulpe7eira), engenheiro de software com 20+ anos em backend, integração e liderança técnica, com foco em Elixir e IA."
@@ -112,7 +112,7 @@ msgstr "Clientes"
 msgid "resume.projects"
 msgstr "Projetos"
 
-#: lib/site/templates.ex:38
+#: lib/site/templates.ex:41
 #: priv/templates/resume/page.html.eex:76
 #, elixir-autogen
 msgid "resume.stack"

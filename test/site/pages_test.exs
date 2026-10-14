@@ -275,17 +275,102 @@ defmodule Site.PagesTest do
   end
 
   describe "all/1" do
-    test "renders every page, loading the resume data by default" do
-      assert Enum.map(Pages.all(), &elem(&1, 0)) ==
-               ["index.html", "resume/index.html", "pt/index.html", "pt/resume/index.html"]
+    test "renders every page and text file, loading the resume data by default" do
+      assert Enum.map(Pages.all(), &elem(&1, 0)) == [
+               "index.html",
+               "resume/index.html",
+               "pt/index.html",
+               "pt/resume/index.html",
+               "llms.txt",
+               "404.html"
+             ]
     end
 
-    test "renders every page from the given resume", %{resume: resume} do
-      assert length(Pages.all(resume)) == 4
+    test "renders every file from the given resume", %{resume: resume} do
+      assert length(Pages.all(resume)) == 6
+    end
+  end
+
+  describe "sitemap_pages/0" do
+    test "lists each page with its URL, homes first" do
+      assert Pages.sitemap_pages() == [
+               {"index.html", "https://raulpe7eira.tech/"},
+               {"pt/index.html", "https://raulpe7eira.tech/pt/"},
+               {"resume/index.html", "https://raulpe7eira.tech/resume/"},
+               {"pt/resume/index.html", "https://raulpe7eira.tech/pt/resume/"}
+             ]
+    end
+  end
+
+  describe "sitemap/1" do
+    test "writes to sitemap.xml" do
+      assert {"sitemap.xml", _xml} = Pages.sitemap(lastmods())
+    end
+
+    test "lists every page" do
+      assert length(Regex.scan(~r{<loc>}, sitemap())) == 4
+    end
+
+    test "dates each page with its lastmod" do
+      assert sitemap() =~
+               ~r{<loc>https://raulpe7eira.tech/pt/resume/</loc>.*?<lastmod>2026-01-04</lastmod>}s
+    end
+
+    test "links the Portuguese alternate of each page" do
+      assert sitemap() =~
+               ~s(<xhtml:link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/resume/" />)
+    end
+
+    test "points x-default to the English page" do
+      assert sitemap() =~
+               ~s(<xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/resume/" />)
+    end
+
+    test "has no changefreq or priority" do
+      refute sitemap() =~ ~r/changefreq|priority/
+    end
+  end
+
+  describe "llms/1" do
+    test "writes to llms.txt", %{resume: resume} do
+      assert {"llms.txt", _text} = Pages.llms(resume)
+    end
+
+    test "links the Portuguese PDF", %{resume: resume} do
+      assert llms(resume) =~
+               "- Resume PDF (PT): https://raulpe7eira.tech/downloads/raul-pereira-da-silva-resume-pt-br.pdf"
+    end
+
+    test "takes the career highlights from the data", %{resume: resume} do
+      assert llms(resume) =~ "Career highlights: " <> resume.highlights.en_us
+    end
+  end
+
+  describe "not_found/0" do
+    test "writes to 404.html" do
+      assert {"404.html", _html} = Pages.not_found()
+    end
+
+    test "sends unknown Portuguese addresses to the Portuguese home" do
+      assert not_found() =~ ~s(var homes = ["/pt/"];)
+    end
+
+    test "is in the default locale" do
+      assert not_found() =~ ~s(<html lang="en-US">)
     end
   end
 
   defp home(lang), do: lang |> Pages.home() |> elem(1)
+  defp sitemap, do: lastmods() |> Pages.sitemap() |> elem(1)
+  defp llms(resume), do: resume |> Pages.llms() |> elem(1)
+  defp not_found, do: elem(Pages.not_found(), 1)
+
+  defp lastmods do
+    Pages.sitemap_pages()
+    |> Enum.with_index(1)
+    |> Map.new(fn {{_file, url}, day} -> {url, Date.new!(2026, 1, day)} end)
+  end
+
   defp resume(lang, resume), do: lang |> Pages.resume(resume) |> elem(1)
   defp pdf(lang, resume), do: lang |> Pages.resume_pdf(resume, "/fonts") |> elem(1)
 
