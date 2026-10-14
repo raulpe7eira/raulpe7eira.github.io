@@ -2,57 +2,57 @@ msgid ""
 msgstr ""
 "Language: en_US\n"
 
-#: lib/site/pages.ex:49
-#: lib/site/pages.ex:60
-#: lib/site/pages.ex:96
-#: lib/site/pages.ex:102
-#: lib/site/pages.ex:131
+#: lib/site/pages.ex:46
+#: lib/site/pages.ex:57
+#: lib/site/pages.ex:92
+#: lib/site/pages.ex:98
+#: lib/site/pages.ex:126
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Software Engineer"
 
-#: lib/site/pages.ex:62
+#: lib/site/pages.ex:59
 #, elixir-autogen
 msgid "home.description"
 msgstr "Software engineer with 20+ years of experience, focused on Elixir and AI. Cycling enthusiast who loves being with the family."
 
-#: lib/site/pages.ex:138
+#: lib/site/pages.ex:133
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Resume"
 
-#: lib/site/pages.ex:142
+#: lib/site/pages.ex:137
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "View in English"
 
-#: lib/site/pages.ex:144
+#: lib/site/pages.ex:139
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Photo of Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:145
+#: lib/site/pages.ex:140
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Passionate coder, and cycling enthusiast,<br />who loves being with the family"
 
-#: lib/site/pages.ex:146
+#: lib/site/pages.ex:141
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Made with"
 
-#: lib/site/pages.ex:147
+#: lib/site/pages.ex:142
 #, elixir-autogen
 msgid "footer.by"
 msgstr "by"
 
-#: lib/site/pages.ex:48
-#: lib/site/pages.ex:87
+#: lib/site/pages.ex:45
+#: lib/site/pages.ex:83
 #, elixir-autogen
 msgid "resume.title"
 msgstr "Resume"
 
-#: lib/site/pages.ex:88
+#: lib/site/pages.ex:84
 #, elixir-autogen
 msgid "resume.description"
 msgstr "Resume of Raul Pereira da Silva (raulpe7eira): software engineer with 20+ years in backend, system integration and tech leadership, focused on Elixir and AI."
