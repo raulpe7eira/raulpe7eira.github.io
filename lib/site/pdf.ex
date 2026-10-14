@@ -27,7 +27,7 @@ defmodule Site.Pdf do
   end
 
   defp print(lang, out, resume) do
-    {file, html} = Pages.resume_pdf(lang, resume, Application.app_dir(:site, "priv/fonts"))
+    {file, html} = Pages.resume_pdf(lang, resume, Path.expand("docs/assets/fonts"))
 
     # printed from a file so Chrome can load the fonts from disk
     source = Path.join(System.tmp_dir!(), "site-resume-#{lang}.html")

@@ -2,57 +2,57 @@
 msgid ""
 msgstr ""
 
-#: lib/site/pages.ex:49
-#: lib/site/pages.ex:60
-#: lib/site/pages.ex:96
-#: lib/site/pages.ex:102
-#: lib/site/pages.ex:131
+#: lib/site/pages.ex:46
+#: lib/site/pages.ex:57
+#: lib/site/pages.ex:92
+#: lib/site/pages.ex:98
+#: lib/site/pages.ex:126
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr ""
 
-#: lib/site/pages.ex:62
+#: lib/site/pages.ex:59
 #, elixir-autogen
 msgid "home.description"
 msgstr ""
 
-#: lib/site/pages.ex:138
+#: lib/site/pages.ex:133
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr ""
 
-#: lib/site/pages.ex:142
+#: lib/site/pages.ex:137
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr ""
 
-#: lib/site/pages.ex:144
+#: lib/site/pages.ex:139
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr ""
 
-#: lib/site/pages.ex:145
+#: lib/site/pages.ex:140
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr ""
 
-#: lib/site/pages.ex:146
+#: lib/site/pages.ex:141
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr ""
 
-#: lib/site/pages.ex:147
+#: lib/site/pages.ex:142
 #, elixir-autogen
 msgid "footer.by"
 msgstr ""
 
-#: lib/site/pages.ex:48
-#: lib/site/pages.ex:87
+#: lib/site/pages.ex:45
+#: lib/site/pages.ex:83
 #, elixir-autogen
 msgid "resume.title"
 msgstr ""
 
-#: lib/site/pages.ex:88
+#: lib/site/pages.ex:84
 #, elixir-autogen
 msgid "resume.description"
 msgstr ""

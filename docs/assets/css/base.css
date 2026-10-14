@@ -1,4 +1,11 @@
 /* Shared styles: home and resume pages */
+
+/* Inter, self-hosted: Latin subset in WOFF2 (same files the resume PDF embeds).
+   Only the weights the site uses; bold text takes 600, as it did with Google Fonts. */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/inter-regular.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/inter-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('/assets/fonts/inter-semibold.woff2') format('woff2'); }
+
 :root {
   --bg: #282a36;
   --fg: #f8f8f2;

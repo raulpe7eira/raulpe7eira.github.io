@@ -146,6 +146,15 @@ defmodule Site.PagesTest do
                ~s(<a class="page-btn on" href="/pt/" role="switch" aria-checked="true" aria-current="page">)
     end
 
+    test "loads no fonts from Google", %{resume: resume} do
+      refute resume(:en_us, resume) =~ "fonts.googleapis.com"
+    end
+
+    test "preloads the self-hosted font", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<link rel="preload" href="/assets/fonts/inter-regular.woff2")
+    end
+
     test "loads the resume styles", %{resume: resume} do
       assert resume(:en_us, resume) =~ ~s(<link rel="stylesheet" href="/assets/css/resume.css" />)
     end
@@ -239,7 +248,7 @@ defmodule Site.PagesTest do
     end
 
     test "loads the fonts from fonts_dir", %{resume: resume} do
-      assert pdf(:en_us, resume) =~ ~s{url("/fonts/Inter-Regular.ttf")}
+      assert pdf(:en_us, resume) =~ ~s{url("/fonts/inter-regular.woff2")}
     end
 
     test "condenses roles that ended up to 2012 under earlier experience", %{resume: resume} do

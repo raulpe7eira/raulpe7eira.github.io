@@ -9,9 +9,6 @@ defmodule Site.Pages do
   alias Site.ResumeView
   alias Site.Templates
 
-  @fonts_home "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-  @fonts_resume "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400&display=swap"
-
   @doc """
   Returns `{relative_output_path, html}` for every page, in both languages.
 
@@ -35,8 +32,8 @@ defmodule Site.Pages do
 
   @doc """
   Renders the HTML that is printed to the resume PDF in `lang`. Returns
-  `{relative_pdf_path, html}`; `fonts_dir` is where the Inter TTF files are
-  (the PDF embeds them, so it doesn't depend on Google Fonts).
+  `{relative_pdf_path, html}`; `fonts_dir` is where the Inter WOFF2 files are
+  (`docs/assets/fonts/`, the same the site serves; the PDF embeds them).
   """
   def resume_pdf(lang, resume, fonts_dir) do
     Locale.with_locale(lang, fn ->
@@ -74,7 +71,6 @@ defmodule Site.Pages do
         title: "Raul Pereira (raulpe7eira) - " <> job_title,
         description: description,
         og_type: "website",
-        fonts_href: @fonts_home,
         extra_head: "",
         jsonld: trim(jsonld),
         content: trim(article) <> "\n\n" <> trim(Templates.social([]))
@@ -110,7 +106,6 @@ defmodule Site.Pages do
         title: title,
         description: description,
         og_type: "profile",
-        fonts_href: @fonts_resume,
         extra_head: ~s(  <link rel="stylesheet" href="/assets/css/resume.css" />\n),
         jsonld: trim(jsonld),
         content: "    " <> (section |> Html.strip_whitespace_between_tags() |> String.trim())

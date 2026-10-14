@@ -6,10 +6,10 @@
 <title><%= escape(@title) %></title>
 <style>
 a{color:inherit;text-decoration:none}
-@font-face{font-family:CV;src:url("<%= @fonts_dir %>/Inter-Regular.ttf")}
-@font-face{font-family:CV;font-style:italic;src:url("<%= @fonts_dir %>/Inter-Italic.ttf")}
-@font-face{font-family:CV;font-weight:600;src:url("<%= @fonts_dir %>/Inter-SemiBold.ttf")}
-@font-face{font-family:CV;font-weight:700;src:url("<%= @fonts_dir %>/Inter-Bold.ttf")}
+@font-face{font-family:CV;src:url("<%= @fonts_dir %>/inter-regular.woff2")}
+@font-face{font-family:CV;font-style:italic;src:url("<%= @fonts_dir %>/inter-italic.woff2")}
+@font-face{font-family:CV;font-weight:600;src:url("<%= @fonts_dir %>/inter-semibold.woff2")}
+@font-face{font-family:CV;font-weight:700;src:url("<%= @fonts_dir %>/inter-bold.woff2")}
 @page{size:A4;margin:7mm 13mm}
 *{margin:0;box-sizing:border-box}
 body{font-family:CV,sans-serif;font-feature-settings:"calt" 0;font-size:8.6pt;line-height:1.25;color:#111}
