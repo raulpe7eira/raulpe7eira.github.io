@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+
+#: lib/site/pages.ex:27
+#: lib/site/pages.ex:62
+#, elixir-autogen
+msgid "profile.job_title"
+msgstr "Engenheiro de Software"
+
+#: lib/site/pages.ex:29
+#, elixir-autogen
+msgid "home.description"
+msgstr "Engenheiro de software com mais de 20 anos de experiência, focado em Elixir e IA. Ciclista entusiasta que ama estar com a família."
+
+#: lib/site/pages.ex:69
+#, elixir-autogen
+msgid "toolbar.resume"
+msgstr "Currículo"
+
+#: lib/site/pages.ex:73
+#, elixir-autogen
+msgid "toolbar.switch_language"
+msgstr "Ver em português"
+
+#: lib/site/pages.ex:75
+#, elixir-autogen
+msgid "header.avatar_alt"
+msgstr "Foto de Raul Pereira (raulpe7eira)"
+
+#: lib/site/pages.ex:76
+#, elixir-autogen
+msgid "header.subtitle"
+msgstr "Programador apaixonado, e ciclista entusiasta,<br />que ama estar com a família"
+
+#: lib/site/pages.ex:77
+#, elixir-autogen
+msgid "footer.made_with"
+msgstr "Feito com"
+
+#: lib/site/pages.ex:78
+#, elixir-autogen
+msgid "footer.by"
+msgstr "por"

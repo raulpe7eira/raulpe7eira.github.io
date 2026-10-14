@@ -29,6 +29,7 @@ defmodule Site.MixProject do
 
   defp deps do
     [
+      {:gettext, "~> 1.0"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.18", only: :test},
       {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false}
@@ -40,6 +41,7 @@ defmodule Site.MixProject do
       precommit: [
         "compile --warnings-as-errors",
         "deps.unlock --check-unused",
+        "gettext.extract --merge",
         "format",
         "credo",
         "deps.audit",

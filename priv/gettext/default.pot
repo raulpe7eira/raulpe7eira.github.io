@@ -1,0 +1,44 @@
+## Interface text of the site, by key. Run `mix gettext.extract --merge` after changing gettext calls.
+msgid ""
+msgstr ""
+
+#: lib/site/pages.ex:27
+#: lib/site/pages.ex:62
+#, elixir-autogen
+msgid "profile.job_title"
+msgstr ""
+
+#: lib/site/pages.ex:29
+#, elixir-autogen
+msgid "home.description"
+msgstr ""
+
+#: lib/site/pages.ex:69
+#, elixir-autogen
+msgid "toolbar.resume"
+msgstr ""
+
+#: lib/site/pages.ex:73
+#, elixir-autogen
+msgid "toolbar.switch_language"
+msgstr ""
+
+#: lib/site/pages.ex:75
+#, elixir-autogen
+msgid "header.avatar_alt"
+msgstr ""
+
+#: lib/site/pages.ex:76
+#, elixir-autogen
+msgid "header.subtitle"
+msgstr ""
+
+#: lib/site/pages.ex:77
+#, elixir-autogen
+msgid "footer.made_with"
+msgstr ""
+
+#: lib/site/pages.ex:78
+#, elixir-autogen
+msgid "footer.by"
+msgstr ""
