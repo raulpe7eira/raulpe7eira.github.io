@@ -28,6 +28,7 @@ jobs:
       - run: mix deps.unlock --check-unused
       - run: mix format --check-formatted
       - run: mix credo
+      - run: mix gettext.extract --check-up-to-date
       - run: mix deps.audit
 
       - name: Tests with coverage (posted to Coveralls)

@@ -79,14 +79,11 @@ defmodule Site.Pages do
     }
   end
 
-  # The toolbar switch is "on" on the resume page and links back home.
+  # The toolbar switch is off on the home and links to the resume.
+  # The resume page will add an "on" clause that links back home.
   defp page_btn_attrs(lang, :home),
     do:
       ~s(class="page-btn" href="#{Locale.path(lang, :resume)}" role="switch" aria-checked="false")
-
-  defp page_btn_attrs(lang, :resume),
-    do:
-      ~s(class="page-btn on" href="#{Locale.path(lang, :home)}" role="switch" aria-checked="true" aria-current="page")
 
   defp output_file(lang, page),
     do: Path.join(String.trim_leading(Locale.path(lang, page), "/"), "index.html")
