@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="<%= @lang %>">
+
+<head>
+  <!-- Analytics (production only - won't fire on file:// or localhost) -->
+  <script async src="https://plausible.io/js/pa-nAUxwgQ1pudq_MQWBj_iS.js"></script>
+  <script async src="/assets/js/analytics.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Language" content="<%= @lang %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= @title %></title>
+  <meta name="description" content="<%= @description %>" />
+  <meta name="author" content="raulpe7eira" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="<%= @og_type %>" />
+  <meta property="og:title" content="<%= @title %>" />
+  <meta property="og:description" content="<%= @description %>" />
+  <meta property="og:image" content="https://raulpe7eira.tech/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Raul Pereira (raulpe7eira) – <%= @job_title %>" />
+  <meta property="og:url" content="<%= @url %>" />
+  <meta property="og:site_name" content="raulpe7eira" />
+  <meta property="og:locale" content="<%= @og_locale %>" />
+  <meta property="og:locale:alternate" content="<%= @og_locale_alternate %>" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= @title %>" />
+  <meta name="twitter:description" content="<%= @description %>" />
+  <meta name="twitter:image" content="https://raulpe7eira.tech/images/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Raul Pereira (raulpe7eira) – <%= @job_title %>" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="<%= @url %>" />
+  <link rel="alternate" hreflang="en" href="<%= @url_en %>" />
+  <link rel="alternate" hreflang="pt-BR" href="<%= @url_pt %>" />
+  <link rel="alternate" hreflang="x-default" href="<%= @url_en %>" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png" />
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-194x194.png" sizes="194x194" />
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="/images/favicons/android-chrome-192x192.png" sizes="192x192" />
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
+  <link rel="manifest" href="/images/favicons/manifest.json" />
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+  <meta name="msapplication-TileColor" content="#ffc40d" />
+  <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png" />
+  <meta name="theme-color" content="#282a36" />
+
+  <!-- JSON-LD Structured Data -->
+<%= @jsonld %>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="<%= @fonts_href %>" rel="stylesheet" />
+
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="stylesheet" href="/assets/css/base.css" />
+<%= @extra_head %></head>
+
+<body>
+  <div class="hero" aria-hidden="true"></div>
+
+  <main>
+    <div class="toolbar">
+      <a <%= @page_btn_attrs %>><%= @page_btn_label %><span class="sw" aria-hidden="true"></span></a>
+      <a class="lang-btn" href="<%= @switch_href %>" hreflang="<%= @switch_lang %>" lang="<%= @switch_lang %>" aria-label="<%= @switch_label %>" title="<%= @switch_label %>"><%= @lang_code %></a>
+      <div class="theme-wrap">
+        <button class="theme-btn" aria-label="Change theme" title="Change theme">
+          <svg viewBox="0 0 24 24"><use href="/assets/icons.svg#palette"/></svg>
+        </button>
+        <div id="theme-panel" class="theme-panel" hidden>
+          <button data-theme="dracula"><span class="theme-dot"></span>Dracula</button>
+          <button data-theme="nord"><span class="theme-dot"></span>Nord</button>
+          <button data-theme="gruvbox"><span class="theme-dot"></span>Gruvbox</button>
+          <button data-theme="catppuccin"><span class="theme-dot"></span>Catppuccin</button>
+          <button data-theme="solarized"><span class="theme-dot"></span>Solarized</button>
+          <button data-theme="tokyonight"><span class="theme-dot"></span>Tokyo Night</button>
+          <button data-theme="rosepine"><span class="theme-dot"></span>Rose Pine</button>
+          <button data-theme="onedark"><span class="theme-dot"></span>One Dark</button>
+          <button data-theme="dark"><span class="theme-dot"></span>Dark</button>
+        </div>
+      </div>
+    </div>
+    <header class="profile">
+      <a class="profile-link" href="<%= @home_path %>" title="raulpe7eira.tech">
+      <span class="avatar-wrap"><img class="avatar" src="https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5?s=240" alt="<%= @avatar_alt %>" width="120" height="120" /></span>
+      <div class="title-container">
+        <h1>raulpe7eira</h1>
+        <p class="subtitle" id="subtitle-<%= @lang_key %>"><%= @subtitle %></p>
+      </div>
+      </a>
+    </header>
+
+<%= @content %>
+
+    <footer>
+      <p id="footer-<%= @lang_key %>"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" aria-label="R3M Tech"><%= @made_with %> <span class="heart">&hearts;</span> <%= @by %> <span class="r3m">R3M</span> <span class="tech">TECH</span></a></p>
+    </footer>
+  </main>
+
+  <script defer src="/assets/js/theme.js"></script>
+  <script defer src="/assets/js/nav.js"></script>
+</body>
+
+</html>

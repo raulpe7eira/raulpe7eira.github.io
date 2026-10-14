@@ -3,3 +3,9 @@
 
 # Playwright MCP server runtime data
 .playwright-mcp/
+
+# Elixir build artifacts
+/_build/
+/deps/
+/cover/
+/tmp/
