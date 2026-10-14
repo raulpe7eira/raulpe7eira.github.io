@@ -19,10 +19,12 @@ Requires Erlang/OTP and Elixir as pinned in `mise.toml` (`mise install`).
 mix deps.get
 mix site.build    # render the pages and the resume PDFs into docs/ (needs Chrome)
 mix site.build --no-pdf   # pages only
+mix site.serve --build    # build everything, then serve docs/ at http://localhost:8000 (--no-pdf to skip the PDFs)
+mix site.check    # fail on broken local links in docs/
 mix precommit     # compile with warnings as errors, format, credo, deps audit, tests with coverage
 ```
 
-Preview with any static server rooted at `docs/`, e.g. `python3 -m http.server -d docs 8000`.
+`mix site.serve` behaves like GitHub Pages: folders serve their `index.html`, `/resume` redirects to `/resume/` and unknown addresses get `404.html`.
 
 | Path | What it is |
 | --- | --- |
@@ -33,7 +35,7 @@ Preview with any static server rooted at `docs/`, e.g. `python3 -m http.server -
 | `docs/assets/` | CSS, JS, icons and images, edited directly |
 | `docs/downloads/` | resume PDFs (generated) |
 
-CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/`. Dependabot keeps Mix deps and GitHub Actions up to date.
+CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/` or `mix site.check` finds a broken link. Dependabot keeps Mix deps and GitHub Actions up to date.
 
 ---
 
