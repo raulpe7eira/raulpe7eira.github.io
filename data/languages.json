@@ -1,0 +1,23 @@
+[
+  {
+    "name": {
+      "en": "Portuguese",
+      "pt": "Português"
+    },
+    "proficiency": "native_or_bilingual"
+  },
+  {
+    "name": {
+      "en": "English",
+      "pt": "Inglês"
+    },
+    "proficiency": "professional_working"
+  },
+  {
+    "name": {
+      "en": "Spanish",
+      "pt": "Espanhol"
+    },
+    "proficiency": "elementary"
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "type": "ai",
+    "items": [
+      "LLM",
+      "LangChain",
+      "LangGraph",
+      "OpenAI",
+      "Gemini",
+      "CrewAI",
+      "Vector Databases"
+    ]
+  },
+  {
+    "type": "ai_coding",
+    "items": [
+      "Claude Code",
+      "Codex",
+      "Gemini CLI",
+      "Cursor",
+      "GitHub Copilot",
+      "Aider"
+    ]
+  },
+  {
+    "type": "programming",
+    "items": [
+      "Elixir",
+      "Erlang",
+      "Kotlin",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "Groovy",
+      "C++",
+      "SQL"
+    ]
+  },
+  {
+    "type": "frameworks",
+    "items": [
+      "Phoenix",
+      "LiveView",
+      "Oban",
+      "Spring Boot",
+      "Node.js",
+      "React.js",
+      "Grails"
+    ]
+  },
+  {
+    "type": "data",
+    "items": [
+      "PostgreSQL",
+      "Redis",
+      "ETS",
+      "Kafka",
+      "MongoDB",
+      "Neo4j",
+      "Oracle",
+      "MySQL"
+    ]
+  },
+  {
+    "type": "observability",
+    "items": [
+      "OpenTelemetry",
+      "Prometheus",
+      "Grafana",
+      "Jaeger",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Google Cloud"
+    ]
+  },
+  {
+    "type": "practices",
+    "items": [
+      "Distributed Systems",
+      "Microservices",
+      "Event Sourcing",
+      "Functional Programming",
+      "Team Leadership",
+      "Coaching and Mentoring",
+      "Scrum",
+      "Kanban"
+    ]
+  }
+]

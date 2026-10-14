@@ -1,0 +1,720 @@
+[
+  {
+    "company": "Arionkoder",
+    "url": "https://www.arionkoder.com",
+    "roles": [
+      {
+        "title": {
+          "en": "Software Engineer",
+          "pt": "Engenheiro de Software"
+        },
+        "started_on": "2025-10-01",
+        "location": {
+          "en": "Massachusetts, United States",
+          "pt": "Massachusetts, Estados Unidos"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "As a software engineer at iSeatz through Arionkoder, I work on the team that owns the hotel search service for Amex's travel platform: aggregating availability, rates and promotions, ranking results, and personalizing offers for logged-in members. My main stack has been Elixir and Phoenix.\n\n- Internationalization: mapped what the supplier integration covered in each market and built workarounds for the gaps to meet delivery deadlines\n- Reworked the Oban job that caches data to reduce search latency\n- Improved observability of that job to catch data sync issues proactively\n- Improved logs and error messages across the platform\n- Implemented OpenTelemetry context propagation across child and sibling spans for end-to-end tracing\n- Built new features, adjusted existing ones, fixed bugs and ran data extractions for analysis",
+          "pt": "Como engenheiro de software na iSeatz pela Arionkoder, trabalho no time responsável pelo serviço de busca de hotéis da plataforma de viagens da Amex: agregação de disponibilidade, tarifas e promoções, ordenação dos resultados e personalização de ofertas para membros logados. Minha stack principal tem sido Elixir e Phoenix.\n\n- Internacionalização: mapeei o que a integração com o fornecedor cobria em cada mercado e construí soluções alternativas para as lacunas, cumprindo os prazos de entrega\n- Reestruturei o job Oban que mantém em cache local os dados para reduzir a latência da busca\n- Melhorei a observabilidade desse job para identificar proativamente problemas de sincronização\n- Implementei a propagação de contexto do OpenTelemetry entre spans filhos e irmãos\n- Melhorei logs e mensagens de erro na plataforma\n- Desenvolvi novas funcionalidades, ajustei as existentes, corrigi bugs e fiz extrações de dados para análise"
+        },
+        "stack": [
+          "Elixir",
+          "Phoenix",
+          "Oban",
+          "Redis",
+          "ETS",
+          "PostgreSQL",
+          "OpenTelemetry",
+          "Jaeger",
+          "Grafana",
+          "Sumo Logic",
+          "AWS",
+          "Docker"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "iSeatz",
+            "url": "https://www.iseatz.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "R3M Tech",
+    "url": "https://r3m.tech",
+    "roles": [
+      {
+        "title": {
+          "en": "Founder",
+          "pt": "Fundador"
+        },
+        "started_on": "2012-06-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "My own company, through which I provide software development services as a contractor and take on freelance projects for research centers, mid-sized companies and startups.\n\n- Creation, maintenance, and enhancement of applications or services\n- Development of prototype applications for research",
+          "pt": "Minha empresa, por meio da qual presto serviços de desenvolvimento de software como PJ e assumo projetos freelance para centros de pesquisa, empresas de médio porte e startups.\n\n- Criação, manutenção e evolução de aplicações e serviços\n- Desenvolvimento de protótipos de aplicações para pesquisa"
+        },
+        "stack": [],
+        "clients": [
+          {
+            "name": "Arionkoder",
+            "url": "https://www.arionkoder.com"
+          },
+          {
+            "name": "Coverflex",
+            "url": "https://www.coverflex.com"
+          },
+          {
+            "name": "Fiocruz",
+            "url": "https://portal.fiocruz.br"
+          },
+          {
+            "name": "Meu Patrocínio",
+            "url": "https://www.meupatrocinio.com"
+          },
+          {
+            "name": "Bioxxi",
+            "url": "https://bioxxi.com.br"
+          }
+        ],
+        "projects": [
+          {
+            "name": "ARCA (Fiocruz)",
+            "url": "https://arca.fiocruz.br"
+          },
+          {
+            "name": "Consuxx (Bioxxi)",
+            "url": "https://bioxxi.com.br"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "CloudWalk, Inc.",
+    "url": "https://www.cloudwalk.io",
+    "roles": [
+      {
+        "title": {
+          "en": "Software Engineer",
+          "pt": "Engenheiro de Software"
+        },
+        "started_on": "2024-09-01",
+        "finished_on": "2025-09-01",
+        "location": {
+          "en": "São Paulo, Brazil",
+          "pt": "São Paulo, Brasil"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "As a software engineer at CloudWalk, I was part of an amazing team that built JIM, an AI agent for banking operations on InfinitePay in Brazil and the US, using Elixir and the BEAM.\n\n- Standardized observability across the agent with Prometheus and OpenTelemetry\n- Supported the expansion to the US market\n- Built an encrypted upload system for customer images, with access restricted by design\n- Improved database performance\n- Improved the LiveView backoffice\n- Implemented Kafka integrations and new service-to-service authentication methods\n- Built agent tools in collaboration with other teams and contributed to the MCP integration we built",
+          "pt": "Como engenheiro de software na CloudWalk, fiz parte de um time incrível que construiu o JIM, um agente de IA para operações bancárias na InfinitePay no Brasil e nos EUA, usando Elixir e a BEAM.\n\n- Padronizei a observabilidade do agente com Prometheus e OpenTelemetry\n- Apoiei a expansão para o mercado dos EUA\n- Construí um sistema de upload criptografado de imagens de clientes, com acesso restrito por design\n- Melhorei a performance do banco de dados\n- Melhorei o backoffice em LiveView\n- Implementei integrações com Kafka e novos métodos de autenticação entre serviços\n- Construí tools para o agente em colaboração com outros times e contribuí com a integração MCP que construímos"
+        },
+        "stack": [
+          "Elixir",
+          "Phoenix",
+          "LiveView",
+          "Oban",
+          "Kafka",
+          "PostgreSQL",
+          "Neo4j",
+          "Redis",
+          "OpenAI",
+          "Gemini",
+          "LangChain",
+          "Vector Databases",
+          "MCP",
+          "Rust",
+          "OpenTelemetry",
+          "Prometheus",
+          "Grafana",
+          "Google Cloud",
+          "Kubernetes"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "InfinitePay",
+            "url": "https://www.infinitepay.io"
+          },
+          {
+            "name": "JIM",
+            "url": "https://www.jim.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Coverflex",
+    "url": "https://www.coverflex.com",
+    "roles": [
+      {
+        "title": {
+          "en": "Backend Engineer",
+          "pt": "Engenheiro Backend"
+        },
+        "started_on": "2022-08-01",
+        "finished_on": "2024-07-01",
+        "location": {
+          "en": "Braga, Portugal",
+          "pt": "Braga, Portugal"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "As a backend engineer at Coverflex, an employee benefits platform in Portugal, Italy and Spain, I supported the web, mobile and backoffice applications using Elixir and Phoenix.\n\n- Automated invoice processing for childcare services\n- Implemented dynamic pricing adjustments for cards\n- Introduced dedicated IBAN for all companies\n- Participated in the Santander kick-off and developed exclusive features\n- Expanded support for multiple insurances\n- Streamlined the employee re-onboarding process\n- Delivered improvements to the Apple marketplace\n- Participated in the Spanish market kick-off\n- Developed and optimized various bulk operations features",
+          "pt": "Como engenheiro backend na Coverflex, uma plataforma de benefícios para funcionários em Portugal, Itália e Espanha, dei suporte às aplicações web, mobile e de backoffice usando Elixir e Phoenix.\n\n- Automatizei o processamento de faturas para serviços de creche\n- Implementei ajustes dinâmicos de preços para cartões\n- Introduzi IBANs dedicados para todas as empresas\n- Participei do kick-off do Santander e desenvolvi funcionalidades exclusivas\n- Expandi o suporte a múltiplos provedores de seguros\n- Otimizei o processo de reonboarding de funcionários\n- Implementei melhorias no marketplace da Apple\n- Participei do kick-off do mercado espanhol\n- Desenvolvi e otimizei diversas funcionalidades para operações em massa"
+        },
+        "stack": [
+          "Elixir",
+          "Phoenix",
+          "LiveView",
+          "Oban",
+          "Commanded",
+          "PostgreSQL",
+          "Redis",
+          "ETS",
+          "React.js",
+          "TypeScript",
+          "AWS",
+          "Docker",
+          "Kubernetes"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  },
+  {
+    "company": "Jaya Tech",
+    "url": "https://jaya.tech",
+    "roles": [
+      {
+        "title": {
+          "en": "Tech Coordinator",
+          "pt": "Coordenador Técnico"
+        },
+        "started_on": "2021-05-01",
+        "finished_on": "2022-07-01",
+        "location": {
+          "en": "São Paulo, Brazil",
+          "pt": "São Paulo, Brasil"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "As a tech coordinator at Jaya Tech, I supported multiple teams delivering microservices-based solutions for clients such as PayGo, Swap, Vagas, CERC and Mercado Livre.\n\n- Mentored and developed new tech leads\n- Hired and set up new teams\n- Focused on each person's professional growth, aiming to make the teams fully autonomous",
+          "pt": "Como tech coordinator na Jaya Tech, apoiei vários times na entrega de soluções baseadas em microsserviços para clientes como PayGo, Swap, Vagas, CERC e Mercado Livre.\n\n- Mentorei e desenvolvi novos tech leads\n- Contratei e montei novos times\n- Foquei no crescimento profissional de cada pessoa, buscando tornar os times totalmente autônomos"
+        },
+        "stack": [
+          "Kotlin",
+          "Java",
+          "Spring Boot",
+          "Elixir",
+          "Phoenix",
+          "Clojure",
+          "Go",
+          "Python",
+          "Node.js",
+          "PHP",
+          ".NET",
+          "Android",
+          "iOS",
+          "PostgreSQL",
+          "Google Cloud",
+          "Kubernetes",
+          "Docker"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "PayGo",
+            "url": "https://paygo.com.br"
+          },
+          {
+            "name": "Swap",
+            "url": "https://swap.financial"
+          },
+          {
+            "name": "Vagas",
+            "url": "https://www.vagas.com.br"
+          },
+          {
+            "name": "Mercado Livre",
+            "url": "https://www.mercadolivre.com.br"
+          },
+          {
+            "name": "CERC",
+            "url": "https://www.cerc.inf.br"
+          }
+        ]
+      },
+      {
+        "title": {
+          "en": "Tech Lead",
+          "pt": "Líder Técnico"
+        },
+        "started_on": "2019-02-01",
+        "finished_on": "2021-04-01",
+        "location": {
+          "en": "São Paulo, Brazil",
+          "pt": "São Paulo, Brasil"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "As a tech lead at Jaya Tech, I led the team behind microservices-based solutions for C6 Bank's mobile apps and back-office systems, while also working as a backend developer and solutions analyst.\n\n- Mentored each team member's professional growth, aiming to make the team fully autonomous\n- Worked hands-on as a backend developer, mainly with Kotlin",
+          "pt": "Como tech lead na Jaya Tech, liderei o time responsável por soluções baseadas em microsserviços para os apps mobile e sistemas de back-office do C6 Bank, atuando também como desenvolvedor backend e analista de soluções.\n\n- Mentorei o crescimento profissional de cada pessoa do time, buscando torná-lo totalmente autônomo\n- Atuei diretamente como desenvolvedor backend, principalmente com Kotlin"
+        },
+        "stack": [
+          "Kotlin",
+          "Java",
+          "Spring Boot",
+          "Spring Security",
+          "Javalin",
+          "Koin",
+          "GraphQL",
+          "PostgreSQL",
+          "MongoDB",
+          "Redis",
+          "TypeScript",
+          "React.js",
+          "AWS",
+          "Docker",
+          "Kubernetes",
+          "Ansible",
+          "Prometheus",
+          "Grafana"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "C6 Bank",
+            "url": "https://www.c6bank.com.br"
+          }
+        ]
+      },
+      {
+        "title": {
+          "en": "Backend Developer",
+          "pt": "Desenvolvedor Backend"
+        },
+        "started_on": "2018-02-01",
+        "finished_on": "2019-02-01",
+        "location": {
+          "en": "São Paulo, Brazil",
+          "pt": "São Paulo, Brasil"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en": "As a consultant at Jaya Tech, I worked as a backend developer and solutions analyst on microservices-based solutions for mobile apps and back-office systems, for clients such as Guiabolso and C6 Bank.",
+          "pt": "Como consultor na Jaya Tech, atuei como desenvolvedor backend e analista de soluções em soluções baseadas em microsserviços para apps mobile e sistemas de back-office, para clientes como Guiabolso e C6 Bank."
+        },
+        "stack": [
+          "Kotlin",
+          "Java",
+          "Groovy",
+          "Spring Boot",
+          "Javalin",
+          "Koin",
+          "Vaadin",
+          "Gradle",
+          "MySQL",
+          "PostgreSQL",
+          "MongoDB",
+          "Elixir",
+          "AWS",
+          "Docker",
+          "Ansible"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "C6 Bank",
+            "url": "https://www.c6bank.com.br"
+          },
+          {
+            "name": "Guiabolso",
+            "url": "https://www.picpay.com",
+            "acquired_by": "PicPay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "SUPPLY MIDIA - EDI & ERP SOLUTIONS",
+    "url": "https://supplymidia.com.br",
+    "roles": [
+      {
+        "title": {
+          "en": "Fullstack Developer",
+          "pt": "Desenvolvedor Fullstack"
+        },
+        "started_on": "2017-10-01",
+        "finished_on": "2018-02-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a fullstack developer at Supply Midia, I developed and maintained new modules for an EDI system that integrates companies with their banks, using Java, JSF/PrimeFaces and PostgreSQL. I also built the landing page for one of the company's new products, using WordPress.",
+          "pt": "Como desenvolvedor fullstack na Supply Midia, desenvolvi e mantive novos módulos de um sistema de EDI que integra empresas aos seus bancos, usando Java, JSF/PrimeFaces e PostgreSQL. Também construí a landing page de um dos novos produtos da empresa, usando WordPress."
+        },
+        "stack": [
+          "Java",
+          "JSF",
+          "PrimeFaces",
+          "PostgreSQL",
+          "Maven",
+          "Jenkins",
+          "WordPress",
+          "PHP"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  },
+  {
+    "company": "SONDA",
+    "url": "https://www.sonda.com",
+    "roles": [
+      {
+        "title": {
+          "en": "Fullstack Developer",
+          "pt": "Desenvolvedor Fullstack"
+        },
+        "started_on": "2017-06-01",
+        "finished_on": "2017-10-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a fullstack developer at Sonda, I provided development services to BR Distribuidora, using Java on the backend and AngularJS on the frontend. I was responsible for the initial production release of a sales force portal intended for rollout across all of its gas stations.",
+          "pt": "Como desenvolvedor fullstack na Sonda, prestei serviços de desenvolvimento para a BR Distribuidora, usando Java no backend e AngularJS no frontend. Fui responsável pela primeira entrega em produção de um portal de força de vendas destinado a todos os seus postos de combustível."
+        },
+        "stack": [
+          "Java",
+          "JAX-RS",
+          "AngularJS",
+          "Node.js",
+          "WebSphere",
+          "Oracle",
+          "PL/SQL"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "BR Distribuidora",
+            "url": "https://www.vibraenergia.com.br",
+            "acquired_by": "Vibra"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Meu Patrocínio",
+    "url": "https://www.meupatrocinio.com",
+    "roles": [
+      {
+        "title": {
+          "en": "Frontend Developer",
+          "pt": "Desenvolvedor Frontend"
+        },
+        "started_on": "2017-05-01",
+        "finished_on": "2017-06-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a frontend developer at Meu Patrocínio, I worked on the startup's mobile app for Android and iOS, using Angular, TypeScript and NativeScript.",
+          "pt": "Como desenvolvedor frontend na Meu Patrocínio, trabalhei no app mobile da startup para Android e iOS, usando Angular, TypeScript e NativeScript."
+        },
+        "stack": [
+          "Angular",
+          "TypeScript",
+          "NativeScript",
+          "Android SDK",
+          "iOS SDK"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  },
+  {
+    "company": "BRQ IT Services",
+    "url": "https://www.brq.com",
+    "roles": [
+      {
+        "title": {
+          "en": "Senior System Analyst",
+          "pt": "Analista de Sistemas Sênior"
+        },
+        "started_on": "2012-03-01",
+        "finished_on": "2017-04-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a senior system analyst at BRQ, I kept working with Petrobras on desktop and web projects, which I had started at Atos, and supported the BPM team. After that contract ended, I helped deliver projects for Bradesco Seguros.",
+          "pt": "Como analista de sistemas sênior na BRQ, continuei atuando para a Petrobras em projetos desktop e web, que eu havia iniciado na Atos, e apoiei o time de BPM. Após o fim desse contrato, ajudei na entrega de projetos para a Bradesco Seguros."
+        },
+        "stack": [
+          "Java",
+          "Java Swing",
+          "Java Web Start",
+          "Grails",
+          "JPA",
+          "Hibernate",
+          "Spring",
+          "Spring Remoting",
+          "JDBC",
+          "iReport",
+          "Oracle BPM",
+          "FileNet P8",
+          "SAP",
+          "WebLogic",
+          "WebSphere",
+          "Oracle",
+          "PL/SQL",
+          "H2"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "Bradesco Seguros",
+            "url": "https://www.bradescoseguros.com.br"
+          },
+          {
+            "name": "Petrobras",
+            "url": "https://petrobras.com.br"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Atos",
+    "url": "https://atos.net",
+    "roles": [
+      {
+        "title": {
+          "en": "Senior System Analyst",
+          "pt": "Analista de Sistemas Sênior"
+        },
+        "started_on": "2007-08-01",
+        "finished_on": "2012-03-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a senior system analyst at Atos, I worked for Petrobras as a process analyst, systems analyst and web and desktop developer. This is where I started working with agile methods.",
+          "pt": "Como analista de sistemas sênior na Atos, atuei para a Petrobras como analista de processos, analista de sistemas e desenvolvedor web e desktop. Foi nesse período que comecei a trabalhar com métodos ágeis."
+        },
+        "stack": [
+          "Java",
+          "Java Swing",
+          "Java Web Start",
+          "JPA",
+          "Hibernate",
+          "Spring Remoting",
+          "JSF",
+          "ICEfaces",
+          "jQuery",
+          "Oracle BPM",
+          "WebLogic",
+          "Oracle",
+          "PL/SQL"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "Petrobras",
+            "url": "https://petrobras.com.br"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "BRQ IT Services",
+    "url": "https://www.brq.com",
+    "roles": [
+      {
+        "title": {
+          "en": "Requirements Analyst",
+          "pt": "Analista de Requisitos"
+        },
+        "started_on": "2006-09-01",
+        "finished_on": "2007-07-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a requirements analyst at BRQ, I worked for IBM on a project for Embratel, specifying functional and non-functional requirements through use cases.",
+          "pt": "Como analista de requisitos na BRQ, atuei para a IBM em um projeto para a Embratel, especificando requisitos funcionais e não funcionais por meio de casos de uso."
+        },
+        "stack": [
+          "UML",
+          "Rational Software Architect",
+          "Rational ClearCase",
+          "WebSphere Business Modeler"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "Embratel",
+            "url": "https://www.embratel.com.br"
+          },
+          {
+            "name": "IBM",
+            "url": "https://www.ibm.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Tecgraf / PUC-Rio",
+    "url": "https://www.tecgraf.puc-rio.br",
+    "roles": [
+      {
+        "title": {
+          "en": "Mid-level System Analyst",
+          "pt": "Analista de Sistemas Pleno"
+        },
+        "started_on": "2005-04-01",
+        "finished_on": "2006-08-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a mid-level system analyst at Tecgraf/PUC-Rio, I developed geoprocessing applications built on INPE's TerraLib.\n\n- Built Java Swing interfaces and components for a bus monitoring system, including map display, printing, processing and editing\n- Developed communication services between Java Swing and C/C++ using CORBA and JNI\n- Created message notification services with JMS and RMI",
+          "pt": "Como analista de sistemas pleno no Tecgraf/PUC-Rio, desenvolvi aplicações de geoprocessamento baseadas na TerraLib, do INPE.\n\n- Construí interfaces e componentes em Java Swing para um sistema de monitoramento de ônibus, incluindo exibição de mapas, impressão, processamento e edição\n- Desenvolvi serviços de comunicação entre Java Swing e C/C++ usando CORBA e JNI\n- Criei serviços de notificação de mensagens com JMS e RMI"
+        },
+        "stack": [
+          "Java",
+          "Java Swing",
+          "C/C++",
+          "CORBA",
+          "JNI",
+          "JMS",
+          "RMI",
+          "JBoss",
+          "TerraLib",
+          "GIS",
+          "Oracle",
+          "SQL Server",
+          "PostgreSQL"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "M2M Solutions",
+            "url": "https://www.sonda.com",
+            "acquired_by": "Sonda"
+          },
+          {
+            "name": "INPE",
+            "url": "https://www.gov.br/inpe"
+          },
+          {
+            "name": "Petrobras",
+            "url": "https://petrobras.com.br"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "DRIVE",
+    "url": "https://www.evertecinc.com",
+    "acquired_by": "Evertec",
+    "roles": [
+      {
+        "title": {
+          "en": "Junior System Analyst",
+          "pt": "Analista de Sistemas Júnior"
+        },
+        "started_on": "2000-09-01",
+        "finished_on": "2005-02-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As a junior system analyst at Drive, I developed and maintained a fund management system for banks, and built communication services between C++ and Java using CORBA. The systems were distributed and supported the multiple databases used by clients, such as Sybase, SQL Server and Oracle.",
+          "pt": "Como analista de sistemas júnior na Drive, desenvolvi e mantive um sistema de gestão de fundos para bancos e construí serviços de comunicação entre C++ e Java usando CORBA. Os sistemas eram distribuídos e suportavam os diversos bancos de dados usados pelos clientes, como Sybase, SQL Server e Oracle."
+        },
+        "stack": [
+          "C++",
+          "Java",
+          "Java Swing",
+          "CORBA",
+          "JavaScript",
+          "AJAX",
+          "Java Web Server",
+          "JRun",
+          "Tomcat",
+          "Sybase",
+          "SQL Server",
+          "Oracle"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  },
+  {
+    "company": "Caixa Econômica Federal",
+    "url": "https://www.caixa.gov.br",
+    "roles": [
+      {
+        "title": {
+          "en": "Internship",
+          "pt": "Estágio"
+        },
+        "started_on": "2000-05-01",
+        "finished_on": "2000-08-01",
+        "location": {
+          "en": "Rio de Janeiro, Brazil",
+          "pt": "Rio de Janeiro, Brasil"
+        },
+        "work_mode": "on_site",
+        "description": {
+          "en": "As an intern at Caixa, I updated the company intranet, worked with Access databases and Excel spreadsheets, prepared documents for the telemarketing department and used Caixa's internal financial applications.",
+          "pt": "Como estagiário na Caixa, atualizei a intranet da empresa, trabalhei com bancos de dados Access e planilhas Excel, preparei documentos para o setor de telemarketing e usei os aplicativos financeiros internos da Caixa."
+        },
+        "stack": [
+          "FrontPage",
+          "Access",
+          "Excel"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  }
+]
