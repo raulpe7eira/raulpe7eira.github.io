@@ -14,7 +14,7 @@ defmodule Site.Resume.Validations do
     finished = get_field(changeset, to)
 
     if started && finished && Date.compare(finished, started) == :lt do
-      add_error(changeset, to, "must not be before %{field}", field: from)
+      add_error(changeset, to, "must not be before #{from}", validation: :date_order)
     else
       changeset
     end
