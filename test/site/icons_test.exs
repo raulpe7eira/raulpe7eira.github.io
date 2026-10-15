@@ -41,6 +41,20 @@ defmodule Site.IconsTest do
       assert dir |> icon("assets/images/avatar.jpg") |> Image.width() == 240
     end
 
+    test "puts a transparent photo on white", %{tmp_dir: dir} do
+      source = Path.join(dir, "transparent.png")
+      512 |> Image.new!(512, color: [0, 0, 0, 0]) |> Image.write!(source)
+
+      icon =
+        source
+        |> Icons.build()
+        |> Map.new()
+        |> Map.fetch!("assets/images/icons/icon-512.png")
+        |> Image.from_binary!()
+
+      assert {:ok, [255, 255, 255]} = Image.get_pixel(icon, 0, 0)
+    end
+
     test "crops a non-square photo to a square", %{tmp_dir: dir} do
       assert dir |> icon("assets/images/icons/icon-512.png", 600) |> Image.height() == 512
     end
