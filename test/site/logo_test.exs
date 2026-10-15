@@ -36,6 +36,14 @@ defmodule Site.LogoTest do
     test "trims transparent margins before scaling", %{tmp_dir: dir} do
       assert_in_delta dir |> tile(@transparent) |> logo_area(), 0.20, 0.02
     end
+
+    test "keeps a source that is only background", %{tmp_dir: dir} do
+      source = Path.join(dir, "blank.png")
+      400 |> Image.new!(100, color: @white) |> Image.write!(source)
+
+      assert {:ok, [255, 255, 255 | _alpha]} =
+               source |> Logo.client_tile() |> Image.get_pixel(120, 60)
+    end
   end
 
   describe "client_file/1" do
