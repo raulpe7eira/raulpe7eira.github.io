@@ -1,11 +1,11 @@
-defmodule Mix.Tasks.Site.Logo do
+defmodule Mix.Tasks.Site.Logo.Client do
   @shortdoc "Builds a client/project logo tile for the resume"
   @moduledoc """
   Builds the tile of a client or project logo (see `Site.Logo`) into
   `docs/assets/images/logos/cl-<slug>.png`, named after the reference in
   `data/experiences.json`.
 
-      mix site.logo "Total Bank" ~/Downloads/hd-total-bank.png
+      mix site.logo.client "Total Bank" ~/Downloads/hd-total-bank.png
 
   ## Options
 
@@ -24,7 +24,7 @@ defmodule Mix.Tasks.Site.Logo do
         Mix.shell().info("wrote #{path}")
 
       _other ->
-        Mix.raise(~s(usage: mix site.logo "Name" path/to/logo.png [--boost 1.25]))
+        Mix.raise(~s(usage: mix site.logo.client "Name" path/to/logo.png [--boost 1.25]))
     end
   end
 end

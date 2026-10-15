@@ -2,7 +2,8 @@
   "skip_files": [
     "lib/site/pdf.ex",
     "lib/mix/tasks/site.serve.ex",
-    "lib/mix/tasks/site.logo.ex"
+    "lib/mix/tasks/site.logo.client.ex",
+    "lib/mix/tasks/site.logo.company.ex"
   ],
   "coverage_options": {
     "minimum_coverage": 90
