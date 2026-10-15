@@ -3,6 +3,8 @@ defmodule Site.Icons do
   Builds the site icons from one square photo, so they always match:
 
     * `favicon.ico` at the site root, with 16, 32 and 48 pixel PNGs inside
+    * `assets/images/icons/favicon.svg`, a 96 pixel JPEG of the photo inside
+      an SVG (Chrome, Edge and Firefox prefer an SVG favicon)
     * `assets/images/icons/favicon-96x96.png`, the PNG favicon for desktop
       browsers and search results
     * `assets/images/icons/apple-touch-icon.png` (180), for iOS home screens
@@ -23,12 +25,14 @@ defmodule Site.Icons do
     {"assets/images/icons/icon-192.png", 192},
     {"assets/images/icons/icon-512.png", 512}
   ]
+  @svg {"assets/images/icons/favicon.svg", 96}
   @avatar {"assets/images/avatar.jpg", 240}
   @white [255, 255, 255]
 
   @doc "Returns `{path, binary}` for every icon built from the photo in `source`; paths are relative to `docs/`."
   def build(source) do
     photo = source |> Image.open!() |> square()
+    {svg, svg_size} = @svg
     {avatar, avatar_size} = @avatar
 
     favicon =
@@ -36,7 +40,8 @@ defmodule Site.Icons do
 
     pngs = for {path, size} <- @pngs, do: {path, encode(photo, size, ".png")}
 
-    [{@favicon, favicon}] ++ pngs ++ [{avatar, encode(photo, avatar_size, ".jpg")}]
+    [{@favicon, favicon}, {svg, svg_favicon(encode(photo, svg_size, ".jpg"), svg_size)}] ++
+      pngs ++ [{avatar, encode(photo, avatar_size, ".jpg")}]
   end
 
   defp square(photo) do
@@ -54,6 +59,14 @@ defmodule Site.Icons do
     photo
     |> Image.thumbnail!(size)
     |> Image.write!(:memory, suffix: suffix)
+  end
+
+  # an SVG that only wraps the JPEG, so browsers that prefer SVG favicons get the photo
+  defp svg_favicon(jpeg, size) do
+    """
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{size} #{size}">\
+    <image width="#{size}" height="#{size}" href="data:image/jpeg;base64,#{Base.encode64(jpeg)}"/></svg>
+    """
   end
 
   # an ICO file holding PNG images: a header, one directory entry per image,
