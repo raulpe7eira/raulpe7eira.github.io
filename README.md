@@ -28,31 +28,33 @@ mix site.build              # render the pages and the resume PDFs into docs/
 mix site.build --no-pdf     # pages only
 mix site.serve --build      # build, then serve docs/ at http://localhost:8000 (add --no-pdf to skip the PDFs)
 mix site.check              # fail on broken local links or unused files in docs/
-mix precommit               # compile with warnings as errors, format, credo, deps audit, tests with coverage
+mix precommit               # compile with warnings as errors, format, credo, deps audit, tests with coverage, site.check
 ```
 
 `mix site.serve` behaves like GitHub Pages: folders serve their `index.html`, `/resume` redirects to `/resume/` and unknown addresses get `404.html`.
 
 ### Images
 
-Images are generated from source files kept outside the repo, so each kind always follows the same rule:
+Images are generated from source files kept outside the repo; the kind decides the arguments and how the image looks:
 
 ```sh
-mix site.logo.company "Name" logo.png [--center]       # company square on the resume timeline
-mix site.logo.client "Name" logo.png [--boost 1.25]    # client/project tile on the resume
-mix site.icons photo.jpg                               # favicons, app icons and the home page avatar
-mix site.screenshots                                   # home page screenshots for the web manifest
+mix site.images company "Name" logo.png [--center]       # company square on the resume timeline
+mix site.images client "Name" logo.png [--boost 1.25]    # client tile on the resume
+mix site.images project "Name" logo.png [--boost 1.25]   # project tile on the resume
+mix site.images favicons photo.jpg                       # favicons and app icons
+mix site.images avatar photo.jpg                         # home page photo
+mix site.images screenshots                              # home page screenshots for the web manifest
 ```
 
-`mix help <task>` explains each one.
+`mix help site.images` explains each kind.
 
 ## Updating the content
 
 1. Change LinkedIn first; it is the source of truth.
 2. Update the matching file in `data/` (profile, experiences, educations, skills, languages, highlights).
-3. New company or client: add its logo with `mix site.logo.company` or `mix site.logo.client` (a test fails if a logo is missing).
+3. New company, client or project: add its logo with `mix site.images company|client|project` (a test fails if a logo is missing).
 4. Run `mix site.build` (with PDFs, since the resume changed), then `mix site.check` and `mix precommit`.
-5. If the home page looks different, run `mix site.screenshots`.
+5. If the home page looks different, run `mix site.images screenshots`.
 
 ## Layout
 
@@ -68,10 +70,6 @@ mix site.screenshots                                   # home page screenshots f
 
 CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/` or `mix site.check` finds a problem. Dependabot keeps Mix deps and GitHub Actions up to date.
 
-## License
-
-[MIT](LICENSE)
-
 ---
 
 <details>
@@ -82,3 +80,7 @@ CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 9
 Built with [Jekyll](https://jekyllrb.com/ "link to Jekyll website") and [jekyll-polyglot](https://polyglot.untra.io/ "link to polyglot website") for i18n support. Theme based on [jekyll-uno](https://github.com/joshgerdes/jekyll-uno "link to source of the jekyll-uno theme").
 
 </details>
+
+## License
+
+[MIT](LICENSE)

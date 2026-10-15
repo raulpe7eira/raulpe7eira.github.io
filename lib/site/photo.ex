@@ -1,6 +1,8 @@
-defmodule Site.Icons do
+defmodule Site.Photo do
   @moduledoc """
-  Builds the site icons from one square photo, so they always match:
+  Builds the images that come from my photo, so they always match.
+
+  The favicons (`favicons/1`):
 
     * `favicon.ico` at the site root, with 16, 32 and 48 pixel PNGs inside
     * `assets/images/icons/favicon.svg`, a 96 pixel JPEG of the photo inside
@@ -9,8 +11,10 @@ defmodule Site.Icons do
       browsers and search results
     * `assets/images/icons/apple-touch-icon.png` (180), for iOS home screens
     * `assets/images/icons/icon-192.png` and `icon-512.png`, for the web
-      manifest (Android)
-    * `assets/images/avatar.jpg` (240, twice the 120 pixels the page shows)
+      manifest (Android) and the JSON-LD `image`
+
+  The avatar (`avatar/1`): `assets/images/avatar.jpg` (240, twice the 120
+  pixels the home page shows).
 
   A non-square photo is cropped to its center.
 
@@ -29,20 +33,26 @@ defmodule Site.Icons do
   @avatar {"assets/images/avatar.jpg", 240}
   @white [255, 255, 255]
 
-  @doc "Returns `{path, binary}` for every icon built from the photo in `source`; paths are relative to `docs/`."
-  def build(source) do
-    photo = source |> Image.open!() |> square()
+  @doc "Returns `{path, binary}` for every favicon built from the photo in `source`; paths are relative to `docs/`."
+  def favicons(source) do
+    photo = open(source)
     {svg, svg_size} = @svg
-    {avatar, avatar_size} = @avatar
 
     favicon =
       ico(for size <- @favicon_sizes, do: {size, encode(photo, size, ".png")})
 
     pngs = for {path, size} <- @pngs, do: {path, encode(photo, size, ".png")}
 
-    [{@favicon, favicon}, {svg, svg_favicon(encode(photo, svg_size, ".jpg"), svg_size)}] ++
-      pngs ++ [{avatar, encode(photo, avatar_size, ".jpg")}]
+    [{@favicon, favicon}, {svg, svg_favicon(encode(photo, svg_size, ".jpg"), svg_size)}] ++ pngs
   end
+
+  @doc "Returns `[{path, binary}]` for the avatar built from the photo in `source`; the path is relative to `docs/`."
+  def avatar(source) do
+    {avatar, avatar_size} = @avatar
+    [{avatar, source |> open() |> encode(avatar_size, ".jpg")}]
+  end
+
+  defp open(source), do: source |> Image.open!() |> square()
 
   defp square(photo) do
     side = min(Image.width(photo), Image.height(photo))
