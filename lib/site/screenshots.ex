@@ -9,8 +9,9 @@ defmodule Site.Screenshots do
   Serves `docs/` with `Site.Server` and captures it with headless Chrome
   (ChromicPDF; set `CHROME` to its path if it isn't found), so, like
   `Site.Pdf`, it is left out of the coverage report (`coveralls.json`).
-  The page loads in an iframe of the exact screen size, since a Chrome
-  window can't be narrower than 500 pixels.
+  The page loads in an iframe of the exact screen size inside a larger
+  Chrome window, since a window can't be narrower than 500 pixels and Chrome
+  only paints what fits in it.
   """
 
   @port 8765
@@ -24,8 +25,10 @@ defmodule Site.Screenshots do
     {:ok, server} =
       Bandit.start_link(plug: {Site.Server, root: root}, port: @port, startup_log: false)
 
-    {:ok, chrome} =
-      Supervisor.start_link([{ChromicPDF, chrome_options()}], strategy: :one_for_one)
+    # Chrome only paints what fits its window, so the window must be larger
+    # than the biggest screenshot (the window frame takes some height too)
+    options = Keyword.put(chrome_options(), :chrome_args, append: "--window-size=1600,1200")
+    {:ok, chrome} = Supervisor.start_link([{ChromicPDF, options}], strategy: :one_for_one)
 
     try do
       Enum.map(@shots, &capture(&1, root))
