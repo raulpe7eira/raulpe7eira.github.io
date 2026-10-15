@@ -2,7 +2,9 @@ defmodule Site.Icons do
   @moduledoc """
   Builds the site icons from one square photo, so they always match:
 
-    * `favicon.ico` at the site root, with 16 and 32 pixel PNGs inside
+    * `favicon.ico` at the site root, with 16, 32 and 48 pixel PNGs inside
+    * `assets/images/icons/favicon-96x96.png`, the PNG favicon for desktop
+      browsers and search results
     * `assets/images/icons/apple-touch-icon.png` (180), for iOS home screens
     * `assets/images/icons/icon-192.png` and `icon-512.png`, for the web
       manifest (Android)
@@ -14,8 +16,9 @@ defmodule Site.Icons do
   """
 
   @favicon "favicon.ico"
-  @favicon_sizes [16, 32]
+  @favicon_sizes [16, 32, 48]
   @pngs [
+    {"assets/images/icons/favicon-96x96.png", 96},
     {"assets/images/icons/apple-touch-icon.png", 180},
     {"assets/images/icons/icon-192.png", 192},
     {"assets/images/icons/icon-512.png", 512}
