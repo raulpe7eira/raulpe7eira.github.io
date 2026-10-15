@@ -1,8 +1,9 @@
 defmodule Mix.Tasks.Site.Check do
-  @shortdoc "Checks docs/ for broken local links"
+  @shortdoc "Checks docs/ for broken local links and unused files"
   @moduledoc """
-  Checks the published site for references that point to nothing (see
-  `Site.Check`), and fails listing them.
+  Checks the published site for references that point to nothing and for
+  assets or downloads that no page uses (see `Site.Check`), and fails
+  listing them.
 
       mix site.check
 
@@ -19,13 +20,20 @@ defmodule Mix.Tasks.Site.Check do
 
     Mix.Task.run("compile")
 
-    case Site.Check.run(root) do
-      [] ->
-        Mix.shell().info("#{root}/: no broken references")
+    broken = Site.Check.run(root)
+    unused = Site.Check.unused(root)
 
-      broken ->
-        for {file, reference} <- broken, do: Mix.shell().error("#{file}: #{reference}")
-        Mix.raise("#{length(broken)} broken reference(s) in #{root}/")
+    for {file, reference} <- broken, do: Mix.shell().error("#{file}: #{reference}")
+    for file <- unused, do: Mix.shell().error("#{file}: unused")
+
+    case {broken, unused} do
+      {[], []} ->
+        Mix.shell().info("#{root}/: no broken references or unused files")
+
+      _problems ->
+        Mix.raise(
+          "#{length(broken)} broken reference(s) and #{length(unused)} unused file(s) in #{root}/"
+        )
     end
   end
 end

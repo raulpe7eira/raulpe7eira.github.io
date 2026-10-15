@@ -5,16 +5,23 @@ defmodule Site.Check do
     * `href`, `src` and path-like `content` attributes in HTML
     * `url(...)` in CSS
     * site URLs in `sitemap.xml` and `llms.txt`, and `src` paths in XML
-    * paths in JSON (the favicon manifest)
+    * paths in JSON (the web manifest)
     * `#id`s used from SVG files (the icon sprite)
 
   External links are not checked (no network). A reference to a folder
   points to its `index.html`, as on GitHub Pages.
+
+  It also finds unused files: assets and downloads that no page reaches,
+  directly or through a stylesheet, manifest or other file the pages use.
+  The fonts count as used, since the PDF resume embeds them.
   """
 
   alias Site.Locale
 
-  @extensions "{html,css,xml,txt,json}"
+  @extensions "{html,css,xml,txt,json,webmanifest}"
+  @text_extensions ~w(.html .css .xml .txt .json .webmanifest)
+  @published "{assets,downloads}"
+  @pdf_fonts "assets/fonts"
 
   @doc "Returns `{file, reference}` for every reference under `root` that points to nothing."
   def run(root \\ "docs") do
@@ -22,6 +29,51 @@ defmodule Site.Check do
         reference <- references(file),
         not exists?(root, file, reference) do
       {Path.relative_to(file, root), reference}
+    end
+  end
+
+  @doc "Returns every file under `assets/` and `downloads/` that no page reaches."
+  def unused(root \\ "docs") do
+    used = reach(root, entries(root), MapSet.new())
+    fonts = root |> Path.join(@pdf_fonts) |> Path.expand()
+
+    unused =
+      for file <- root |> Path.join("#{@published}/**/*") |> Path.wildcard(),
+          File.regular?(file),
+          path = Path.expand(file),
+          not MapSet.member?(used, path),
+          not String.starts_with?(path, fonts <> "/"),
+          do: Path.relative_to(file, root)
+
+    Enum.sort(unused)
+  end
+
+  # the pages and the other files at the site's top level
+  defp entries(root) do
+    published = root |> Path.join(@published) |> Path.wildcard() |> Enum.map(&(&1 <> "/"))
+
+    for file <- files(root),
+        not Enum.any?(published, &String.starts_with?(file, &1)),
+        do: Path.expand(file)
+  end
+
+  defp reach(_root, [], used), do: used
+
+  defp reach(root, [file | rest], used) do
+    if MapSet.member?(used, file),
+      do: reach(root, rest, used),
+      else: reach(root, targets(root, file) ++ rest, MapSet.put(used, file))
+  end
+
+  defp targets(root, file) do
+    if Path.extname(file) in @text_extensions do
+      for reference <- references(file),
+          {path, _fragment} = split(reference),
+          target = root |> resolve(file, path) |> Path.expand(),
+          File.regular?(target),
+          do: target
+    else
+      []
     end
   end
 
@@ -33,7 +85,7 @@ defmodule Site.Check do
     case Path.extname(file) do
       ".html" -> html_references(text)
       ".css" -> scan(~r/url\(\s*['"]?([^'")]+)['"]?\s*\)/, text)
-      ".json" -> text |> JSON.decode!() |> json_paths()
+      json when json in [".json", ".webmanifest"] -> text |> JSON.decode!() |> json_paths()
       _xml_or_txt -> site_urls(text) ++ scan(~r/\ssrc="(\/[^"]*)"/, text)
     end
   end
