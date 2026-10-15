@@ -364,8 +364,8 @@
         },
         "work_mode": "on_site",
         "description": {
-          "en_us": "As a fullstack developer at Supply Midia, I developed and maintained new modules for an EDI system that integrates companies with their banks, using Java, JSF/PrimeFaces and PostgreSQL. I also built the landing page for one of the company's new products, using WordPress.",
-          "pt_br": "Como desenvolvedor fullstack na Supply Midia, desenvolvi e mantive novos módulos de um sistema de EDI que integra empresas aos seus bancos, usando Java, JSF/PrimeFaces e PostgreSQL. Também construí a landing page de um dos novos produtos da empresa, usando WordPress."
+          "en_us": "As a fullstack developer at Supply Midia, I developed and maintained new modules for Total Bank, an EDI system that integrates companies with their banks, using Java, JSF/PrimeFaces and PostgreSQL. I also built the website for Total Card, a card transaction manager, using WordPress.",
+          "pt_br": "Como desenvolvedor fullstack na Supply Midia, desenvolvi e mantive novos módulos do Total Bank, um sistema de EDI que integra empresas aos seus bancos, usando Java, JSF/PrimeFaces e PostgreSQL. Também construí o site do Total Card, um gerenciador de transações com cartões, usando WordPress."
         },
         "stack": [
           "Java",
@@ -378,7 +378,16 @@
           "PHP"
         ],
         "clients": [],
-        "projects": []
+        "projects": [
+          {
+            "name": "Total Card",
+            "url": "https://portaltotalcard.com.br"
+          },
+          {
+            "name": "Total Bank",
+            "url": "https://www.totalbank.com.br"
+          }
+        ]
       }
     ]
   },
