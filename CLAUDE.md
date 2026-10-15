@@ -6,7 +6,7 @@ Personal website for Raul Pereira (raulpe7eira) — a software engineer with 20+
 
 ## Architecture
 
-The published site lives in `docs/` (GitHub Pages source: branch `master`, folder `/docs`; `docs/.nojekyll` disables Jekyll). Everything outside `docs/` (generator, tests, README, LICENSE, this file) is not served.
+The published site lives in `docs/` (GitHub Pages source: branch `main`, folder `/docs`; `docs/.nojekyll` disables Jekyll). Everything outside `docs/` (generator, tests, README, LICENSE, this file) is not served.
 
 ### Generator (Elixir)
 

@@ -1,7 +1,7 @@
 # raulpe7eira.github.io
 
 [![CI](https://github.com/raulpe7eira/raulpe7eira.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/raulpe7eira/raulpe7eira.github.io/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/raulpe7eira/raulpe7eira.github.io/badge.svg?branch=master)](https://coveralls.io/github/raulpe7eira/raulpe7eira.github.io?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/raulpe7eira/raulpe7eira.github.io/badge.svg?branch=main)](https://coveralls.io/github/raulpe7eira/raulpe7eira.github.io?branch=main)
 
 <img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech: bio card over a photo of me cycling in Minas Gerais" src="https://github.com/user-attachments/assets/cd19dc91-21e4-452e-9f01-b911f4ab9f9d" />
 
