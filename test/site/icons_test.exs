@@ -11,6 +11,7 @@ defmodule Site.IconsTest do
                "assets/images/avatar.jpg",
                "assets/images/icons/apple-touch-icon.png",
                "assets/images/icons/favicon-96x96.png",
+               "assets/images/icons/favicon.svg",
                "assets/images/icons/icon-192.png",
                "assets/images/icons/icon-512.png",
                "favicon.ico"
@@ -28,6 +29,11 @@ defmodule Site.IconsTest do
         favicon = dir |> icons() |> Map.fetch!("favicon.ico")
 
       assert <<0x89, "PNG", _png::binary>> = binary_part(favicon, offset, 8)
+    end
+
+    test "embeds a JPEG of the photo in the SVG favicon", %{tmp_dir: dir} do
+      assert dir |> icons() |> Map.fetch!("assets/images/icons/favicon.svg") =~
+               ~s(href="data:image/jpeg;base64,)
     end
 
     test "builds the PNG favicon at 96 pixels", %{tmp_dir: dir} do
