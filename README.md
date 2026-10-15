@@ -26,12 +26,12 @@ Requires Erlang/OTP and Elixir as pinned in `mise.toml` (`mise install`). Comman
 mix deps.get
 mix site.build              # render the pages and the resume PDFs into docs/
 mix site.build --no-pdf     # pages only
-mix site.serve --build      # build, then serve docs/ at http://localhost:8000 (add --no-pdf to skip the PDFs)
+mix site.server             # build, then serve docs/ at http://localhost:8000 (--no-pdf skips the PDFs, --no-build only serves)
 mix site.check              # fail on broken local links or unused files in docs/
 mix precommit               # compile with warnings as errors, format, credo, deps audit, tests with coverage, site.check
 ```
 
-`mix site.serve` behaves like GitHub Pages: folders serve their `index.html`, `/resume` redirects to `/resume/` and unknown addresses get `404.html`.
+`mix site.server` behaves like GitHub Pages: folders serve their `index.html`, `/resume` redirects to `/resume/` and unknown addresses get `404.html`.
 
 ### Images
 
@@ -70,14 +70,12 @@ mix site.images screenshots                              # home page screenshots
 
 CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/` or `mix site.check` finds a problem. Dependabot keeps Mix deps and GitHub Actions up to date.
 
----
-
 <details>
 <summary>Previous version (Jekyll)</summary>
 
 ![raulpe7eira tech](https://github.com/user-attachments/assets/6f17cbb2-2ffb-4caa-b929-e988dd3d81f3)
 
-Built with [Jekyll](https://jekyllrb.com/ "link to Jekyll website") and [jekyll-polyglot](https://polyglot.untra.io/ "link to polyglot website") for i18n support. Theme based on [jekyll-uno](https://github.com/joshgerdes/jekyll-uno "link to source of the jekyll-uno theme").
+Built with [Jekyll](https://jekyllrb.com/ "link to Jekyll website") and [jekyll-polyglot](https://polyglot.untra.io/ "link to polyglot website") for i18n support. Theme based on [jekyll-uno](https://github.com/joshgerdes/jekyll-uno "link to source of the jekyll-uno theme"). Its last state is in [`dabd842`](https://github.com/raulpe7eira/raulpe7eira.github.io/tree/dabd8420c58aa07f821537dcb4081aab4838e38a), before it was replaced by this static site.
 
 </details>
 

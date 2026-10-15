@@ -1,15 +1,16 @@
-defmodule Mix.Tasks.Site.Serve do
-  @shortdoc "Serves docs/ at http://localhost:8000"
+defmodule Mix.Tasks.Site.Server do
+  @shortdoc "Builds the site and serves docs/ at http://localhost:8000"
   @moduledoc """
-  Serves `docs/` locally, the way GitHub Pages serves it (see `Site.Server`).
+  Builds the site (`mix site.build`) and serves `docs/` locally, the way
+  GitHub Pages serves it (see `Site.Server`), to check the result by hand.
 
-      mix site.serve
+      mix site.server
 
   ## Options
 
     * `--port` - port to listen on (default `8000`)
-    * `--build` - run `mix site.build` first (pages and PDFs)
-    * `--no-pdf` - with `--build`, skip the PDFs (faster; the current ones are kept)
+    * `--no-pdf` - build without the PDFs (faster; the current ones are kept)
+    * `--no-build` - serve `docs/` as it is, without building
 
   Stop it with Ctrl+C twice.
   """
@@ -21,7 +22,7 @@ defmodule Mix.Tasks.Site.Serve do
   def run(args) do
     {opts, _args} = OptionParser.parse!(args, strict: @switches)
 
-    if Keyword.get(opts, :build, false) do
+    if Keyword.get(opts, :build, true) do
       build_args = if Keyword.get(opts, :pdf, true), do: [], else: ["--no-pdf"]
       Mix.Task.run("site.build", build_args)
     end
