@@ -3,7 +3,8 @@
     "lib/site/pdf.ex",
     "lib/mix/tasks/site.serve.ex",
     "lib/mix/tasks/site.logo.client.ex",
-    "lib/mix/tasks/site.logo.company.ex"
+    "lib/mix/tasks/site.logo.company.ex",
+    "lib/mix/tasks/site.icons.ex"
   ],
   "coverage_options": {
     "minimum_coverage": 90

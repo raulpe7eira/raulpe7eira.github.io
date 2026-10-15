@@ -5,7 +5,7 @@
     "name": "Raul Pereira",
     "alternateName": "raulpe7eira",
     "url": "https://raulpe7eira.tech",
-    "image": "https://secure.gravatar.com/avatar/1c6aa563dc0fdfd809e92e5fc341a9b5",
+    "image": "https://raulpe7eira.tech/assets/images/icons/icon-512.png",
     "jobTitle": "<%= @job_title %>",
     "worksFor": { "@type": "Organization", "name": "R3M Tech", "url": "https://r3m.tech/" },
     "description": "<%= @description %>",

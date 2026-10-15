@@ -61,6 +61,43 @@ defmodule Site.CheckTest do
       write(root, "manifest.json", ~s({"icons": [{"src": "/icon.png"}]}))
       assert Check.run(root) == [{"manifest.json", "/icon.png"}]
     end
+
+    test "reports a missing path in a web manifest", %{tmp_dir: root} do
+      write(root, "app.webmanifest", ~s({"icons": [{"src": "/icon.png"}]}))
+      assert Check.run(root) == [{"app.webmanifest", "/icon.png"}]
+    end
+  end
+
+  describe "unused/1" do
+    test "finds nothing unused in the published site" do
+      assert Check.unused("docs") == []
+    end
+
+    test "reports an asset no page references", %{tmp_dir: root} do
+      write(root, "index.html", "")
+      write(root, "assets/old.png", "")
+      assert Check.unused(root) == ["assets/old.png"]
+    end
+
+    test "counts an asset referenced from a stylesheet the pages use", %{tmp_dir: root} do
+      write(root, "index.html", ~s(<link href="/assets/base.css">))
+      write(root, "assets/base.css", "body{background:url('/assets/cover.jpg')}")
+      write(root, "assets/cover.jpg", "")
+      assert Check.unused(root) == []
+    end
+
+    test "reports assets referenced only from an unused file", %{tmp_dir: root} do
+      write(root, "index.html", "")
+      write(root, "assets/browserconfig.xml", ~s(<logo src="/assets/tile.png"/>))
+      write(root, "assets/tile.png", "")
+      assert Check.unused(root) == ["assets/browserconfig.xml", "assets/tile.png"]
+    end
+
+    test "keeps the fonts the PDF embeds", %{tmp_dir: root} do
+      write(root, "index.html", "")
+      write(root, "assets/fonts/inter-bold.woff2", "")
+      assert Check.unused(root) == []
+    end
   end
 
   defp write(root, file, content) do
