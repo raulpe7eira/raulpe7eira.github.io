@@ -49,7 +49,8 @@ defmodule Site.MixProject do
         "format",
         "credo",
         "deps.audit",
-        "coveralls"
+        "coveralls",
+        "site.check"
       ]
     ]
   end
