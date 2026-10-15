@@ -10,15 +10,17 @@ defmodule Site.IconsTest do
       assert dir |> icons() |> Map.keys() |> Enum.sort() == [
                "assets/images/avatar.jpg",
                "assets/images/icons/apple-touch-icon.png",
+               "assets/images/icons/favicon-96x96.png",
                "assets/images/icons/icon-192.png",
                "assets/images/icons/icon-512.png",
                "favicon.ico"
              ]
     end
 
-    test "puts 16 and 32 pixel images in the favicon", %{tmp_dir: dir} do
-      assert <<0::16, 1::little-16, 2::little-16, 16, 16, _first::binary-size(14), 32, 32,
-               _rest::binary>> = dir |> icons() |> Map.fetch!("favicon.ico")
+    test "puts 16, 32 and 48 pixel images in the favicon", %{tmp_dir: dir} do
+      assert <<0::16, 1::little-16, 3::little-16, 16, 16, _first::binary-size(14), 32, 32,
+               _second::binary-size(14), 48, 48, _rest::binary>> =
+               dir |> icons() |> Map.fetch!("favicon.ico")
     end
 
     test "points the favicon entries at PNG images", %{tmp_dir: dir} do
@@ -26,6 +28,10 @@ defmodule Site.IconsTest do
         favicon = dir |> icons() |> Map.fetch!("favicon.ico")
 
       assert <<0x89, "PNG", _png::binary>> = binary_part(favicon, offset, 8)
+    end
+
+    test "builds the PNG favicon at 96 pixels", %{tmp_dir: dir} do
+      assert dir |> icon("assets/images/icons/favicon-96x96.png") |> Image.width() == 96
     end
 
     test "builds the apple touch icon at 180 pixels", %{tmp_dir: dir} do
