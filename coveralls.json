@@ -2,6 +2,7 @@
   "skip_files": [
     "lib/site/pdf.ex",
     "lib/site/screenshots.ex",
+    "lib/site/live_reload/watcher.ex",
     "lib/mix/tasks/site.server.ex",
     "lib/mix/tasks/site.images.ex"
   ],

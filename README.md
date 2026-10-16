@@ -24,14 +24,13 @@ Requires Erlang/OTP and Elixir as pinned in `mise.toml` (`mise install`). Comman
 
 ```sh
 mix deps.get
-mix site.build              # render the pages and the resume PDFs into docs/
-mix site.build --no-pdf     # pages only
-mix site.server             # build, then serve docs/ at http://localhost:8000 (--no-pdf skips the PDFs, --no-build only serves)
-mix site.check              # fail on broken local links or unused files in docs/
-mix precommit               # compile with warnings as errors, format, credo, deps audit, tests with coverage, site.check
+mix site.build      # render the pages and the resume PDFs into docs/ (--no-pdf skips the PDFs)
+mix site.server     # build, serve docs/ at http://localhost:8000 and rebuild on changes (--no-pdf, --no-build, --no-watch)
+mix site.check      # fail on broken local links or unused files in docs/
+mix precommit       # compile with warnings as errors, format, credo, deps audit, tests with coverage, site.check
 ```
 
-`mix site.server` behaves like GitHub Pages: folders serve their `index.html`, `/resume` redirects to `/resume/` and unknown addresses get `404.html`.
+`mix site.server` behaves like GitHub Pages: folders serve their `index.html`, `/resume` redirects to `/resume/` and unknown addresses get `404.html`. While it runs, saving a file in `data/`, `lib/` or `priv/` rebuilds the site (with the PDFs unless `--no-pdf`), and the open pages reload by themselves; a change in `docs/assets/` just reloads them.
 
 ### Images
 
