@@ -69,8 +69,10 @@ mix site.images screenshots                              # home page screenshots
 
 CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/` or `mix site.check` finds a problem. Dependabot keeps Mix deps and GitHub Actions up to date.
 
+## Previous version
+
 <details>
-<summary>Previous version (Jekyll)</summary>
+<summary>Jekyll site (2018–2026)</summary>
 
 ![raulpe7eira tech](https://github.com/user-attachments/assets/6f17cbb2-2ffb-4caa-b929-e988dd3d81f3)
 
