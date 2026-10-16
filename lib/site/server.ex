@@ -4,7 +4,7 @@ defmodule Site.Server do
   `index.html` (and `/resume` redirects to `/resume/`), and an unknown
   address gets `404.html` with status 404.
 
-  Used by `mix site.serve`; Bandit and Plug are dev/test dependencies only.
+  Used by `mix site.server`; Bandit and Plug are dev/test dependencies only.
   """
 
   @behaviour Plug

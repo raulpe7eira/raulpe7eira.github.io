@@ -2,7 +2,7 @@
   "skip_files": [
     "lib/site/pdf.ex",
     "lib/site/screenshots.ex",
-    "lib/mix/tasks/site.serve.ex",
+    "lib/mix/tasks/site.server.ex",
     "lib/mix/tasks/site.images.ex"
   ],
   "coverage_options": {
