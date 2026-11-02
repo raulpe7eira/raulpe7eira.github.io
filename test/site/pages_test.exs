@@ -441,6 +441,24 @@ defmodule Site.PagesTest do
     end
   end
 
+  describe "security/1" do
+    test "writes to .well-known/security.txt" do
+      assert {".well-known/security.txt", _text} = Pages.security(~U[2027-01-01 00:00:00Z])
+    end
+
+    test "gives the R3M Tech email as contact" do
+      assert security() =~ "Contact: mailto:raul@r3m.tech\n"
+    end
+
+    test "states when it expires" do
+      assert security() =~ "Expires: 2027-01-01T00:00:00Z\n"
+    end
+
+    test "points Canonical to its own URL" do
+      assert security() =~ "Canonical: https://raulpe7eira.tech/.well-known/security.txt\n"
+    end
+  end
+
   describe "not_found/0" do
     test "writes to 404.html" do
       assert {"404.html", _html} = Pages.not_found()
@@ -459,6 +477,7 @@ defmodule Site.PagesTest do
   defp privacy(lang), do: lang |> Pages.privacy() |> elem(1)
   defp sitemap, do: lastmods() |> Pages.sitemap() |> elem(1)
   defp llms(resume), do: resume |> Pages.llms() |> elem(1)
+  defp security, do: ~U[2027-01-01 00:00:00Z] |> Pages.security() |> elem(1)
   defp not_found, do: elem(Pages.not_found(), 1)
 
   defp lastmods do

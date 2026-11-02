@@ -2,57 +2,57 @@
 msgid ""
 msgstr ""
 
-#: lib/site/pages.ex:109
-#: lib/site/pages.ex:120
-#: lib/site/pages.ex:155
-#: lib/site/pages.ex:161
-#: lib/site/pages.ex:209
+#: lib/site/pages.ex:127
+#: lib/site/pages.ex:138
+#: lib/site/pages.ex:173
+#: lib/site/pages.ex:179
+#: lib/site/pages.ex:227
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr ""
 
-#: lib/site/pages.ex:122
+#: lib/site/pages.ex:140
 #, elixir-autogen
 msgid "home.description"
 msgstr ""
 
-#: lib/site/pages.ex:216
+#: lib/site/pages.ex:234
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr ""
 
-#: lib/site/pages.ex:220
+#: lib/site/pages.ex:238
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr ""
 
-#: lib/site/pages.ex:222
+#: lib/site/pages.ex:240
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr ""
 
-#: lib/site/pages.ex:223
+#: lib/site/pages.ex:241
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr ""
 
-#: lib/site/pages.ex:224
+#: lib/site/pages.ex:242
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr ""
 
-#: lib/site/pages.ex:225
+#: lib/site/pages.ex:243
 #, elixir-autogen
 msgid "footer.by"
 msgstr ""
 
-#: lib/site/pages.ex:108
-#: lib/site/pages.ex:146
+#: lib/site/pages.ex:126
+#: lib/site/pages.ex:164
 #, elixir-autogen
 msgid "resume.title"
 msgstr ""
 
-#: lib/site/pages.ex:147
+#: lib/site/pages.ex:165
 #, elixir-autogen
 msgid "resume.description"
 msgstr ""
@@ -112,7 +112,7 @@ msgstr ""
 msgid "resume.projects"
 msgstr ""
 
-#: lib/site/templates.ex:43
+#: lib/site/templates.ex:44
 #: priv/templates/resume/page.html.eex:76
 #, elixir-autogen
 msgid "resume.stack"
@@ -283,37 +283,37 @@ msgstr ""
 msgid "proficiency.native_or_bilingual"
 msgstr ""
 
-#: lib/site/pages.ex:189
+#: lib/site/pages.ex:207
 #, elixir-autogen
 msgid "privacy.title"
 msgstr ""
 
-#: lib/site/pages.ex:190
+#: lib/site/pages.ex:208
 #, elixir-autogen
 msgid "privacy.description"
 msgstr ""
 
-#: lib/site/pages.ex:228
+#: lib/site/pages.ex:246
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr ""
 
-#: lib/site/pages.ex:229
+#: lib/site/pages.ex:247
 #, elixir-autogen
 msgid "consent.label"
 msgstr ""
 
-#: lib/site/pages.ex:230
+#: lib/site/pages.ex:248
 #, elixir-autogen
 msgid "consent.text"
 msgstr ""
 
-#: lib/site/pages.ex:231
+#: lib/site/pages.ex:249
 #, elixir-autogen
 msgid "consent.accept"
 msgstr ""
 
-#: lib/site/pages.ex:232
+#: lib/site/pages.ex:250
 #, elixir-autogen
 msgid "consent.decline"
 msgstr ""

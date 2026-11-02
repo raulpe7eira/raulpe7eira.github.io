@@ -48,7 +48,7 @@ Resume data lives in `data/` as JSON and is validated by Ecto embedded schemas (
 
 Keep the split between rendering (pure, `Site.Pages`) and IO (`Site.build/1`, Mix tasks): the renderer may later back other front ends (e.g. an MCP server that extracts LinkedIn data and returns HTML/PDF).
 
-Generated: the home and resume pages in both languages, the resume PDFs. **Never edit generated files in `docs/` by hand** — change the template or the data and run `mix site.build`; CI runs `mix site.build --no-pdf` and fails if `docs/` is out of date (PDFs are not checked: Chrome stamps each one with its creation date, so they change on every build). Also generated: `sitemap.xml` (URLs and `hreflang` alternates from `Site.Locale`; a page's `lastmod` changes only when its HTML changes, otherwise the date in the current sitemap is kept, so rebuilding without changes changes nothing; no `changefreq`/`priority`, which Google and Bing ignore), `llms.txt` (links from `Site.Locale`, career highlights from `data/highlights.json`) and `404.html` (redirects to the home of the locale prefix, from `Site.Locale`).
+Generated: the home and resume pages in both languages, the resume PDFs. **Never edit generated files in `docs/` by hand** — change the template or the data and run `mix site.build`; CI runs `mix site.build --no-pdf` and fails if `docs/` is out of date (PDFs are not checked: Chrome stamps each one with its creation date, so they change on every build). Also generated: `sitemap.xml` (URLs and `hreflang` alternates from `Site.Locale`; a page's `lastmod` changes only when its HTML changes, otherwise the date in the current sitemap is kept, so rebuilding without changes changes nothing; no `changefreq`/`priority`, which Google and Bing ignore), `llms.txt` (links from `Site.Locale`, career highlights from `data/highlights.json`), `.well-known/security.txt` (RFC 9116, contact raul@r3m.tech; its `Expires` is kept until fewer than 30 days are left, then moves to a year from the build date, so CI flags `docs/` as out of date a month before it expires and a rebuild renews it) and `404.html` (redirects to the home of the locale prefix, from `Site.Locale`).
 
 In the PDF, companies whose last role ended up to 2012 are condensed under "Earlier experience" (`Site.ResumeView`), to keep it at two pages.
 
@@ -83,6 +83,7 @@ Styles, scripts and images are source files edited directly in `docs/assets/`, s
 - `404.html` — any unknown address redirects to the home page of its locale (`/pt/` for paths under `/pt`) (generated)
 - `robots.txt` — search engine directives
 - `sitemap.xml` — sitemap for search engines (generated)
+- `.well-known/security.txt` — where to report a security issue (generated; served because `.nojekyll` disables Jekyll, which would skip dot folders)
 - `llms.txt` — LLM-readable site description (generated)
 - `assets/images/cover.jpg` — hero background image
 - `assets/images/og-image.jpg` — social preview image

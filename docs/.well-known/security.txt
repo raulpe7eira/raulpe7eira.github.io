@@ -1,0 +1,4 @@
+Contact: mailto:raul@r3m.tech
+Expires: 2027-11-02T00:00:00Z
+Preferred-Languages: en, pt
+Canonical: https://raulpe7eira.tech/.well-known/security.txt

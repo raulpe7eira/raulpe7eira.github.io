@@ -12,7 +12,8 @@ defmodule SiteTest do
     "pt/privacy/index.html",
     "llms.txt",
     "404.html",
-    "sitemap.xml"
+    "sitemap.xml",
+    ".well-known/security.txt"
   ]
 
   @first ~D[2026-01-01]
@@ -61,6 +62,32 @@ defmodule SiteTest do
 
       assert lastmod(dir, "https://raulpe7eira.tech/") == "2026-01-01"
     end
+
+    test "makes a new security.txt expire a year from today", %{tmp_dir: dir} do
+      Site.build(dir, today: @first)
+
+      assert security_expires(dir) == "2027-01-01T00:00:00Z"
+    end
+
+    test "keeps the security.txt expiry while 30 days or more are left", %{tmp_dir: dir} do
+      Site.build(dir, today: @first)
+      Site.build(dir, today: ~D[2026-12-02])
+
+      assert security_expires(dir) == "2027-01-01T00:00:00Z"
+    end
+
+    test "renews the security.txt expiry when fewer than 30 days are left", %{tmp_dir: dir} do
+      Site.build(dir, today: @first)
+      Site.build(dir, today: ~D[2026-12-03])
+
+      assert security_expires(dir) == "2027-12-03T00:00:00Z"
+    end
+  end
+
+  defp security_expires(dir) do
+    text = File.read!(Path.join(dir, ".well-known/security.txt"))
+    [_line, value] = Regex.run(~r/^Expires: (.+)$/m, text)
+    value
   end
 
   defp lastmod(dir, url) do
