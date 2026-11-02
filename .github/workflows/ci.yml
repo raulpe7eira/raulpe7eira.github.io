@@ -5,41 +5,86 @@ on:
     branches: [main]
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+env:
+  MIX_ENV: test
+
 jobs:
-  check:
+  # Independent jobs so each category shows up as its own check on the PR and
+  # all of them report in a single run. Checks within a job keep running after
+  # a failure (once setup succeeded), so one push surfaces every problem.
+  lint:
     runs-on: ubuntu-24.04
-    env:
-      MIX_ENV: test
     steps:
       - uses: actions/checkout@v7
+      - id: setup
+        uses: ./.github/actions/setup
 
-      # Erlang and Elixir from mise.toml (precompiled builds on Ubuntu runners)
-      - uses: jdx/mise-action@v4
+      - name: Compile
+        id: compile
+        run: mix compile --warnings-as-errors
+      - name: Unused deps
+        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
+        run: mix deps.unlock --check-unused
+      - name: Format
+        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
+        run: mix format --check-formatted
+      - name: Credo
+        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
+        run: mix credo --strict
+      - name: Gettext
+        if: ${{ !cancelled() && steps.compile.outcome == 'success' }}
+        run: mix gettext.extract --check-up-to-date
 
-      - uses: actions/cache@v6
+  security:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
         with:
-          path: |
-            deps
-            _build
-          key: mix-${{ runner.os }}-${{ hashFiles('mise.toml', 'mix.lock') }}
+          fetch-depth: 0 # gitleaks scans the full history
+      - id: setup
+        uses: ./.github/actions/setup
 
-      - run: mix deps.get
-      - run: mix compile --warnings-as-errors
-      - run: mix deps.unlock --check-unused
-      - run: mix format --check-formatted
-      - run: mix credo
-      - run: mix gettext.extract --check-up-to-date
-      - run: mix deps.audit
+      - name: Deps audit
+        run: mix deps.audit
+      - name: Hex audit
+        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
+        run: mix hex.audit
+      - name: Gitleaks
+        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
+        run: gitleaks git --redact --no-banner --verbose
+
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+        with:
+          save-cache: "true"
 
       - name: Tests with coverage (posted to Coveralls)
         run: mix coveralls.github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  site:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - id: setup
+        uses: ./.github/actions/setup
+
       - name: Generated pages are up to date
+        id: build
         run: |
           mix site.build --no-pdf
           git diff --exit-code docs/
-
       - name: No broken references in docs/
+        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
         run: mix site.check

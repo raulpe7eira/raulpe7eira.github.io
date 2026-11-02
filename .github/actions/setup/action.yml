@@ -1,0 +1,46 @@
+name: Setup
+description: Install Erlang/Elixir from mise.toml, restore the deps/_build cache and fetch dependencies.
+
+inputs:
+  save-cache:
+    description: Save the deps/_build cache at the end of the job (only one job should, to avoid concurrent saves)
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    # Erlang and Elixir from mise.toml (precompiled builds on Ubuntu runners)
+    - uses: jdx/mise-action@v4
+
+    - name: Cache deps and _build
+      if: inputs.save-cache == 'true'
+      uses: actions/cache@v6
+      with:
+        path: |
+          deps
+          _build
+        key: mix-${{ runner.os }}-${{ hashFiles('mise.toml') }}-${{ hashFiles('mix.lock') }}
+        # Reuse the last cache from the same Erlang/Elixir when only mix.lock changed
+        restore-keys: |
+          mix-${{ runner.os }}-${{ hashFiles('mise.toml') }}-
+
+    - name: Restore deps and _build
+      if: inputs.save-cache != 'true'
+      uses: actions/cache/restore@v6
+      with:
+        path: |
+          deps
+          _build
+        key: mix-${{ runner.os }}-${{ hashFiles('mise.toml') }}-${{ hashFiles('mix.lock') }}
+        restore-keys: |
+          mix-${{ runner.os }}-${{ hashFiles('mise.toml') }}-
+
+    # Rule out a stale cache when a run is retried
+    - name: Clean build on re-run
+      if: github.run_attempt != '1'
+      shell: bash
+      run: rm -rf deps _build
+
+    - name: Dependencies
+      shell: bash
+      run: mix deps.get
