@@ -76,6 +76,7 @@ Styles, scripts and images are source files edited directly in `docs/assets/`, s
 - `assets/icons.svg` — SVG icon sprite (theme palette, social icons, download, info, and `resume-page`, the PDF preview on the resume)
 - `assets/js/theme.js` — theme panel; a one-line inline script in each `<head>` applies the saved theme before first paint
 - `assets/js/nav.js` — Resume/Currículo switch and privacy shield toggles (change state, then navigate) and the header intro on entry/reload
+- `assets/js/tooltip.js` — resume only: tooltips for `[data-tip]` (the ⓘ of a closed school, the "acquired" badges); shown at once on hover with a mouse, on tap on touch screens (where the tap no longer follows the link around them); one tip element placed over the page, since the logos clip their contents; styles in `resume.css` (`.tip`)
 - `assets/js/analytics.js` — cookie consent banner and GA4 (loaded only after consent)
 - `downloads/raul-pereira-da-silva-resume-en-us.pdf` / `-pt-br.pdf` — resume PDFs (generated); the link's `download` attribute saves them as `raul-pereira-da-silva-resume.pdf` / `raul-pereira-da-silva-curriculo.pdf`
 - `assets/images/logos/` — company/client logos used by both resume pages: `sq-<slug>.png` square employer logos (slug of the display name, e.g. `sq-cloudwalk-inc`), `cl-<slug>.png` client/project logos (slug of the name, e.g. `cl-arca-fiocruz`); a test fails if a logo is missing
