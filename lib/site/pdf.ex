@@ -1,6 +1,7 @@
 defmodule Site.Pdf do
   @moduledoc """
-  Prints the resume PDFs.
+  Prints the resume PDFs, each stamped with the hash of its sources
+  (`Site.PdfStamp`) so `mix site.check` can tell a stale one.
 
   The only part of the build that needs an external program: headless
   Chrome, through ChromicPDF (set `CHROME` to its path if it isn't found).
@@ -10,6 +11,7 @@ defmodule Site.Pdf do
 
   alias Site.Locale
   alias Site.Pages
+  alias Site.PdfStamp
 
   @doc "Prints each locale's PDF under `out`. Returns the written paths."
   def build(out, resume) do
@@ -27,7 +29,8 @@ defmodule Site.Pdf do
   end
 
   defp print(lang, out, resume) do
-    {file, html} = Pages.resume_pdf(lang, resume, Path.expand("docs/assets/fonts"))
+    fonts_dir = Path.expand("docs/assets/fonts")
+    {file, html} = Pages.resume_pdf(lang, resume, fonts_dir)
 
     # printed from a file so Chrome can load the fonts from disk
     source = Path.join(System.tmp_dir!(), "site-resume-#{lang}.html")
@@ -42,6 +45,8 @@ defmodule Site.Pdf do
         print_to_pdf: %{preferCSSPageSize: true, printBackground: true}
       )
 
+    stamped = pdf |> File.read!() |> PdfStamp.stamp(PdfStamp.hash(lang, resume, fonts_dir))
+    File.write!(pdf, stamped)
     pdf
   end
 

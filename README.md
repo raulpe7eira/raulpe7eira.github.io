@@ -21,7 +21,7 @@ Source of my personal website, <https://raulpe7eira.tech>: a bilingual home page
 - **SEO**: Open Graph and Twitter cards, JSON-LD (`Person`), canonical URLs, `sitemap.xml` and an `llms.txt` for AI assistants
 - **Installable**: web manifest with icons, a maskable icon, a "Resume" shortcut and screenshots; opens in a `minimal-ui` window
 - **Security contact**: `/.well-known/security.txt` ([RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)), renewed by the generator a month before it expires
-- **Checked**: CI fails on a broken local link, an unused asset or a page that differs from the generator's output
+- **Checked**: CI fails on a broken local link, an unused asset, a page that differs from the generator's output or a resume PDF printed from older data (each PDF carries a hash of its sources)
 
 ## Development
 
