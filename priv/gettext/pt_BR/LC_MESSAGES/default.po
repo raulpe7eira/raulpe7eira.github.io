@@ -6,7 +6,7 @@ msgstr ""
 #: lib/site/pages.ex:138
 #: lib/site/pages.ex:173
 #: lib/site/pages.ex:179
-#: lib/site/pages.ex:227
+#: lib/site/pages.ex:229
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Engenheiro de Software"
@@ -16,32 +16,32 @@ msgstr "Engenheiro de Software"
 msgid "home.description"
 msgstr "Engenheiro de software com mais de 20 anos de experiência, focado em Elixir e IA. Ciclista entusiasta que ama estar com a família."
 
-#: lib/site/pages.ex:234
+#: lib/site/pages.ex:236
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Currículo"
 
-#: lib/site/pages.ex:238
+#: lib/site/pages.ex:240
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "Ver em português"
 
-#: lib/site/pages.ex:240
+#: lib/site/pages.ex:242
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Foto de Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:241
+#: lib/site/pages.ex:243
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Programador apaixonado, e ciclista entusiasta,<br />que ama estar com a família"
 
-#: lib/site/pages.ex:242
+#: lib/site/pages.ex:244
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Feito com"
 
-#: lib/site/pages.ex:243
+#: lib/site/pages.ex:245
 #, elixir-autogen
 msgid "footer.by"
 msgstr "por"
@@ -132,7 +132,10 @@ msgstr "adquirida"
 
 #: priv/templates/resume/page.html.eex:33
 #: priv/templates/resume/page.html.eex:34
+#: priv/templates/resume/page.html.eex:34
 #: priv/templates/resume/page.html.eex:66
+#: priv/templates/resume/page.html.eex:68
+#: priv/templates/resume/page.html.eex:68
 #, elixir-autogen
 msgid "resume.acquired_by"
 msgstr "adquirida pela %{company}"
@@ -283,37 +286,37 @@ msgstr "profissional completo"
 msgid "proficiency.native_or_bilingual"
 msgstr "nativo"
 
-#: lib/site/pages.ex:207
+#: lib/site/pages.ex:209
 #, elixir-autogen
 msgid "privacy.title"
 msgstr "Privacidade"
 
-#: lib/site/pages.ex:208
+#: lib/site/pages.ex:210
 #, elixir-autogen
 msgid "privacy.description"
 msgstr "O que o raulpe7eira.tech coleta (Google Analytics, só com o seu consentimento) e como mudar a sua escolha de cookies."
 
-#: lib/site/pages.ex:246
+#: lib/site/pages.ex:248
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr "Privacidade"
 
-#: lib/site/pages.ex:247
+#: lib/site/pages.ex:249
 #, elixir-autogen
 msgid "consent.label"
 msgstr "Consentimento de cookies"
 
-#: lib/site/pages.ex:248
+#: lib/site/pages.ex:250
 #, elixir-autogen
 msgid "consent.text"
 msgstr "Este site usa cookies de estatísticas (Google Analytics) só com o seu consentimento."
 
-#: lib/site/pages.ex:249
+#: lib/site/pages.ex:251
 #, elixir-autogen
 msgid "consent.accept"
 msgstr "Aceitar"
 
-#: lib/site/pages.ex:250
+#: lib/site/pages.ex:252
 #, elixir-autogen
 msgid "consent.decline"
 msgstr "Recusar"

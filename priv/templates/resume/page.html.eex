@@ -31,7 +31,7 @@
           <%= if experience.acquired_by do %>
             <span class="lw">
               <img class="lo" src="/assets/images/logos/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %> · <%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>">
-              <span class="acq" title="<%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>"><%= gettext("resume.acquired") %></span>
+              <span class="acq" role="img" aria-label="<%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>" data-tip="<%= escape(gettext("resume.acquired_by", company: experience.acquired_by)) %>"><%= gettext("resume.acquired") %></span>
             </span>
           <% else %>
             <img class="lo" src="/assets/images/logos/<%= experience.logo %>.png" alt="<%= escape(gettext("resume.logo_alt", name: experience.name)) %>" title="<%= escape(experience.name) %>">
@@ -65,7 +65,7 @@
                         <%= if reference.url do %><a href="<%= reference.url %>"><% end %>
                         <img src="/assets/images/logos/<%= reference.logo %>.png" alt="<%= escape(reference.name) %>" title="<%= escape(reference.name) %><%= if reference.acquired_by do %> · <%= escape(gettext("resume.acquired_by", company: reference.acquired_by)) %><% end %>">
                         <%= if reference.url do %></a><% end %>
-                        <%= if reference.acquired_by do %><span class="acq"><%= gettext("resume.acquired") %></span><% end %>
+                        <%= if reference.acquired_by do %><span class="acq" role="img" aria-label="<%= escape(gettext("resume.acquired_by", company: reference.acquired_by)) %>" data-tip="<%= escape(gettext("resume.acquired_by", company: reference.acquired_by)) %>"><%= gettext("resume.acquired") %></span><% end %>
                       </span>
                     <% end %>
                   </div>
@@ -92,7 +92,7 @@
   <%= for education <- @view.educations do %>
     <div class="ed">
       <b>
-        <a href="<%= education.url %>" title="<%= escape(education.school) %>"><%= escape(education.name) %><%= if education.closed_in do %><span class="closed" role="img" title="<%= gettext("resume.closed_in", year: education.closed_in) %>" aria-label="<%= gettext("resume.closed_in", year: education.closed_in) %>"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg></span><% end %></a>
+        <a href="<%= education.url %>" title="<%= escape(education.school) %>"><%= escape(education.name) %><%= if education.closed_in do %><span class="closed" role="img" data-tip="<%= gettext("resume.closed_in", year: education.closed_in) %>" aria-label="<%= gettext("resume.closed_in", year: education.closed_in) %>"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg></span><% end %></a>
       </b>
       <span><%= escape(education.degree) %></span>
       <span><%= education.period %></span>

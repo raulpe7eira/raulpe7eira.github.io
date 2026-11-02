@@ -282,11 +282,15 @@ defmodule Site.PagesTest do
 
     test "marks companies that were acquired", %{resume: resume} do
       assert resume(:en_us, resume) =~
-               ~s(<span class="acq" title="acquired by Evertec">acquired</span>)
+               ~s(<span class="acq" role="img" aria-label="acquired by Evertec" data-tip="acquired by Evertec">acquired</span>)
     end
 
     test "marks schools that closed", %{resume: resume} do
-      assert resume(:pt_br, resume) =~ ~s(title="Encerrado em 2014")
+      assert resume(:pt_br, resume) =~ ~s(data-tip="Encerrado em 2014")
+    end
+
+    test "loads the tooltip script", %{resume: resume} do
+      assert resume(:en_us, resume) =~ ~s(<script defer src="/assets/js/tooltip.js"></script>)
     end
 
     test "leaves no whitespace between the stack chips", %{resume: resume} do
