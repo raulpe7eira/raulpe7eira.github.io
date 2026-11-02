@@ -66,6 +66,24 @@ defmodule Site.Pages do
     {"llms.txt", text}
   end
 
+  @doc """
+  Renders `.well-known/security.txt` (RFC 9116): where to report a security
+  issue in the site. `expires` is the `DateTime` it stops being valid
+  (`Site.build/2` works it out).
+  """
+  def security(expires) do
+    path = ".well-known/security.txt"
+
+    text =
+      Templates.security(
+        contact: "mailto:raul@r3m.tech",
+        expires: DateTime.to_iso8601(expires),
+        canonical: Locale.base_url() <> "/" <> path
+      )
+
+    {path, text}
+  end
+
   @doc "Renders `404.html`, which sends unknown addresses to the home page of their language."
   def not_found do
     [default | _others] = Locale.langs()

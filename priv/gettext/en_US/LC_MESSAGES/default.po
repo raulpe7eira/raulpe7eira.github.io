@@ -2,57 +2,57 @@ msgid ""
 msgstr ""
 "Language: en_US\n"
 
-#: lib/site/pages.ex:109
-#: lib/site/pages.ex:120
-#: lib/site/pages.ex:155
-#: lib/site/pages.ex:161
-#: lib/site/pages.ex:209
+#: lib/site/pages.ex:127
+#: lib/site/pages.ex:138
+#: lib/site/pages.ex:173
+#: lib/site/pages.ex:179
+#: lib/site/pages.ex:227
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Software Engineer"
 
-#: lib/site/pages.ex:122
+#: lib/site/pages.ex:140
 #, elixir-autogen
 msgid "home.description"
 msgstr "Software engineer with 20+ years of experience, focused on Elixir and AI. Cycling enthusiast who loves being with the family."
 
-#: lib/site/pages.ex:216
+#: lib/site/pages.ex:234
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Resume"
 
-#: lib/site/pages.ex:220
+#: lib/site/pages.ex:238
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "View in English"
 
-#: lib/site/pages.ex:222
+#: lib/site/pages.ex:240
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Photo of Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:223
+#: lib/site/pages.ex:241
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Passionate coder, and cycling enthusiast,<br />who loves being with the family"
 
-#: lib/site/pages.ex:224
+#: lib/site/pages.ex:242
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Made with"
 
-#: lib/site/pages.ex:225
+#: lib/site/pages.ex:243
 #, elixir-autogen
 msgid "footer.by"
 msgstr "by"
 
-#: lib/site/pages.ex:108
-#: lib/site/pages.ex:146
+#: lib/site/pages.ex:126
+#: lib/site/pages.ex:164
 #, elixir-autogen
 msgid "resume.title"
 msgstr "Resume"
 
-#: lib/site/pages.ex:147
+#: lib/site/pages.ex:165
 #, elixir-autogen
 msgid "resume.description"
 msgstr "Resume of Raul Pereira da Silva (raulpe7eira): software engineer with 20+ years in backend, system integration and tech leadership, focused on Elixir and AI."
@@ -112,7 +112,7 @@ msgstr "Clients"
 msgid "resume.projects"
 msgstr "Projects"
 
-#: lib/site/templates.ex:43
+#: lib/site/templates.ex:44
 #: priv/templates/resume/page.html.eex:76
 #, elixir-autogen
 msgid "resume.stack"
@@ -283,37 +283,37 @@ msgstr "full professional"
 msgid "proficiency.native_or_bilingual"
 msgstr "native"
 
-#: lib/site/pages.ex:189
+#: lib/site/pages.ex:207
 #, elixir-autogen
 msgid "privacy.title"
 msgstr "Privacy"
 
-#: lib/site/pages.ex:190
+#: lib/site/pages.ex:208
 #, elixir-autogen
 msgid "privacy.description"
 msgstr "What raulpe7eira.tech collects (Google Analytics, only with your consent) and how to change your cookie choice."
 
-#: lib/site/pages.ex:228
+#: lib/site/pages.ex:246
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr "Privacy"
 
-#: lib/site/pages.ex:229
+#: lib/site/pages.ex:247
 #, elixir-autogen
 msgid "consent.label"
 msgstr "Cookie consent"
 
-#: lib/site/pages.ex:230
+#: lib/site/pages.ex:248
 #, elixir-autogen
 msgid "consent.text"
 msgstr "This site uses cookies for analytics (Google Analytics) only with your consent."
 
-#: lib/site/pages.ex:231
+#: lib/site/pages.ex:249
 #, elixir-autogen
 msgid "consent.accept"
 msgstr "Accept"
 
-#: lib/site/pages.ex:232
+#: lib/site/pages.ex:250
 #, elixir-autogen
 msgid "consent.decline"
 msgstr "Decline"

@@ -27,6 +27,7 @@ defmodule Site.Templates do
     {:jsonld_resume, "partials/jsonld_resume.html.eex", [:assigns]},
     {:sitemap, "sitemap.xml.eex", [:assigns]},
     {:llms, "llms.txt.eex", [:assigns]},
+    {:security, "security.txt.eex", [:assigns]},
     {:not_found, "404.html.eex", [:assigns]}
   ]
 
