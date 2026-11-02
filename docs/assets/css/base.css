@@ -275,7 +275,8 @@ footer a:hover .heart { animation: heartbeat 0.9s ease-in-out; }
   margin-bottom: 1rem;
 }
 
-.privacy code { font-size: 0.9em; color: var(--orange); }
+/* a named font list, so the browser doesn't shrink it as it does a bare monospace */
+.privacy code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.95em; color: var(--orange); }
 .privacy .consent-reset { margin-left: 0.5rem; padding: 0.2rem 0.8rem; font-size: 0.85rem; }
 
 /* Cookie consent banner (shown by analytics.js) and the privacy page button.
