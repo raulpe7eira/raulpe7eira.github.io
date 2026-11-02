@@ -1,10 +1,3 @@
-// Plausible: site script (pa-*.js) is loaded in <head>; tracking options
-// (outbound links, file downloads) are toggled in the Plausible dashboard.
-// It ignores localhost by itself.
-window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments); };
-plausible.init = plausible.init || function (i) { plausible.o = i || {}; };
-plausible.init();
-
 // Google Analytics (GA4) only on the production domain.
 (function () {
   if (location.hostname !== "raulpe7eira.tech") return;
