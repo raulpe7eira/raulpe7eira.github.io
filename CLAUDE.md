@@ -56,10 +56,11 @@ Styles, scripts and images are source files edited directly in `docs/assets/`, s
 
 ### Quality
 
-- Erlang/OTP and Elixir pinned in `mise.toml` (used locally and by CI via `jdx/mise-action`)
-- `mix precommit` — `compile --warnings-as-errors`, `deps.unlock --check-unused`, `gettext.extract --merge`, `format`, `credo` (strict, see `.credo.exs`), `deps.audit` (mix_audit), `coveralls` (tests + coverage, minimum 90% in `coveralls.json`); then `site.check` (broken references and unused files in `docs/` as it is now)
-- CI: `.github/workflows/ci.yml` runs the same checks, posts coverage to Coveralls (`mix coveralls.github`) and runs `mix site.build --no-pdf` + `git diff --exit-code docs/`, then `mix site.check`
-- Dependabot (`.github/dependabot.yml`): weekly updates for Mix deps and GitHub Actions
+- Erlang/OTP, Elixir and gitleaks pinned in `mise.toml` (used locally and by CI via `jdx/mise-action`)
+- `mix precommit` — `compile --warnings-as-errors`, `deps.unlock --check-unused`, `gettext.extract --merge`, `format`, `credo` (strict, see `.credo.exs`), `deps.audit` (mix_audit, security advisories), `hex.audit` (retired packages), `gitleaks` (secrets in the uncommitted and staged changes), `coveralls` (tests + coverage, minimum 90% in `coveralls.json`); then `site.check` (broken references and unused files in `docs/` as it is now)
+- CI: `.github/workflows/ci.yml` runs the same checks in independent jobs, each its own check on the PR: `lint` (compile, unused deps, format, credo, gettext), `security` (deps.audit, hex.audit, gitleaks over the full history), `test` (posts coverage to Coveralls with `mix coveralls.github`) and `site` (`mix site.build --no-pdf` + `git diff --exit-code docs/`, then `mix site.check`). Checks within a job keep running after a failure, so one push shows every problem. Shared setup in `.github/actions/setup` (mise, deps/_build cache saved only by `test`, restored by the others, cleared on re-runs, `mix deps.get`). A newer push cancels the PR's running CI; the workflow only reads the repo
+- PR titles follow Conventional Commits (`feat:`, `fix:`, `ci:`, `docs:`, `chore:` …), checked by `.github/workflows/pr-title.yml`; commit messages use the same style
+- Dependabot (`.github/dependabot.yml`): weekly updates for Mix deps (`chore(deps)`) and GitHub Actions (`ci(deps)`)
 - Not used on purpose: Dialyzer (Elixir 1.20's type checker covers it), Sobelow (no Phoenix), ex_check (`mix precommit` is enough)
 
 ## Key Files (all under `docs/`)

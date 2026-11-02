@@ -50,6 +50,9 @@ defmodule Site.MixProject do
         "format",
         "credo",
         "deps.audit",
+        "cmd mix hex.audit",
+        "cmd gitleaks git --pre-commit --redact --no-banner",
+        "cmd gitleaks git --pre-commit --staged --redact --no-banner",
         "coveralls",
         "site.check"
       ]
