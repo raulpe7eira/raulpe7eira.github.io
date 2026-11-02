@@ -26,5 +26,17 @@ defmodule Mix.Tasks.Site.CheckTest do
       catch_error(Check.run(["--root", root]))
       assert_received {:mix_shell, :error, ["index.html: /missing.png"]}
     end
+
+    test "lists each stale PDF", %{tmp_dir: root} do
+      pdf = Path.join(root, "downloads/raul-pereira-da-silva-resume-en-us.pdf")
+      File.mkdir_p!(Path.dirname(pdf))
+      File.write!(pdf, "%PDF-1.4 without a stamp")
+      catch_error(Check.run(["--root", root]))
+
+      assert_received {:mix_shell, :error,
+                       [
+                         "downloads/raul-pereira-da-silva-resume-en-us.pdf: out of date, run `mix site.build`"
+                       ]}
+    end
   end
 end
