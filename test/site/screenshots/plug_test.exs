@@ -20,8 +20,10 @@ defmodule Site.Screenshots.PlugTest do
     end
 
     test "serves the frame as HTML", %{opts: opts} do
-      assert {"content-type", "text/html; charset=utf-8"} in
-               request("/__screenshot?width=412&height=915", opts).resp_headers
+      assert {"content-type", "text/html; charset=utf-8"} in request(
+               "/__screenshot?width=412&height=915",
+               opts
+             ).resp_headers
     end
 
     test "serves the site's files like Site.Server", %{opts: opts} do
