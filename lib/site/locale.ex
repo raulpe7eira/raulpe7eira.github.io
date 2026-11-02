@@ -42,9 +42,10 @@ defmodule Site.Locale do
   def other(:en_us), do: :pt_br
   def other(:pt_br), do: :en_us
 
-  @doc "Site path of `page` (:home | :resume) in `lang`."
+  @doc "Site path of `page` (:home | :resume | :privacy) in `lang`."
   def path(lang, :home), do: get(lang).prefix
   def path(lang, :resume), do: get(lang).prefix <> "resume/"
+  def path(lang, :privacy), do: get(lang).prefix <> "privacy/"
 
   @doc "Absolute URL of `page` in `lang`."
   def url(lang, page), do: @base_url <> path(lang, page)

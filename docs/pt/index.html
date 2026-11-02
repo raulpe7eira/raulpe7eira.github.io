@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-  <!-- Analytics (production only - won't fire on file:// or localhost) -->
+  <!-- Analytics: GA4 only on raulpe7eira.tech and only after consent (banner below) -->
   <script async src="/assets/js/analytics.js"></script>
 
   <meta charset="UTF-8" />
@@ -182,7 +182,16 @@
     <footer>
       <p id="footer-pt-br"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" aria-label="R3M Tech">Feito com <span class="heart">&hearts;</span> por <span class="r3m">R3M</span> <span class="tech">TECH</span></a></p>
     </footer>
+    <a class="privacy-btn" href="/pt/privacy/" role="switch" aria-checked="false" aria-label="Privacidade" title="Privacidade"><svg viewBox="0 0 24 24"><use href="/assets/icons.svg#shield"/></svg></a>
   </main>
+
+  <div id="consent" class="consent" role="region" aria-label="Consentimento de cookies" hidden>
+    <p>Este site usa cookies de estatísticas (Google Analytics) só com o seu consentimento. <a href="/pt/privacy/">Privacidade</a></p>
+    <div class="consent-actions">
+      <button type="button" data-consent="granted">Aceitar</button>
+      <button type="button" data-consent="denied">Recusar</button>
+    </div>
+  </div>
 
   <script defer src="/assets/js/theme.js"></script>
   <script defer src="/assets/js/nav.js"></script>

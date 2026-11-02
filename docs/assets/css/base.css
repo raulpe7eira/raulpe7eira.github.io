@@ -1,4 +1,4 @@
-/* Shared styles: home and resume pages */
+/* Shared styles: home, resume and privacy pages */
 
 /* Inter, self-hosted: Latin subset in WOFF2 (same files the resume PDF embeds).
    Only the weights the site uses; bold text takes 600, as it did with Google Fonts. */
@@ -267,6 +267,127 @@ footer a:hover .heart { animation: heartbeat 0.9s ease-in-out; }
   100% { transform: scale(1); }
 }
 @media (prefers-reduced-motion: reduce) { footer a:hover .heart { animation: none; } }
+
+/* Privacy page */
+.privacy h2 {
+  color: var(--purple);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.privacy code { font-size: 0.9em; color: var(--orange); }
+.privacy .consent-reset { margin-left: 0.5rem; padding: 0.2rem 0.8rem; font-size: 0.85rem; }
+
+/* Cookie consent banner (shown by analytics.js) and the privacy page button.
+   Accept and Decline look the same: declining is as easy as accepting. */
+/* A bar across the whole bottom of the window, over the page; its content
+   lines up with main (900px wide, centered). */
+.consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  min-height: 8.5rem;
+  padding: 2.5rem max(1.2rem, calc((100% - 900px) / 2 + 3rem));
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
+  font-size: 0.95rem;
+  z-index: 20;
+}
+
+.consent[hidden] { display: none; }
+
+/* Privacy shield: a triangle in the bottom-left corner of main, a toggle
+   like the resume switch: discreet when off, in the yellow of the resume
+   "Acquired" badge when on (on the privacy page) */
+.privacy-btn {
+  all: unset;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 56px;
+  border-bottom-left-radius: 10px;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: var(--yellow);
+  cursor: pointer;
+  z-index: 15;
+  transition: color 0.3s ease, background 0.3s ease, filter 0.3s ease;
+}
+
+.privacy-btn svg {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* faint slanted edge, like the toolbar buttons' border; on hover the bottom
+   edge turns pink, as their bottom border does */
+.privacy-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  --edge: rgba(255, 255, 255, 0.12);
+  /* 1px like the toolbar borders; drawn on the diagonal, half of it is lost to
+     the anti-aliasing of the clip, so it takes 1.5px to look the same */
+  --edge-width: 1.5px;
+  background: linear-gradient(to top right, transparent calc(50% - var(--edge-width)), var(--edge) calc(50% - var(--edge-width)), var(--edge) 50%, transparent 50%);
+  pointer-events: none;
+}
+
+.privacy-btn:hover, .privacy-btn:focus-visible { box-shadow: inset 0 -1px 0 var(--pink); }
+
+/* hover like the toolbar buttons; yellow marks it on */
+.privacy-btn:hover, .privacy-btn:focus-visible { color: #fff; background-color: rgba(255, 255, 255, 0.12); }
+.privacy-btn.on { background-color: var(--yellow); color: var(--bg); }
+.privacy-btn.on:hover, .privacy-btn.on:focus-visible { color: #fff; background-color: rgba(255, 255, 255, 0.12); }
+
+.consent p {
+  margin: 0;
+  flex: 1 1 20rem;
+  text-align: left;
+}
+
+.consent-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.consent button, .consent-reset {
+  all: unset;
+  min-width: 5.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.consent button:hover, .consent-reset:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--pink);
+}
+
+.consent button:focus-visible, .consent-reset:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
 
 /* "Made with ♥ by R3M TECH": fixed brand colors, not themed */
 footer a, footer a:hover { color: inherit; border: none; }

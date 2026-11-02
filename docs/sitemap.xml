@@ -29,4 +29,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/resume/" />
     <lastmod>2026-11-02</lastmod>
   </url>
+  <url>
+    <loc>https://raulpe7eira.tech/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://raulpe7eira.tech/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/privacy/" />
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://raulpe7eira.tech/pt/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://raulpe7eira.tech/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/privacy/" />
+    <lastmod>2026-11-02</lastmod>
+  </url>
 </urlset>

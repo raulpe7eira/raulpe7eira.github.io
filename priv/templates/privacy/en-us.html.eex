@@ -1,0 +1,9 @@
+    <article id="en-content" class="privacy">
+      <h2>Privacy</h2>
+      <p>This site is a personal page. It has no accounts, forms or ads.</p>
+      <p><strong>Analytics:</strong> With your consent, the site uses Google Analytics 4 to count visits and see which pages are read. Google Analytics sets cookies (<code>_ga</code>) in your browser and processes data such as pages viewed, approximate location, device and browser. Google processes this data, possibly outside Brazil. Nothing is loaded before you choose, and nothing is loaded if you decline.</p>
+      <p><strong>Stored in your browser:</strong> Your theme and your consent choice are saved in your browser's local storage. They never leave your device.</p>
+      <p><strong>Hosting:</strong> The site is hosted on <a href="https://pages.github.com" title="link to GitHub Pages website" target="_blank" rel="noopener noreferrer">GitHub Pages</a>, which may log technical data such as IP addresses for security.</p>
+      <p><strong>Your choice:</strong> You can change it at any time. <button type="button" class="consent-reset" data-consent-reset>Change cookie preferences</button></p>
+      <p><strong>Contact:</strong> <a href="mailto:raul@r3m.tech" title="Email R3M Tech">raul@r3m.tech</a></p>
+    </article>

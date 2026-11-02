@@ -103,6 +103,97 @@ defmodule Site.PagesTest do
     test "leaves no template tags in the Portuguese page" do
       refute home(:pt_br) =~ "<%"
     end
+
+    test "English toolbar shield links to the English privacy page" do
+      assert home(:en_us) =~
+               ~s(<a class="privacy-btn" href="/privacy/" role="switch" aria-checked="false" aria-label="Privacy")
+    end
+
+    test "Portuguese toolbar shield links to the Portuguese privacy page" do
+      assert home(:pt_br) =~
+               ~s(<a class="privacy-btn" href="/pt/privacy/" role="switch" aria-checked="false")
+    end
+
+    test "starts with the consent banner hidden" do
+      assert home(:en_us) =~
+               ~s(<div id="consent" class="consent" role="region" aria-label="Cookie consent" hidden>)
+    end
+
+    test "English banner offers Accept and Decline" do
+      assert home(:en_us) =~
+               ~r{data-consent="granted">Accept</button>\s*<button type="button" data-consent="denied">Decline</button>}
+    end
+
+    test "Portuguese banner offers Aceitar and Recusar" do
+      assert home(:pt_br) =~
+               ~r{data-consent="granted">Aceitar</button>\s*<button type="button" data-consent="denied">Recusar</button>}
+    end
+  end
+
+  describe "privacy/1" do
+    test "writes the English page to privacy/index.html" do
+      assert {"privacy/index.html", _html} = Pages.privacy(:en_us)
+    end
+
+    test "writes the Portuguese page to pt/privacy/index.html" do
+      assert {"pt/privacy/index.html", _html} = Pages.privacy(:pt_br)
+    end
+
+    test "has the English title" do
+      assert privacy(:en_us) =~ "<title>Raul Pereira (raulpe7eira) - Privacy</title>"
+    end
+
+    test "has the Portuguese title" do
+      assert privacy(:pt_br) =~ "<title>Raul Pereira (raulpe7eira) - Privacidade</title>"
+    end
+
+    test "English canonical points to itself" do
+      assert privacy(:en_us) =~
+               ~s(<link rel="canonical" href="https://raulpe7eira.tech/privacy/" />)
+    end
+
+    test "English language switch links to the Portuguese privacy page" do
+      assert privacy(:en_us) =~ ~s(class="lang-btn" href="/pt/privacy/")
+    end
+
+    test "Portuguese language switch links to the English privacy page" do
+      assert privacy(:pt_br) =~ ~s(class="lang-btn" href="/privacy/")
+    end
+
+    test "English resume switch is off and links to /resume/" do
+      assert privacy(:en_us) =~
+               ~s(class="page-btn" href="/resume/" role="switch" aria-checked="false")
+    end
+
+    test "English shield is on and links back home" do
+      assert privacy(:en_us) =~
+               ~s(class="privacy-btn on" href="/" role="switch" aria-checked="true" aria-current="page")
+    end
+
+    test "Portuguese shield is on and links back home" do
+      assert privacy(:pt_br) =~
+               ~s(class="privacy-btn on" href="/pt/" role="switch" aria-checked="true" aria-current="page")
+    end
+
+    test "has the button that changes the cookie choice" do
+      assert privacy(:en_us) =~ "data-consent-reset>Change cookie preferences</button>"
+    end
+
+    test "gives the R3M Tech email as contact" do
+      assert privacy(:pt_br) =~ ~s(<a href="mailto:raul@r3m.tech")
+    end
+
+    test "English page uses only icons defined in the sprite" do
+      assert icon_refs(privacy(:en_us)) -- sprite_ids() == []
+    end
+
+    test "leaves no template tags in the English page" do
+      refute privacy(:en_us) =~ "<%"
+    end
+
+    test "leaves no template tags in the Portuguese page" do
+      refute privacy(:pt_br) =~ "<%"
+    end
   end
 
   describe "resume/2" do
@@ -279,15 +370,17 @@ defmodule Site.PagesTest do
       assert Enum.map(Pages.all(), &elem(&1, 0)) == [
                "index.html",
                "resume/index.html",
+               "privacy/index.html",
                "pt/index.html",
                "pt/resume/index.html",
+               "pt/privacy/index.html",
                "llms.txt",
                "404.html"
              ]
     end
 
     test "renders every file from the given resume", %{resume: resume} do
-      assert length(Pages.all(resume)) == 6
+      assert length(Pages.all(resume)) == 8
     end
   end
 
@@ -297,7 +390,9 @@ defmodule Site.PagesTest do
                {"index.html", "https://raulpe7eira.tech/"},
                {"pt/index.html", "https://raulpe7eira.tech/pt/"},
                {"resume/index.html", "https://raulpe7eira.tech/resume/"},
-               {"pt/resume/index.html", "https://raulpe7eira.tech/pt/resume/"}
+               {"pt/resume/index.html", "https://raulpe7eira.tech/pt/resume/"},
+               {"privacy/index.html", "https://raulpe7eira.tech/privacy/"},
+               {"pt/privacy/index.html", "https://raulpe7eira.tech/pt/privacy/"}
              ]
     end
   end
@@ -308,7 +403,7 @@ defmodule Site.PagesTest do
     end
 
     test "lists every page" do
-      assert length(Regex.scan(~r{<loc>}, sitemap())) == 4
+      assert length(Regex.scan(~r{<loc>}, sitemap())) == 6
     end
 
     test "dates each page with its lastmod" do
@@ -361,6 +456,7 @@ defmodule Site.PagesTest do
   end
 
   defp home(lang), do: lang |> Pages.home() |> elem(1)
+  defp privacy(lang), do: lang |> Pages.privacy() |> elem(1)
   defp sitemap, do: lastmods() |> Pages.sitemap() |> elem(1)
   defp llms(resume), do: resume |> Pages.llms() |> elem(1)
   defp not_found, do: elem(Pages.not_found(), 1)

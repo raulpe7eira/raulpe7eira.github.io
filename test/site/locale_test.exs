@@ -54,6 +54,14 @@ defmodule Site.LocaleTest do
     test "Portuguese resume is under /pt/" do
       assert Locale.path(:pt_br, :resume) == "/pt/resume/"
     end
+
+    test "English privacy page is /privacy/" do
+      assert Locale.path(:en_us, :privacy) == "/privacy/"
+    end
+
+    test "Portuguese privacy page is under /pt/" do
+      assert Locale.path(:pt_br, :privacy) == "/pt/privacy/"
+    end
   end
 
   describe "url/2" do

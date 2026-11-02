@@ -8,6 +8,8 @@ defmodule SiteTest do
     "resume/index.html",
     "pt/index.html",
     "pt/resume/index.html",
+    "privacy/index.html",
+    "pt/privacy/index.html",
     "llms.txt",
     "404.html",
     "sitemap.xml"

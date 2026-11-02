@@ -2,7 +2,7 @@
 <html lang="<%= @lang %>">
 
 <head>
-  <!-- Analytics (production only - won't fire on file:// or localhost) -->
+  <!-- Analytics: GA4 only on raulpe7eira.tech and only after consent (banner below) -->
   <script async src="/assets/js/analytics.js"></script>
 
   <meta charset="UTF-8" />
@@ -97,7 +97,16 @@
     <footer>
       <p id="footer-<%= @lang_key %>"><a href="https://r3m.tech" target="_blank" rel="noopener noreferrer" aria-label="R3M Tech"><%= @made_with %> <span class="heart">&hearts;</span> <%= @by %> <span class="r3m">R3M</span> <span class="tech">TECH</span></a></p>
     </footer>
+    <a <%= @privacy_btn_attrs %> aria-label="<%= @privacy_label %>" title="<%= @privacy_label %>"><svg viewBox="0 0 24 24"><use href="/assets/icons.svg#shield"/></svg></a>
   </main>
+
+  <div id="consent" class="consent" role="region" aria-label="<%= @consent_label %>" hidden>
+    <p><%= @consent_text %> <a href="<%= @privacy_path %>"><%= @privacy_label %></a></p>
+    <div class="consent-actions">
+      <button type="button" data-consent="granted"><%= @consent_accept %></button>
+      <button type="button" data-consent="denied"><%= @consent_decline %></button>
+    </div>
+  </div>
 
   <script defer src="/assets/js/theme.js"></script>
   <script defer src="/assets/js/nav.js"></script>

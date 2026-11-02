@@ -13,6 +13,7 @@ Source of my personal website, <https://raulpe7eira.tech>: a bilingual home page
 
 - **Bilingual**: English (`/`) and Portuguese (`/pt/`) pages, linked with `hreflang`
 - **Resume**: `/resume/` page and PDF download in both languages, built from the same data
+- **Privacy**: Google Analytics loads only after consent (LGPD), with a cookie banner and a `/privacy/` page in both languages
 - **9 color themes**, remembered per visitor
 - **SEO**: Open Graph and Twitter cards, JSON-LD (`Person`), canonical URLs, `sitemap.xml` and an `llms.txt` for AI assistants
 - **Installable**: web manifest with icons, a maskable icon, a "Resume" shortcut and screenshots; opens in a `minimal-ui` window
