@@ -18,6 +18,8 @@ defmodule Site.Templates do
     {:layout, "layout.html.eex", [:assigns]},
     {:home_en_us, "home/en-us.html.eex", [:_assigns]},
     {:home_pt_br, "home/pt-br.html.eex", [:_assigns]},
+    {:privacy_en_us, "privacy/en-us.html.eex", [:_assigns]},
+    {:privacy_pt_br, "privacy/pt-br.html.eex", [:_assigns]},
     {:resume, "resume/page.html.eex", [:assigns]},
     {:resume_pdf, "resume/pdf.html.eex", [:assigns]},
     {:social, "partials/social.html.eex", [:_assigns]},

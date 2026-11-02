@@ -1,8 +1,15 @@
-// Resume/Currículo toggle: let the switch slide before navigating
-document.querySelectorAll(".page-btn").forEach(function (a) {
+// Resume/Currículo switch and privacy shield: toggles that navigate. Let the
+// clicked one change state (and the other one turn off) before navigating.
+document.querySelectorAll(".page-btn, .privacy-btn").forEach(function (a) {
   a.addEventListener("click", function (e) {
     e.preventDefault();
+    var turningOn = !a.classList.contains("on");
     a.classList.toggle("on");
+    if (turningOn) {
+      document.querySelectorAll(".page-btn.on, .privacy-btn.on").forEach(function (other) {
+        if (other !== a) other.classList.remove("on");
+      });
+    }
     setTimeout(function () { location.href = a.href; }, 180);
   });
 });

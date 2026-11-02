@@ -9,7 +9,7 @@ defmodule Site.Pages do
   alias Site.ResumeView
   alias Site.Templates
 
-  @sitemap_pages [:home, :resume]
+  @sitemap_pages [:home, :resume, :privacy]
 
   @doc """
   Returns `{relative_output_path, content}` for every page, in both
@@ -21,7 +21,11 @@ defmodule Site.Pages do
   task today, maybe an MCP server later).
   """
   def all(resume \\ Resume.load!()) do
-    pages = for lang <- Locale.langs(), page <- [home(lang), resume(lang, resume)], do: page
+    pages =
+      for lang <- Locale.langs(),
+          page <- [home(lang), resume(lang, resume), privacy(lang)],
+          do: page
+
     pages ++ [llms(resume), not_found()]
   end
 
@@ -82,6 +86,11 @@ defmodule Site.Pages do
   @doc "Renders the resume page in `lang` from the resume data."
   def resume(lang, resume) do
     Locale.with_locale(lang, fn -> render_resume(lang, resume) end)
+  end
+
+  @doc "Renders the privacy page in `lang`: what the site collects and the cookie choice."
+  def privacy(lang) do
+    Locale.with_locale(lang, fn -> render_privacy(lang) end)
   end
 
   @doc """
@@ -168,6 +177,26 @@ defmodule Site.Pages do
     {output_file(lang, :resume), Templates.layout(assigns)}
   end
 
+  defp render_privacy(lang) do
+    article =
+      case lang do
+        :en_us -> Templates.privacy_en_us([])
+        :pt_br -> Templates.privacy_pt_br([])
+      end
+
+    assigns =
+      Map.merge(base(lang, :privacy), %{
+        title: "Raul Pereira (raulpe7eira) - " <> gettext("privacy.title"),
+        description: gettext("privacy.description"),
+        og_type: "website",
+        extra_head: "",
+        jsonld: "",
+        content: trim(article)
+      })
+
+    {output_file(lang, :privacy), Templates.layout(assigns)}
+  end
+
   defp base(lang, page) do
     locale = Locale.get(lang)
     other = Locale.other(lang)
@@ -193,19 +222,36 @@ defmodule Site.Pages do
       avatar_alt: gettext("header.avatar_alt"),
       subtitle: gettext("header.subtitle"),
       made_with: gettext("footer.made_with"),
-      by: gettext("footer.by")
+      by: gettext("footer.by"),
+      privacy_path: Locale.path(lang, :privacy),
+      privacy_btn_attrs: privacy_btn_attrs(lang, page),
+      privacy_label: gettext("footer.privacy"),
+      consent_label: gettext("consent.label"),
+      consent_text: gettext("consent.text"),
+      consent_accept: gettext("consent.accept"),
+      consent_decline: gettext("consent.decline")
     }
   end
 
-  # The toolbar switch is off on the home and links to the resume;
-  # on the resume it is on and links back home.
-  defp page_btn_attrs(lang, :home),
-    do:
-      ~s(class="page-btn" href="#{Locale.path(lang, :resume)}" role="switch" aria-checked="false")
-
+  # The toolbar switch is on on the resume and links back home;
+  # on the other pages it is off and links to the resume.
   defp page_btn_attrs(lang, :resume),
     do:
       ~s(class="page-btn on" href="#{Locale.path(lang, :home)}" role="switch" aria-checked="true" aria-current="page")
+
+  defp page_btn_attrs(lang, _page),
+    do:
+      ~s(class="page-btn" href="#{Locale.path(lang, :resume)}" role="switch" aria-checked="false")
+
+  # The shield in the toolbar is a toggle like the resume switch: on the
+  # privacy page it is on and links back home; elsewhere it links to it.
+  defp privacy_btn_attrs(lang, :privacy),
+    do:
+      ~s(class="privacy-btn on" href="#{Locale.path(lang, :home)}" role="switch" aria-checked="true" aria-current="page")
+
+  defp privacy_btn_attrs(lang, _page),
+    do:
+      ~s(class="privacy-btn" href="#{Locale.path(lang, :privacy)}" role="switch" aria-checked="false")
 
   # every locale, plus x-default pointing to the default (first) one
   defp alternates(page) do
