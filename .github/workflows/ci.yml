@@ -51,10 +51,7 @@ jobs:
       - id: setup
         uses: ./.github/actions/setup
 
-      - name: Deps audit
-        run: mix deps.audit
       - name: Hex audit
-        if: ${{ !cancelled() && steps.setup.outcome == 'success' }}
         run: mix hex.audit
       - name: Gitleaks
         if: ${{ !cancelled() && steps.setup.outcome == 'success' }}

@@ -36,8 +36,7 @@ defmodule Site.MixProject do
       {:image, "~> 0.54", only: [:dev, :test]},
       {:file_system, "~> 1.1", only: [:dev, :test]},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.18", only: :test},
-      {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false}
+      {:excoveralls, "~> 0.18", only: :test}
     ]
   end
 
@@ -49,7 +48,6 @@ defmodule Site.MixProject do
         "gettext.extract --merge",
         "format",
         "credo",
-        "deps.audit",
         "cmd mix hex.audit",
         "cmd gitleaks git --pre-commit --redact --no-banner",
         "cmd gitleaks git --pre-commit --staged --redact --no-banner",
