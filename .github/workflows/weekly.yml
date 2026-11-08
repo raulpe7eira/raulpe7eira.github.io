@@ -1,0 +1,41 @@
+name: Weekly
+
+# CI runs on every push and PR, but some problems show up with no commit:
+# a security advisory published for a locked version, or security.txt getting
+# close to its Expires date. This re-runs those checks on main on a schedule;
+# a failed run notifies by email.
+on:
+  schedule:
+    # Mondays 09:00 UTC (06:00 in Brasília)
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  MIX_ENV: test
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+
+      # Retired packages and security advisories for the versions in mix.lock
+      - name: Hex audit
+        run: mix hex.audit
+
+  site:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+
+      # security.txt's Expires moves when fewer than 30 days are left, so a
+      # rebuild changes docs/ a month before it expires
+      - name: Generated pages are up to date
+        run: |
+          mix site.build --no-pdf
+          git diff --exit-code docs/
