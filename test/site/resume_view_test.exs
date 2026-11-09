@@ -44,11 +44,11 @@ defmodule Site.ResumeViewTest do
     end
 
     test "shows an open role as ending at present", %{en_us: view} do
-      assert experience(view, "Arionkoder").period == "Oct 2025 - Present"
+      assert experience(view, "R3M Tech").period == "Jun 2012 - Present"
     end
 
     test "translates the months", %{pt_br: view} do
-      assert experience(view, "Arionkoder").period == "Out 2025 - Atual"
+      assert experience(view, "Arionkoder").period == "Out 2025 - Out 2026"
     end
 
     test "spans a company's period over all its roles", %{en_us: view} do

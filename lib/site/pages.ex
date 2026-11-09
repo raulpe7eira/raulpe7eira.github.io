@@ -177,7 +177,6 @@ defmodule Site.Pages do
       Templates.resume(
         view: ResumeView.build(resume, lang),
         job_title: gettext("profile.job_title"),
-        home_path: Locale.path(lang, :home),
         pdf_path: Locale.pdf_path(lang),
         pdf_download_name: Locale.pdf_download_name(lang)
       )

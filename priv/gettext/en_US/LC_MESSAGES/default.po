@@ -6,7 +6,7 @@ msgstr ""
 #: lib/site/pages.ex:138
 #: lib/site/pages.ex:173
 #: lib/site/pages.ex:179
-#: lib/site/pages.ex:229
+#: lib/site/pages.ex:228
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Software Engineer"
@@ -16,32 +16,32 @@ msgstr "Software Engineer"
 msgid "home.description"
 msgstr "Software engineer with 20+ years of experience, focused on Elixir and AI. Cycling enthusiast who loves being with the family."
 
-#: lib/site/pages.ex:236
+#: lib/site/pages.ex:235
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Resume"
 
-#: lib/site/pages.ex:240
+#: lib/site/pages.ex:239
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "View in English"
 
-#: lib/site/pages.ex:242
+#: lib/site/pages.ex:241
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Photo of Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:243
+#: lib/site/pages.ex:242
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Passionate coder, and cycling enthusiast,<br />who loves being with the family"
 
-#: lib/site/pages.ex:244
+#: lib/site/pages.ex:243
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Made with"
 
-#: lib/site/pages.ex:245
+#: lib/site/pages.ex:244
 #, elixir-autogen
 msgid "footer.by"
 msgstr "by"
@@ -286,37 +286,37 @@ msgstr "full professional"
 msgid "proficiency.native_or_bilingual"
 msgstr "native"
 
-#: lib/site/pages.ex:209
+#: lib/site/pages.ex:208
 #, elixir-autogen
 msgid "privacy.title"
 msgstr "Privacy"
 
-#: lib/site/pages.ex:210
+#: lib/site/pages.ex:209
 #, elixir-autogen
 msgid "privacy.description"
 msgstr "What raulpe7eira.tech collects (Google Analytics, only with your consent) and how to change your cookie choice."
 
-#: lib/site/pages.ex:248
+#: lib/site/pages.ex:247
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr "Privacy"
 
-#: lib/site/pages.ex:249
+#: lib/site/pages.ex:248
 #, elixir-autogen
 msgid "consent.label"
 msgstr "Cookie consent"
 
-#: lib/site/pages.ex:250
+#: lib/site/pages.ex:249
 #, elixir-autogen
 msgid "consent.text"
 msgstr "This site uses cookies for analytics (Google Analytics) only with your consent."
 
-#: lib/site/pages.ex:251
+#: lib/site/pages.ex:250
 #, elixir-autogen
 msgid "consent.accept"
 msgstr "Accept"
 
-#: lib/site/pages.ex:252
+#: lib/site/pages.ex:251
 #, elixir-autogen
 msgid "consent.decline"
 msgstr "Decline"

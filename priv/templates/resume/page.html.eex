@@ -4,7 +4,7 @@
     <div>
       <h2><%= escape(@view.name) %></h2>
       <div class="tag"><%= @job_title %></div>
-      <div class="links"><span><a href="<%= @home_path %>"><%= @view.website.label %></a></span> · <span><a href="<%= @view.linkedin.url %>"><%= @view.linkedin.label %></a></span> · <span><a href="<%= @view.github.url %>"><%= @view.github.label %></a></span></div>
+      <div class="links"><span><a href="<%= @view.linkedin.url %>"><%= @view.linkedin.label %></a></span> · <span><a href="<%= @view.github.url %>"><%= @view.github.label %></a></span></div>
       <div class="where"><%= escape(@view.location) %></div>
     </div>
     <a class="pv" href="<%= @pdf_path %>" download="<%= @pdf_download_name %>">
