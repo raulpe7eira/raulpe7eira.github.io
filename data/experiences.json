@@ -43,6 +43,10 @@
         ],
         "projects": [
           {
+            "name": "iSeatz (Arionkoder)",
+            "url": "https://www.iseatz.com"
+          },
+          {
             "name": "ARCA (Fiocruz)",
             "url": "https://arca.fiocruz.br"
           },

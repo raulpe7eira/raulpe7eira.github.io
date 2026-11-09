@@ -77,7 +77,7 @@ defmodule Site.ResumeViewTest do
 
     test "derives the client logo from its name", %{en_us: view} do
       [_clients, projects] = role(view, "R3M Tech").references
-      assert hd(projects.items).logo == "cl-arca-fiocruz"
+      assert hd(projects.items).logo == "cl-iseatz-arionkoder"
     end
 
     test "joins degree and field of study", %{pt_br: view} do

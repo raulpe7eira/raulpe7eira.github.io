@@ -366,7 +366,8 @@ defmodule Site.PagesTest do
     end
 
     test "joins clients and projects on one line", %{resume: resume} do
-      assert pdf(:en_us, resume) =~ "Bioxxi &nbsp;·&nbsp; <i>Projects:</i> ARCA (Fiocruz)"
+      assert pdf(:en_us, resume) =~
+               "Bioxxi &nbsp;·&nbsp; <i>Projects:</i> iSeatz (Arionkoder), ARCA (Fiocruz)"
     end
 
     test "leaves no template tags", %{resume: resume} do
