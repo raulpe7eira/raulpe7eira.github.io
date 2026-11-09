@@ -289,6 +289,11 @@ defmodule Site.PagesTest do
       assert resume(:pt_br, resume) =~ ~s(data-tip="Encerrado em 2014")
     end
 
+    test "starts the header links with LinkedIn (the photo already goes home)", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<div class="links"><span><a href="https://linkedin.com/in/raulpe7eira">)
+    end
+
     test "loads the tooltip script", %{resume: resume} do
       assert resume(:en_us, resume) =~ ~s(<script defer src="/assets/js/tooltip.js"></script>)
     end

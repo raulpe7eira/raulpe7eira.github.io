@@ -1,48 +1,5 @@
 [
   {
-    "company": "Arionkoder",
-    "url": "https://www.arionkoder.com",
-    "roles": [
-      {
-        "title": {
-          "en_us": "Software Engineer",
-          "pt_br": "Engenheiro de Software"
-        },
-        "started_on": "2025-10-01",
-        "location": {
-          "en_us": "Massachusetts, United States",
-          "pt_br": "Massachusetts, Estados Unidos"
-        },
-        "work_mode": "remote",
-        "description": {
-          "en_us": "As a software engineer at iSeatz through Arionkoder, I work on the team that owns the hotel search service for Amex's travel platform: aggregating availability, rates and promotions, ranking results, and personalizing offers for logged-in members. My main stack has been Elixir and Phoenix.\n\n- Internationalization: mapped what the supplier integration covered in each market and built workarounds for the gaps to meet delivery deadlines\n- Reworked the Oban job that caches data to reduce search latency\n- Improved observability of that job to catch data sync issues proactively\n- Improved logs and error messages across the platform\n- Implemented OpenTelemetry context propagation across child and sibling spans for end-to-end tracing\n- Built new features, adjusted existing ones, fixed bugs and ran data extractions for analysis",
-          "pt_br": "Como engenheiro de software na iSeatz pela Arionkoder, trabalho no time responsável pelo serviço de busca de hotéis da plataforma de viagens da Amex: agregação de disponibilidade, tarifas e promoções, ordenação dos resultados e personalização de ofertas para membros logados. Minha stack principal tem sido Elixir e Phoenix.\n\n- Internacionalização: mapeei o que a integração com o fornecedor cobria em cada mercado e construí soluções alternativas para as lacunas, cumprindo os prazos de entrega\n- Reestruturei o job Oban que mantém em cache local os dados para reduzir a latência da busca\n- Melhorei a observabilidade desse job para identificar proativamente problemas de sincronização\n- Implementei a propagação de contexto do OpenTelemetry entre spans filhos e irmãos\n- Melhorei logs e mensagens de erro na plataforma\n- Desenvolvi novas funcionalidades, ajustei as existentes, corrigi bugs e fiz extrações de dados para análise"
-        },
-        "stack": [
-          "Elixir",
-          "Phoenix",
-          "Oban",
-          "Redis",
-          "ETS",
-          "PostgreSQL",
-          "OpenTelemetry",
-          "Jaeger",
-          "Grafana",
-          "Sumo Logic",
-          "AWS",
-          "Docker"
-        ],
-        "clients": [],
-        "projects": [
-          {
-            "name": "iSeatz",
-            "url": "https://www.iseatz.com"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "company": "R3M Tech",
     "url": "https://r3m.tech",
     "roles": [
@@ -92,6 +49,50 @@
           {
             "name": "Consuxx (Bioxxi)",
             "url": "https://bioxxi.com.br"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Arionkoder",
+    "url": "https://www.arionkoder.com",
+    "roles": [
+      {
+        "title": {
+          "en_us": "Software Engineer",
+          "pt_br": "Engenheiro de Software"
+        },
+        "started_on": "2025-10-01",
+        "finished_on": "2026-10-01",
+        "location": {
+          "en_us": "Massachusetts, United States",
+          "pt_br": "Massachusetts, Estados Unidos"
+        },
+        "work_mode": "remote",
+        "description": {
+          "en_us": "As a software engineer at iSeatz through Arionkoder, I worked on the team that owns the hotel search service for Amex's travel platform: aggregating availability, rates and promotions, ranking results, and personalizing offers for logged-in members. My main stack was Elixir and Phoenix.\n\n- Internationalization: mapped what the supplier integration covered in each market and built workarounds for the gaps to meet delivery deadlines\n- Reworked the Oban job that caches data to reduce search latency\n- Improved observability of that job to catch data sync issues proactively\n- Improved logs and error messages across the platform\n- Implemented OpenTelemetry context propagation across child and sibling spans for end-to-end tracing\n- Built new features, adjusted existing ones, fixed bugs and ran data extractions for analysis",
+          "pt_br": "Como engenheiro de software na iSeatz pela Arionkoder, trabalhei no time responsável pelo serviço de busca de hotéis da plataforma de viagens da Amex: agregação de disponibilidade, tarifas e promoções, ordenação dos resultados e personalização de ofertas para membros logados. Minha stack principal foi Elixir e Phoenix.\n\n- Internacionalização: mapeei o que a integração com o fornecedor cobria em cada mercado e construí soluções alternativas para as lacunas, cumprindo os prazos de entrega\n- Reestruturei o job Oban que mantém em cache local os dados para reduzir a latência da busca\n- Melhorei a observabilidade desse job para identificar proativamente problemas de sincronização\n- Implementei a propagação de contexto do OpenTelemetry entre spans filhos e irmãos\n- Melhorei logs e mensagens de erro na plataforma\n- Desenvolvi novas funcionalidades, ajustei as existentes, corrigi bugs e fiz extrações de dados para análise"
+        },
+        "stack": [
+          "Elixir",
+          "Phoenix",
+          "Oban",
+          "Redis",
+          "ETS",
+          "PostgreSQL",
+          "OpenTelemetry",
+          "Jaeger",
+          "Grafana",
+          "Sumo Logic",
+          "AWS",
+          "Docker"
+        ],
+        "clients": [],
+        "projects": [
+          {
+            "name": "iSeatz",
+            "url": "https://www.iseatz.com"
           }
         ]
       }
