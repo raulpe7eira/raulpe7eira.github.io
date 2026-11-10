@@ -229,7 +229,7 @@ defmodule Site.PagesTest do
 
     test "links to all recommendations on LinkedIn", %{resume: resume} do
       assert resume(:pt_br, resume) =~
-               ~s(<a href="https://linkedin.com/in/raulpe7eira/details/recommendations/">Todas as recomendações no LinkedIn<svg)
+               ~s(<a href="https://linkedin.com/in/raulpe7eira/details/recommendations/">Todas as recomendações no LinkedIn</a>)
     end
 
     test "leaves hidden recommendations out", %{resume: resume} do
