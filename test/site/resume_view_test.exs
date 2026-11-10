@@ -97,8 +97,8 @@ defmodule Site.ResumeViewTest do
 
     test "shows each language with its proficiency", %{en_us: view} do
       assert view.languages == [
-               "Portuguese (native)",
                "English (professional)",
+               "Portuguese (native)",
                "Spanish (elementary)"
              ]
     end
