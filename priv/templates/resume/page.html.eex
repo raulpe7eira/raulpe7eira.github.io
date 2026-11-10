@@ -136,6 +136,6 @@
         </figcaption>
       </figure>
     <% end %>
-    <p class="all"><a href="<%= @view.all_recommendations_url %>"><%= gettext("resume.all_recommendations") %><svg viewBox="0 0 24 24" aria-hidden="true"><use href="/assets/icons.svg#external"/></svg></a></p>
+    <p class="all"><a href="<%= @view.all_recommendations_url %>"><%= gettext("resume.all_recommendations") %></a></p>
   <% end %>
 </section>
