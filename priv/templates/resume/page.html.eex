@@ -118,4 +118,21 @@
       <% end %>
     </div>
   </div>
+
+  <%= if @view.recommendations != [] do %>
+    <h2 id="recommendations"><%= gettext("resume.recommendations") %></h2>
+    <%= for recommendation <- @view.recommendations do %>
+      <figure class="rc">
+        <blockquote lang="en">
+          <%= for paragraph <- recommendation.paragraphs do %>
+            <p><%= escape(paragraph) %></p>
+          <% end %>
+        </blockquote>
+        <figcaption>
+          <span><b><a href="<%= recommendation.url %>"><%= escape(recommendation.name) %></a></b><%= if recommendation.headline do %> <span class="hl"><%= escape(recommendation.headline) %></span><% end %></span>
+          <small><%= escape(recommendation.context) %></small>
+        </figcaption>
+      </figure>
+    <% end %>
+  <% end %>
 </section>

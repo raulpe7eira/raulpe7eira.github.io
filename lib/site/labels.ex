@@ -1,7 +1,7 @@
 defmodule Site.Labels do
   @moduledoc """
   Labels for values that come from the resume data (dates, work modes,
-  skill types, proficiencies), in the current Gettext locale.
+  skill types, proficiencies, recommendation relationships), in the current Gettext locale.
 
   One clause per value, so `mix gettext.extract` finds every key.
   """
@@ -35,6 +35,12 @@ defmodule Site.Labels do
   def proficiency(:professional_working), do: gettext("proficiency.professional_working")
   def proficiency(:full_professional), do: gettext("proficiency.full_professional")
   def proficiency(:native_or_bilingual), do: gettext("proficiency.native_or_bilingual")
+
+  @doc "How a recommender relates to Raul, as LinkedIn puts it."
+  def relationship(:same_team), do: gettext("relationship.same_team")
+  def relationship(:different_teams), do: gettext("relationship.different_teams")
+  def relationship(:teacher), do: gettext("relationship.teacher")
+  def relationship(:service_provider), do: gettext("relationship.service_provider")
 
   @doc "Label of a group of references in a role."
   def reference_group(:clients), do: gettext("resume.clients")
