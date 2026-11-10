@@ -326,6 +326,11 @@ msgstr ""
 msgid "resume.recommendations"
 msgstr ""
 
+#: priv/templates/resume/page.html.eex:139
+#, elixir-autogen
+msgid "resume.all_recommendations"
+msgstr ""
+
 #: lib/site/labels.ex:40
 #, elixir-autogen
 msgid "relationship.same_team"

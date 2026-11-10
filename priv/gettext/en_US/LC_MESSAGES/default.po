@@ -326,6 +326,11 @@ msgstr "Decline"
 msgid "resume.recommendations"
 msgstr "Recommendations"
 
+#: priv/templates/resume/page.html.eex:139
+#, elixir-autogen
+msgid "resume.all_recommendations"
+msgstr "All recommendations on LinkedIn"
+
 #: lib/site/labels.ex:40
 #, elixir-autogen
 msgid "relationship.same_team"

@@ -14,7 +14,7 @@ Source of my personal website, <https://raulpe7eira.tech>: a bilingual home page
 ## Features
 
 - **Bilingual**: English (`/`) and Portuguese (`/pt/`) pages, linked with `hreflang`
-- **Resume**: `/resume/` page and PDF download in both languages, built from the same data
+- **Resume**: `/resume/` page and PDF download in both languages, built from the same data, with recommendations from LinkedIn on the page
 - **Privacy**: Google Analytics loads only after consent (LGPD), with a cookie banner and a `/privacy/` page in both languages
 - **9 color themes**, remembered per visitor
 - **SEO**: Open Graph and Twitter cards, JSON-LD (`Person`), canonical URLs, `sitemap.xml` and an `llms.txt` for AI assistants
@@ -54,7 +54,7 @@ mix site.images screenshots                              # home page screenshots
 ## Updating the content
 
 1. Change LinkedIn first; it is the source of truth.
-2. Update the matching file in `data/` (profile, experiences, educations, skills, languages, highlights).
+2. Update the matching file in `data/` (profile, experiences, educations, skills, languages, recommendations, highlights). With Claude Code, the `linkedin-sync` skill (`.claude/skills/linkedin-sync/`) reads the profile, reports what differs from `data/` and applies only what you approve. In `recommendations.json`, `hidden` and `worked_together_at` are site-only: they choose which recommendations show and add where we worked together.
 3. New company, client or project: add its logo with `mix site.images company|client|project` (a test fails if a logo is missing).
 4. Run `mix site.build` (with PDFs, since the resume changed), then `mix site.check` and `mix precommit`.
 5. If the home page looks different, run `mix site.images screenshots`.

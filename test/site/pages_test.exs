@@ -222,6 +222,16 @@ defmodule Site.PagesTest do
                ~s(<blockquote lang="en"><p>I really enjoyed working with Raul.)
     end
 
+    test "links each recommendation to its author's profile", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<a class="who" href="https://www.linkedin.com/in/valeriia-maliarenko-941842bb">)
+    end
+
+    test "links to all recommendations on LinkedIn", %{resume: resume} do
+      assert resume(:pt_br, resume) =~
+               ~s(<a href="https://linkedin.com/in/raulpe7eira/details/recommendations/">Todas as recomendações no LinkedIn<svg)
+    end
+
     test "leaves hidden recommendations out", %{resume: resume} do
       refute resume(:en_us, resume) =~ "Magdalena Sgavetti"
     end
