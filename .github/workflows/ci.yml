@@ -65,10 +65,16 @@ jobs:
         with:
           save-cache: "true"
 
-      - name: Tests with coverage (posted to Coveralls)
-        run: mix coveralls.github
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tests with coverage
+        run: mix coveralls.lcov
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: cover/lcov.info
+          disable_search: true
+          fail_ci_if_error: true
 
   site:
     runs-on: ubuntu-24.04
