@@ -213,6 +213,19 @@ defmodule Site.PagesTest do
       assert resume(:pt_br, resume) =~ "<title>Raul Pereira (raulpe7eira) - Currículo</title>"
     end
 
+    test "lists the recommendations under an anchor", %{resume: resume} do
+      assert resume(:en_us, resume) =~ ~s(<h2 id="recommendations">Recommendations</h2>)
+    end
+
+    test "keeps the recommendations in English on the Portuguese page", %{resume: resume} do
+      assert resume(:pt_br, resume) =~
+               ~s(<blockquote lang="en"><p>I really enjoyed working with Raul.)
+    end
+
+    test "leaves hidden recommendations out", %{resume: resume} do
+      refute resume(:en_us, resume) =~ "Magdalena Sgavetti"
+    end
+
     test "English canonical points to itself", %{resume: resume} do
       assert resume(:en_us, resume) =~
                ~s(<link rel="canonical" href="https://raulpe7eira.tech/resume/" />)

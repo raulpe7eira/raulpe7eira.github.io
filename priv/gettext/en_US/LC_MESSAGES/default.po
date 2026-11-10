@@ -102,12 +102,12 @@ msgstr "Skills"
 msgid "resume.spoken_languages"
 msgstr "Spoken languages"
 
-#: lib/site/labels.ex:40
+#: lib/site/labels.ex:46
 #, elixir-autogen
 msgid "resume.clients"
 msgstr "Clients"
 
-#: lib/site/labels.ex:41
+#: lib/site/labels.ex:47
 #, elixir-autogen
 msgid "resume.projects"
 msgstr "Projects"
@@ -151,62 +151,62 @@ msgstr "Closed in %{year}"
 msgid "date.present"
 msgstr "Present"
 
-#: lib/site/labels.ex:43
+#: lib/site/labels.ex:49
 #, elixir-autogen
 msgid "date.month.jan"
 msgstr "Jan"
 
-#: lib/site/labels.ex:44
+#: lib/site/labels.ex:50
 #, elixir-autogen
 msgid "date.month.feb"
 msgstr "Feb"
 
-#: lib/site/labels.ex:45
+#: lib/site/labels.ex:51
 #, elixir-autogen
 msgid "date.month.mar"
 msgstr "Mar"
 
-#: lib/site/labels.ex:46
+#: lib/site/labels.ex:52
 #, elixir-autogen
 msgid "date.month.apr"
 msgstr "Apr"
 
-#: lib/site/labels.ex:47
+#: lib/site/labels.ex:53
 #, elixir-autogen
 msgid "date.month.may"
 msgstr "May"
 
-#: lib/site/labels.ex:48
+#: lib/site/labels.ex:54
 #, elixir-autogen
 msgid "date.month.jun"
 msgstr "Jun"
 
-#: lib/site/labels.ex:49
+#: lib/site/labels.ex:55
 #, elixir-autogen
 msgid "date.month.jul"
 msgstr "Jul"
 
-#: lib/site/labels.ex:50
+#: lib/site/labels.ex:56
 #, elixir-autogen
 msgid "date.month.aug"
 msgstr "Aug"
 
-#: lib/site/labels.ex:51
+#: lib/site/labels.ex:57
 #, elixir-autogen
 msgid "date.month.sep"
 msgstr "Sep"
 
-#: lib/site/labels.ex:52
+#: lib/site/labels.ex:58
 #, elixir-autogen
 msgid "date.month.oct"
 msgstr "Oct"
 
-#: lib/site/labels.ex:53
+#: lib/site/labels.ex:59
 #, elixir-autogen
 msgid "date.month.nov"
 msgstr "Nov"
 
-#: lib/site/labels.ex:54
+#: lib/site/labels.ex:60
 #, elixir-autogen
 msgid "date.month.dec"
 msgstr "Dec"
@@ -320,3 +320,28 @@ msgstr "Accept"
 #, elixir-autogen
 msgid "consent.decline"
 msgstr "Decline"
+
+#: priv/templates/resume/page.html.eex:123
+#, elixir-autogen
+msgid "resume.recommendations"
+msgstr "Recommendations"
+
+#: lib/site/labels.ex:40
+#, elixir-autogen
+msgid "relationship.same_team"
+msgstr "Same team"
+
+#: lib/site/labels.ex:41
+#, elixir-autogen
+msgid "relationship.different_teams"
+msgstr "Different teams"
+
+#: lib/site/labels.ex:42
+#, elixir-autogen
+msgid "relationship.teacher"
+msgstr "Teacher"
+
+#: lib/site/labels.ex:43
+#, elixir-autogen
+msgid "relationship.service_provider"
+msgstr "Service provider"

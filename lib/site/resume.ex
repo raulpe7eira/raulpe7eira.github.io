@@ -12,9 +12,18 @@ defmodule Site.Resume do
   alias Site.Resume.Highlights
   alias Site.Resume.Language
   alias Site.Resume.Profile
+  alias Site.Resume.Recommendation
   alias Site.Resume.Skill
 
-  defstruct [:profile, :experiences, :educations, :skills, :languages, :highlights]
+  defstruct [
+    :profile,
+    :experiences,
+    :educations,
+    :skills,
+    :languages,
+    :recommendations,
+    :highlights
+  ]
 
   @sources [
     profile: {Profile, :one},
@@ -22,6 +31,7 @@ defmodule Site.Resume do
     educations: {Education, :many},
     skills: {Skill, :many},
     languages: {Language, :many},
+    recommendations: {Recommendation, :many},
     highlights: {Highlights, :one}
   ]
 

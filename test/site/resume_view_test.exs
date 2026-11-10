@@ -102,6 +102,31 @@ defmodule Site.ResumeViewTest do
                "Spanish (elementary)"
              ]
     end
+
+    test "leaves hidden recommendations out", %{en_us: view} do
+      assert Enum.map(view.recommendations, & &1.name) == [
+               "Valeriia Maliarenko",
+               "Gerson Scanapieco",
+               "Leonardo Mello",
+               "Vinci Amorim"
+             ]
+    end
+
+    test "keeps the recommender's current headline", %{en_us: view} do
+      assert hd(view.recommendations).headline == "Middle Business Analyst at DataArt"
+    end
+
+    test "splits a recommendation into paragraphs", %{en_us: view} do
+      assert length(hd(view.recommendations).paragraphs) == 4
+    end
+
+    test "joins relationship, workplace and date", %{en_us: view} do
+      assert hd(view.recommendations).context == "Same team · iSeatz · Oct 2026"
+    end
+
+    test "translates the recommendation labels", %{pt_br: view} do
+      assert hd(view.recommendations).context == "Mesmo time · iSeatz · Out 2026"
+    end
   end
 
   describe "slug/1" do

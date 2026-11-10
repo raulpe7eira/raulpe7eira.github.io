@@ -29,7 +29,8 @@ defmodule Site.ResumeView do
       experiences: Enum.map(resume.experiences, &experience(&1, lang)),
       educations: Enum.map(resume.educations, &education(&1, lang)),
       skills: Enum.map(resume.skills, &skill/1),
-      languages: Enum.map(resume.languages, &language(&1, lang))
+      languages: Enum.map(resume.languages, &language(&1, lang)),
+      recommendations: recommendations(resume.recommendations)
     }
   end
 
@@ -120,6 +121,31 @@ defmodule Site.ResumeView do
 
   defp language(language, lang),
     do: "#{translate(language.name, lang)} (#{Labels.proficiency(language.proficiency)})"
+
+  # Hidden ones stay in the data (it mirrors LinkedIn) but not on the page.
+  defp recommendations(recommendations) do
+    for recommendation <- recommendations, not recommendation.hidden do
+      recommendation(recommendation)
+    end
+  end
+
+  # Kept in the language it was written in; only the labels are translated.
+  defp recommendation(recommendation) do
+    %{
+      name: recommendation.name,
+      url: recommendation.url,
+      headline: recommendation.headline,
+      paragraphs: String.split(recommendation.text, "\n\n"),
+      context:
+        [
+          Labels.relationship(recommendation.relationship),
+          recommendation.worked_together_at,
+          Labels.month_year(recommendation.given_on)
+        ]
+        |> Enum.reject(&is_nil/1)
+        |> Enum.join(" · ")
+    }
+  end
 
   defp place(role, lang) do
     location = role.location && translate(role.location, lang)
