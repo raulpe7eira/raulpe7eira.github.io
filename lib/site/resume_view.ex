@@ -30,7 +30,8 @@ defmodule Site.ResumeView do
       educations: Enum.map(resume.educations, &education(&1, lang)),
       skills: Enum.map(resume.skills, &skill/1),
       languages: Enum.map(resume.languages, &language(&1, lang)),
-      recommendations: recommendations(resume.recommendations)
+      recommendations: recommendations(resume.recommendations),
+      all_recommendations_url: profile.linkedin <> "/details/recommendations/"
     }
   end
 

@@ -326,6 +326,11 @@ msgstr "Recusar"
 msgid "resume.recommendations"
 msgstr "Recomendações"
 
+#: priv/templates/resume/page.html.eex:139
+#, elixir-autogen
+msgid "resume.all_recommendations"
+msgstr "Todas as recomendações no LinkedIn"
+
 #: lib/site/labels.ex:40
 #, elixir-autogen
 msgid "relationship.same_team"

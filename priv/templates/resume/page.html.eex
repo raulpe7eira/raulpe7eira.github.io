@@ -129,10 +129,13 @@
           <% end %>
         </blockquote>
         <figcaption>
-          <span><b><a href="<%= recommendation.url %>"><%= escape(recommendation.name) %></a></b><%= if recommendation.headline do %> <span class="hl"><%= escape(recommendation.headline) %></span><% end %></span>
-          <small><%= escape(recommendation.context) %></small>
+          <a class="who" href="<%= recommendation.url %>">
+            <span><b><%= escape(recommendation.name) %></b><%= if recommendation.headline do %> <span class="hl"><%= escape(recommendation.headline) %></span><% end %></span>
+            <small><%= escape(recommendation.context) %></small>
+          </a>
         </figcaption>
       </figure>
     <% end %>
+    <p class="all"><a href="<%= @view.all_recommendations_url %>"><%= gettext("resume.all_recommendations") %><svg viewBox="0 0 24 24" aria-hidden="true"><use href="/assets/icons.svg#external"/></svg></a></p>
   <% end %>
 </section>
