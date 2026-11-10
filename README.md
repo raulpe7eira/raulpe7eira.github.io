@@ -1,7 +1,7 @@
 # raulpe7eira.github.io
 
 [![CI](https://github.com/raulpe7eira/raulpe7eira.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/raulpe7eira/raulpe7eira.github.io/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/raulpe7eira/raulpe7eira.github.io/badge.svg?branch=main)](https://coveralls.io/github/raulpe7eira/raulpe7eira.github.io?branch=main)
+[![codecov](https://codecov.io/github/raulpe7eira/raulpe7eira.github.io/graph/badge.svg)](https://codecov.io/github/raulpe7eira/raulpe7eira.github.io)
 
 <img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech: bio card over a photo of me cycling in Minas Gerais" src="https://github.com/user-attachments/assets/e3cd3350-39fb-448a-9aef-ce8cce8ff72f" />
 
@@ -71,7 +71,7 @@ mix site.images screenshots                              # home page screenshots
 | `docs/assets/` | CSS, JS, fonts and images |
 | `docs/downloads/` | resume PDFs (generated) |
 
-CI (GitHub Actions) runs the same checks, posts coverage to Coveralls (minimum 90%) and fails if `mix site.build --no-pdf` changes anything in `docs/` or `mix site.check` finds a problem. Dependabot keeps Mix deps and GitHub Actions up to date.
+CI (GitHub Actions) runs the same checks, posts coverage to Codecov (minimum 90%, enforced by ExCoveralls; on PRs, total coverage may not drop more than 1% and changed lines need 70%) and fails if `mix site.build --no-pdf` changes anything in `docs/` or `mix site.check` finds a problem. Dependabot keeps Mix deps and GitHub Actions up to date.
 
 ## Previous version
 

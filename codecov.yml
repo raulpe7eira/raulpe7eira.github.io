@@ -1,0 +1,15 @@
+coverage:
+  status:
+    # Total coverage may not drop more than 1% from the base branch
+    project:
+      default:
+        target: auto
+        threshold: 1%
+    # Lines changed in a PR must be at least 70% covered
+    patch:
+      default:
+        target: 70%
+
+comment:
+  layout: "condensed_header, diff, files"
+  require_changes: false

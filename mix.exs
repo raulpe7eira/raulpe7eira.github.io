@@ -18,7 +18,7 @@ defmodule Site.MixProject do
         precommit: :test,
         coveralls: :test,
         "coveralls.html": :test,
-        "coveralls.github": :test
+        "coveralls.lcov": :test
       ]
     ]
   end
