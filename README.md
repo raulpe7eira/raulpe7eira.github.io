@@ -5,7 +5,7 @@
 
 <img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech: bio card over a photo of me cycling in Minas Gerais" src="https://github.com/user-attachments/assets/e3cd3350-39fb-448a-9aef-ce8cce8ff72f" />
 
-<img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech/resume: resume page with summary, experience timeline and PDF download" src="https://github.com/user-attachments/assets/2fe9f403-04b5-4afe-a014-36368db48665" />
+<img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech/resume: resume page with summary, experience timeline and PDF download" src="https://github.com/user-attachments/assets/f65ca617-6ce9-4e40-ae9c-c8259f7ab478" />
 
 <img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech/privacy: privacy page explaining the analytics consent, with the button to change cookie preferences" src="https://github.com/user-attachments/assets/9bcd511b-5ec7-4b50-90fb-ea0c4f0add93" />
 
