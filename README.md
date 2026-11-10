@@ -1,7 +1,7 @@
 # raulpe7eira.github.io
 
 [![CI](https://github.com/raulpe7eira/raulpe7eira.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/raulpe7eira/raulpe7eira.github.io/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/github/raulpe7eira/raulpe7eira.github.io/graph/badge.svg)](https://codecov.io/github/raulpe7eira/raulpe7eira.github.io)
+[![codecov](https://codecov.io/gh/raulpe7eira/raulpe7eira.github.io/graph/badge.svg?token=ZQ5KGRQ66Q)](https://codecov.io/gh/raulpe7eira/raulpe7eira.github.io)
 
 <img width="2006" height="1195" alt="Screenshot of raulpe7eira.tech: bio card over a photo of me cycling in Minas Gerais" src="https://github.com/user-attachments/assets/e3cd3350-39fb-448a-9aef-ce8cce8ff72f" />
 
