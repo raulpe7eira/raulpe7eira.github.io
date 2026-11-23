@@ -4,9 +4,10 @@ defmodule Site.Resume.Recommendation do
 
   `relationship` is how LinkedIn describes it (its label comes from Gettext).
   `headline` is the recommender's current one, as LinkedIn shows it.
-  `worked_together_at` and `hidden` exist only on the site: where the two
-  worked together (LinkedIn doesn't say) and whether to leave it off the
-  resume page.
+  `worked_together_at`, `photo` and `hidden` exist only on the site: where
+  the two worked together (LinkedIn doesn't say), whether the recommender's
+  photo is in `docs/assets/images/people/` (otherwise their initials show)
+  and whether to leave it off the resume page.
   """
 
   use Ecto.Schema
@@ -14,7 +15,7 @@ defmodule Site.Resume.Recommendation do
   import Ecto.Changeset
   import Site.Resume.Validations
 
-  @relationships [:same_team, :different_teams, :teacher, :service_provider]
+  @relationships [:same_team, :different_teams, :senior_colleague, :teacher, :service_provider]
 
   @primary_key false
   embedded_schema do
@@ -25,6 +26,7 @@ defmodule Site.Resume.Recommendation do
     field :given_on, :date
     field :text, :string
     field :worked_together_at, :string
+    field :photo, :boolean, default: false
     field :hidden, :boolean, default: false
   end
 
@@ -39,6 +41,7 @@ defmodule Site.Resume.Recommendation do
       :given_on,
       :text,
       :worked_together_at,
+      :photo,
       :hidden
     ])
     |> validate_required([:name, :url, :relationship, :given_on, :text])

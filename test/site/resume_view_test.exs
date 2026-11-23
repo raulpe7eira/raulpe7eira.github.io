@@ -105,6 +105,7 @@ defmodule Site.ResumeViewTest do
 
     test "leaves hidden recommendations out", %{en_us: view} do
       assert Enum.map(view.recommendations, & &1.name) == [
+               "Farrell Dalsing",
                "Valeriia Maliarenko",
                "Gerson Scanapieco",
                "Leonardo Mello",
@@ -113,19 +114,28 @@ defmodule Site.ResumeViewTest do
     end
 
     test "keeps the recommender's current headline", %{en_us: view} do
-      assert hd(view.recommendations).headline == "Middle Business Analyst at DataArt"
+      assert hd(view.recommendations).headline ==
+               "Senior Product Manager | Strategic Platform & Client Product Leadership | Hospitality & Travel Tech | Driving Scalable Booking & Revenue Experiences"
     end
 
     test "splits a recommendation into paragraphs", %{en_us: view} do
-      assert length(hd(view.recommendations).paragraphs) == 4
+      assert length(hd(view.recommendations).paragraphs) == 7
     end
 
     test "joins relationship, workplace and date", %{en_us: view} do
-      assert hd(view.recommendations).context == "Same team · iSeatz · Oct 2026"
+      assert hd(view.recommendations).context == "Senior colleague · iSeatz · Nov 2026"
+    end
+
+    test "shows the recommender's initials", %{en_us: view} do
+      assert hd(view.recommendations).initials == "FD"
+    end
+
+    test "points to the recommender's photo", %{en_us: view} do
+      assert hd(view.recommendations).photo == "/assets/images/people/farrell-dalsing.jpg"
     end
 
     test "translates the recommendation labels", %{pt_br: view} do
-      assert hd(view.recommendations).context == "Mesmo time · iSeatz · Out 2026"
+      assert hd(view.recommendations).context == "Colega sênior · iSeatz · Nov 2026"
     end
   end
 

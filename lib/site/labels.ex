@@ -41,6 +41,7 @@ defmodule Site.Labels do
   def relationship(:different_teams), do: gettext("relationship.different_teams")
   def relationship(:teacher), do: gettext("relationship.teacher")
   def relationship(:service_provider), do: gettext("relationship.service_provider")
+  def relationship(:senior_colleague), do: gettext("relationship.senior_colleague")
 
   @doc "Label of a group of references in a role."
   def reference_group(:clients), do: gettext("resume.clients")

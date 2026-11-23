@@ -350,3 +350,8 @@ msgstr "Teacher"
 #, elixir-autogen
 msgid "relationship.service_provider"
 msgstr "Service provider"
+
+#: lib/site/labels.ex:44
+#, elixir-autogen
+msgid "relationship.senior_colleague"
+msgstr "Senior colleague"
