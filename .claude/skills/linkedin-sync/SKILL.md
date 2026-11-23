@@ -58,13 +58,13 @@ Schemas live in `lib/site/resume/`; the format rules are in `CLAUDE.md` (Resume 
 | Education | `educations.json` → `school`, `degree`, `field_of_study`, dates |
 | Languages | `languages.json` → `name` (both languages), `proficiency` |
 | Recommendation | `recommendations.json` → `name`, `url` (profile link without `/en/` or query), `headline`, `relationship`, `given_on` (`"YYYY-MM-DD"`), `text` (original language; `\r\n` → `\n`, no trailing spaces) |
-| "X worked with Raul on the same team" / "…but on different teams" / "X was Raul's teacher" / "Raul was X's client" | `relationship`: `same_team`, `different_teams`, `teacher`, `service_provider` |
+| "X worked with Raul on the same team" / "…but on different teams" / "X was senior to Raul but didn't manage Raul directly" / "X was Raul's teacher" / "Raul was X's client" | `relationship`: `same_team`, `different_teams`, `senior_colleague`, `teacher`, `service_provider` |
 
 Order: companies and roles as on LinkedIn (newest first); clients and projects in the media order.
 
 **Portuguese that LinkedIn doesn't translate:** the location of the newer roles and of the top card, the degree "Undergraduate" and the language names show in English (or in the viewer's interface language) even in the Portuguese view. For these, compare only the English and keep the `pt_br` in `data/`.
 
-**Site-only fields — never overwrite them from LinkedIn:** every `url` (except the recommenders' profile links), `closed_in`, the recommendations' `hidden` and `worked_together_at`, logos in `docs/assets/images/logos/`, `profile.json` `email`/`website`/`linkedin`/`github`, `skills.json` (Raul's own grouping) and `highlights.json`.
+**Site-only fields — never overwrite them from LinkedIn:** every `url` (except the recommenders' profile links), `closed_in`, the recommendations' `hidden`, `worked_together_at` and `photo`, logos in `docs/assets/images/logos/`, recommenders' photos in `docs/assets/images/people/`, `profile.json` `email`/`website`/`linkedin`/`github`, `skills.json` (Raul's own grouping) and `highlights.json`.
 
 ## 3. Report the differences
 
@@ -80,7 +80,7 @@ experiences.json
 Also report:
 
 - **New company, client or project:** it needs a `url` and a logo (`mix site.images company|client|project …`, sources in `~/Downloads/R3M Tech/Linkedin/midias/`). Ask Raul for the URL and the logo file; don't guess them.
-- **New recommendation:** ask Raul whether it shows on the site (`hidden`) and where they worked together (`worked_together_at`); LinkedIn has neither. The `headline` is the recommender's current one and follows LinkedIn.
+- **New recommendation:** ask Raul whether it shows on the site (`hidden`) and where they worked together (`worked_together_at`); LinkedIn has neither. The `headline` is the recommender's current one and follows LinkedIn. For its photo, read the profile picture in Raul's Chrome (the `profile-displayphoto` image, not the framed one, so no #OpenToWork ring), resize it to 240×240 JPEG, save it as `docs/assets/images/people/<slug>.jpg` and set `"photo": true`; without a photo the initials show.
 - **`highlights.json`:** if experiences changed, suggest a new career paragraph for him to review (LinkedIn has no equivalent).
 - Anything on LinkedIn the mapping doesn't cover, so he can decide.
 

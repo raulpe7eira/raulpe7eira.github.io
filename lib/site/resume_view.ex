@@ -136,6 +136,8 @@ defmodule Site.ResumeView do
       name: recommendation.name,
       url: recommendation.url,
       headline: recommendation.headline,
+      photo: recommendation.photo && "/assets/images/people/#{slug(recommendation.name)}.jpg",
+      initials: initials(recommendation.name),
       paragraphs: String.split(recommendation.text, "\n\n"),
       context:
         [
@@ -146,6 +148,15 @@ defmodule Site.ResumeView do
         |> Enum.reject(&is_nil/1)
         |> Enum.join(" · ")
     }
+  end
+
+  # First letters of the first and last names, e.g. "Gerson Scanapieco" -> "GS".
+  defp initials(name) do
+    names = String.split(name)
+
+    [List.first(names), List.last(names)]
+    |> Enum.map_join(&String.first/1)
+    |> String.upcase()
   end
 
   defp place(role, lang) do

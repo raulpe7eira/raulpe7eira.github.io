@@ -129,6 +129,11 @@
           <% end %>
         </blockquote>
         <figcaption>
+          <%= if recommendation.photo do %>
+            <img class="av" src="<%= recommendation.photo %>" alt="" loading="lazy">
+          <% else %>
+            <span class="av" aria-hidden="true"><%= escape(recommendation.initials) %></span>
+          <% end %>
           <a class="who" href="<%= recommendation.url %>">
             <span><b><%= escape(recommendation.name) %></b><%= if recommendation.headline do %> <span class="hl"><%= escape(recommendation.headline) %></span><% end %></span>
             <small><%= escape(recommendation.context) %></small>

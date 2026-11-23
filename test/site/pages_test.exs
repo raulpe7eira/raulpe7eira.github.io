@@ -227,6 +227,11 @@ defmodule Site.PagesTest do
                ~s(<a class="who" href="https://www.linkedin.com/in/valeriia-maliarenko-941842bb">)
     end
 
+    test "shows the recommender's photo", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<img class="av" src="/assets/images/people/farrell-dalsing.jpg" alt="" loading="lazy">)
+    end
+
     test "links to all recommendations on LinkedIn", %{resume: resume} do
       assert resume(:pt_br, resume) =~
                ~s(<a href="https://linkedin.com/in/raulpe7eira/details/recommendations/">Todas as recomendações no LinkedIn</a>)

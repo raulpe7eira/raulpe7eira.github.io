@@ -29,6 +29,10 @@ defmodule Site.Resume.RecommendationTest do
                errors(Map.put(@valid, "url", "http://linkedin.com/in/someone"))
     end
 
+    test "has no photo by default" do
+      refute Ecto.Changeset.get_field(changeset(@valid), :photo)
+    end
+
     test "shows it on the site by default" do
       refute Ecto.Changeset.get_field(changeset(@valid), :hidden)
     end
