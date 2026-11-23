@@ -77,7 +77,13 @@ defmodule Site.LabelsTest do
 
   describe "relationship/1" do
     test "labels every relationship" do
-      relationships = [:same_team, :different_teams, :senior_colleague, :teacher, :service_provider]
+      relationships = [
+        :same_team,
+        :different_teams,
+        :senior_colleague,
+        :teacher,
+        :service_provider
+      ]
 
       assert in_lang(:pt_br, fn -> Enum.map(relationships, &Labels.relationship/1) end) == [
                "Mesmo time",
