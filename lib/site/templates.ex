@@ -29,7 +29,8 @@ defmodule Site.Templates do
     {:sitemap, "sitemap.xml.eex", [:assigns]},
     {:llms, "llms.txt.eex", [:assigns]},
     {:security, "security.txt.eex", [:assigns]},
-    {:not_found, "404.html.eex", [:assigns]}
+    {:not_found, "404.html.eex", [:assigns]},
+    {:headers, "_headers.eex", [:assigns]}
   ]
 
   for {name, file, args} <- @templates do

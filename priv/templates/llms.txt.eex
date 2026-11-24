@@ -10,24 +10,24 @@ Raul Pereira (raulpe7eira) is a software engineer based in Brazil with 20+ years
 
 Full resume (experience, clients, education and skills), generated from his LinkedIn profile:
 
-- Resume (EN): <%= @resume_en_us %>
-- Resume (PT): <%= @resume_pt_br %>
-- Resume PDF (EN): <%= @pdf_en_us %>
-- Resume PDF (PT): <%= @pdf_pt_br %>
+- [Resume (EN)](<%= @resume_en_us %>)
+- [Resume (PT)](<%= @resume_pt_br %>)
+- [Resume PDF (EN)](<%= @pdf_en_us %>)
+- [Resume PDF (PT)](<%= @pdf_pt_br %>)
 
 Career highlights: <%= @highlights %>
 
 ## Links
 
-- Website: <%= @base_url %>
-- Website (PT): <%= @home_pt_br %>
-- GitHub: https://github.com/raulpe7eira
-- LinkedIn: https://linkedin.com/in/raulpe7eira
-- X: https://x.com/raulpe7eira
-- Bluesky: https://bsky.app/profile/raulpe7eira.tech
-- Instagram: https://instagram.com/raulpe7eira
-- Facebook: https://facebook.com/raulpe7eira
-- Strava: https://strava.com/athletes/raulpe7eira
-- IMDb: https://imdb.com/user/ur28106453
-- Last.fm: https://last.fm/user/raulpereira
-- Email: raul.pereira@gmail.com
+- [Website](<%= @home_en_us %>)
+- [Website (PT)](<%= @home_pt_br %>)
+- [GitHub](https://github.com/raulpe7eira)
+- [LinkedIn](https://linkedin.com/in/raulpe7eira)
+- [X](https://x.com/raulpe7eira)
+- [Bluesky](https://bsky.app/profile/raulpe7eira.tech)
+- [Instagram](https://instagram.com/raulpe7eira)
+- [Facebook](https://facebook.com/raulpe7eira)
+- [Strava](https://strava.com/athletes/raulpe7eira)
+- [IMDb](https://imdb.com/user/ur28106453)
+- [Last.fm](https://last.fm/user/raulpereira)
+- [Email](mailto:raul.pereira@gmail.com)

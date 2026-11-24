@@ -6,15 +6,17 @@
   "name": "<%= @title %>",
   "inLanguage": "<%= @lang %>",
   "description": "<%= @description %>",
+  "isPartOf": { "@id": "<%= @home_url %>#website" },
   "mainEntity": {
     "@type": "Person",
+    "@id": "<%= @home_url %>#person",
     "name": "Raul Pereira da Silva",
     "alternateName": [
       "Raul Pereira",
       "raulpe7eira"
     ],
-    "url": "https://raulpe7eira.tech",
-    "image": "https://raulpe7eira.tech/assets/images/icons/icon-512.png",
+    "url": "<%= @home_url %>",
+    "image": "<%= @base_url %>/assets/images/icons/icon-512.png",
     "jobTitle": "<%= @job_title %>",
     "address": {
       "@type": "PostalAddress",
