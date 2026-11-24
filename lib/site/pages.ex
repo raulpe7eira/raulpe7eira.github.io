@@ -188,7 +188,9 @@ defmodule Site.Pages do
         og_type: "profile",
         extra_head:
           ~s(  <link rel="stylesheet" href="/assets/css/resume.css" />\n) <>
-            ~s(  <script defer src="/assets/js/tooltip.js"></script>\n),
+            ~s(  <script defer src="/assets/js/tooltip.js"></script>\n) <>
+            ~s(  <script defer src="/assets/js/recommendations.js"></script>\n) <>
+            ~s(  <script defer src="/assets/js/timeline.js"></script>\n),
         jsonld: trim(jsonld),
         content: "    " <> (section |> Html.strip_whitespace_between_tags() |> String.trim())
       })

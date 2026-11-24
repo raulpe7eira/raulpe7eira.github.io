@@ -33,6 +33,15 @@ defmodule Site.Resume.RecommendationTest do
       refute Ecto.Changeset.get_field(changeset(@valid), :photo)
     end
 
+    test "accepts a highlight quoted from the text" do
+      assert changeset(Map.put(@valid, "highlight", "an excellent experience")).valid?
+    end
+
+    test "rejects a highlight that is not in the text" do
+      assert %{highlight: ["must be part of the text"]} =
+               errors(Map.put(@valid, "highlight", "a brilliant developer"))
+    end
+
     test "shows it on the site by default" do
       refute Ecto.Changeset.get_field(changeset(@valid), :hidden)
     end

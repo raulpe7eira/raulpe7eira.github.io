@@ -103,6 +103,37 @@ defmodule Site.ResumeViewTest do
              ]
     end
 
+    test "anchors each company by name and start year", %{en_us: view} do
+      assert view.experiences
+             |> Enum.map(& &1.id)
+             |> Enum.filter(&String.starts_with?(&1, "xp-brq")) ==
+               ["xp-brq-2012", "xp-brq-2006"]
+    end
+
+    test "puts every company on the career bar", %{en_us: view} do
+      assert Enum.map(view.timeline.companies, & &1.id) == Enum.map(view.experiences, & &1.id)
+    end
+
+    test "places a company by its dates on the career bar", %{en_us: view} do
+      caixa = List.last(view.timeline.companies)
+      assert {caixa.x, caixa.width} == {1.24, 1.24}
+    end
+
+    test "runs an open company to the end of the career bar", %{en_us: view} do
+      r3m = hd(view.timeline.companies)
+      assert Float.round(r3m.x + r3m.width, 1) == 100.0
+    end
+
+    test "puts only companies alongside others on the parallel lane", %{en_us: view} do
+      assert for(company <- view.timeline.companies, company.parallel, do: company.name) == [
+               "R3M Tech"
+             ]
+    end
+
+    test "marks the decades and the end on the career bar", %{pt_br: view} do
+      assert Enum.map(view.timeline.ticks, & &1.label) == ["2000", "2010", "2020", "hoje"]
+    end
+
     test "leaves hidden recommendations out", %{en_us: view} do
       assert Enum.map(view.recommendations, & &1.name) == [
                "Farrell Dalsing",
@@ -118,12 +149,39 @@ defmodule Site.ResumeViewTest do
                "Senior Product Manager | Strategic Platform & Client Product Leadership | Hospitality & Travel Tech | Driving Scalable Booking & Revenue Experiences"
     end
 
+    test "keeps the recommendation's highlight", %{en_us: view} do
+      assert hd(view.recommendations).highlight =~
+               "He elevates the quality of the work and the people around him"
+    end
+
+    test "knows a last-paragraph highlight leaves text out only before it", %{en_us: view} do
+      assert hd(view.recommendations).omitted == %{before: true, after: false}
+    end
+
+    test "leaves nothing out of a recommendation without a highlight" do
+      resume = Resume.load!()
+      [first | rest] = resume.recommendations
+      resume = %{resume | recommendations: [%{first | highlight: nil} | rest]}
+      view = Locale.with_locale(:en_us, fn -> ResumeView.build(resume, :en_us) end)
+
+      assert hd(view.recommendations).omitted == %{before: false, after: false}
+    end
+
+    test "knows a middle highlight leaves text out on both sides", %{en_us: view} do
+      gerson = Enum.find(view.recommendations, &(&1.name == "Gerson Scanapieco"))
+      assert gerson.omitted == %{before: true, after: true}
+    end
+
+    test "knows a first-sentence highlight leaves text out only after it", %{en_us: view} do
+      assert List.last(view.recommendations).omitted == %{before: false, after: true}
+    end
+
     test "splits a recommendation into paragraphs", %{en_us: view} do
       assert length(hd(view.recommendations).paragraphs) == 7
     end
 
     test "joins relationship, workplace and date", %{en_us: view} do
-      assert hd(view.recommendations).context == "Senior colleague · iSeatz · Nov 2026"
+      assert hd(view.recommendations).context == "Same team · iSeatz · Nov 2026"
     end
 
     test "shows the recommender's initials", %{en_us: view} do
@@ -135,7 +193,7 @@ defmodule Site.ResumeViewTest do
     end
 
     test "translates the recommendation labels", %{pt_br: view} do
-      assert hd(view.recommendations).context == "Colega sênior · iSeatz · Nov 2026"
+      assert hd(view.recommendations).context == "Mesmo time · iSeatz · Nov 2026"
     end
   end
 
