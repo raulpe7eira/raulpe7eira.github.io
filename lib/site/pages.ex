@@ -272,6 +272,7 @@ defmodule Site.Pages do
 
     %{
       lang: locale.lang,
+      base_url: Locale.base_url(),
       lang_key: String.downcase(locale.lang),
       lang_code: locale.code,
       job_title: gettext("profile.job_title"),

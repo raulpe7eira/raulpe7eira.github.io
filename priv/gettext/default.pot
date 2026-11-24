@@ -6,7 +6,7 @@ msgstr ""
 #: lib/site/pages.ex:176
 #: lib/site/pages.ex:218
 #: lib/site/pages.ex:226
-#: lib/site/pages.ex:277
+#: lib/site/pages.ex:278
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr ""
@@ -16,32 +16,32 @@ msgstr ""
 msgid "home.description"
 msgstr ""
 
-#: lib/site/pages.ex:285
+#: lib/site/pages.ex:286
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr ""
 
-#: lib/site/pages.ex:289
+#: lib/site/pages.ex:290
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr ""
 
-#: lib/site/pages.ex:291
+#: lib/site/pages.ex:292
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr ""
 
-#: lib/site/pages.ex:292
+#: lib/site/pages.ex:293
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr ""
 
-#: lib/site/pages.ex:293
+#: lib/site/pages.ex:294
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr ""
 
-#: lib/site/pages.ex:294
+#: lib/site/pages.ex:295
 #, elixir-autogen
 msgid "footer.by"
 msgstr ""
@@ -295,27 +295,27 @@ msgstr ""
 msgid "privacy.description"
 msgstr ""
 
-#: lib/site/pages.ex:297
+#: lib/site/pages.ex:298
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr ""
 
-#: lib/site/pages.ex:298
+#: lib/site/pages.ex:299
 #, elixir-autogen
 msgid "consent.label"
 msgstr ""
 
-#: lib/site/pages.ex:299
+#: lib/site/pages.ex:300
 #, elixir-autogen
 msgid "consent.text"
 msgstr ""
 
-#: lib/site/pages.ex:300
+#: lib/site/pages.ex:301
 #, elixir-autogen
 msgid "consent.accept"
 msgstr ""
 
-#: lib/site/pages.ex:301
+#: lib/site/pages.ex:302
 #, elixir-autogen
 msgid "consent.decline"
 msgstr ""

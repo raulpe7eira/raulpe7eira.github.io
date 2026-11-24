@@ -6,7 +6,7 @@ msgstr ""
 #: lib/site/pages.ex:176
 #: lib/site/pages.ex:218
 #: lib/site/pages.ex:226
-#: lib/site/pages.ex:277
+#: lib/site/pages.ex:278
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Engenheiro de Software"
@@ -16,32 +16,32 @@ msgstr "Engenheiro de Software"
 msgid "home.description"
 msgstr "Engenheiro de software com mais de 20 anos de experiência, focado em Elixir e IA. Ciclista entusiasta que ama estar com a família."
 
-#: lib/site/pages.ex:285
+#: lib/site/pages.ex:286
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Currículo"
 
-#: lib/site/pages.ex:289
+#: lib/site/pages.ex:290
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "Ver em português"
 
-#: lib/site/pages.ex:291
+#: lib/site/pages.ex:292
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Foto de Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:292
+#: lib/site/pages.ex:293
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Programador apaixonado, e ciclista entusiasta,<br />que ama estar com a família"
 
-#: lib/site/pages.ex:293
+#: lib/site/pages.ex:294
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Feito com"
 
-#: lib/site/pages.ex:294
+#: lib/site/pages.ex:295
 #, elixir-autogen
 msgid "footer.by"
 msgstr "por"
@@ -295,27 +295,27 @@ msgstr "Privacidade"
 msgid "privacy.description"
 msgstr "O que o raulpe7eira.tech coleta (Google Analytics, só com o seu consentimento) e como mudar a sua escolha de cookies."
 
-#: lib/site/pages.ex:297
+#: lib/site/pages.ex:298
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr "Privacidade"
 
-#: lib/site/pages.ex:298
+#: lib/site/pages.ex:299
 #, elixir-autogen
 msgid "consent.label"
 msgstr "Consentimento de cookies"
 
-#: lib/site/pages.ex:299
+#: lib/site/pages.ex:300
 #, elixir-autogen
 msgid "consent.text"
 msgstr "Este site usa cookies de estatísticas (Google Analytics) só com o seu consentimento."
 
-#: lib/site/pages.ex:300
+#: lib/site/pages.ex:301
 #, elixir-autogen
 msgid "consent.accept"
 msgstr "Aceitar"
 
-#: lib/site/pages.ex:301
+#: lib/site/pages.ex:302
 #, elixir-autogen
 msgid "consent.decline"
 msgstr "Recusar"

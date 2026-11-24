@@ -37,8 +37,8 @@ defmodule Site.CheckTest do
     end
 
     test "checks site URLs in content attributes", %{tmp_dir: root} do
-      write(root, "index.html", ~s(<meta content="https://raulpe7eira.tech/og.jpg" />))
-      assert Check.run(root) == [{"index.html", "https://raulpe7eira.tech/og.jpg"}]
+      write(root, "index.html", ~s(<meta content="https://www.raulpe7eira.tech/og.jpg" />))
+      assert Check.run(root) == [{"index.html", "https://www.raulpe7eira.tech/og.jpg"}]
     end
 
     test "reports a missing sprite icon", %{tmp_dir: root} do
@@ -53,8 +53,8 @@ defmodule Site.CheckTest do
     end
 
     test "reports a missing page in the sitemap", %{tmp_dir: root} do
-      write(root, "sitemap.xml", "<loc>https://raulpe7eira.tech/pt/</loc>")
-      assert Check.run(root) == [{"sitemap.xml", "https://raulpe7eira.tech/pt/"}]
+      write(root, "sitemap.xml", "<loc>https://www.raulpe7eira.tech/pt/</loc>")
+      assert Check.run(root) == [{"sitemap.xml", "https://www.raulpe7eira.tech/pt/"}]
     end
 
     test "reports a missing path in JSON", %{tmp_dir: root} do
