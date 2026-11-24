@@ -326,7 +326,7 @@ msgstr "Recusar"
 msgid "resume.recommendations"
 msgstr "Recomendações"
 
-#: priv/templates/resume/page.html.eex:173
+#: priv/templates/resume/page.html.eex:180
 #, elixir-autogen
 msgid "resume.all_recommendations"
 msgstr "Todas as recomendações no LinkedIn"
@@ -356,17 +356,18 @@ msgstr "Prestador de serviço"
 msgid "relationship.senior_colleague"
 msgstr "Colega sênior"
 
-#: priv/templates/resume/page.html.eex:156
+#: priv/templates/resume/page.html.eex:160
 #, elixir-autogen, elixir-format
 msgid "resume.read_full"
 msgstr "Ler completa"
 
-#: priv/templates/resume/page.html.eex:156
+#: priv/templates/resume/page.html.eex:160
 #, elixir-autogen, elixir-format
 msgid "resume.show_less"
 msgstr "Mostrar menos"
 
 #: priv/templates/resume/page.html.eex:27
+#, elixir-autogen, elixir-format
 msgid "resume.timeline"
 msgstr "Linha do tempo da carreira"
 

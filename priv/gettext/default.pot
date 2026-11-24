@@ -326,7 +326,7 @@ msgstr ""
 msgid "resume.recommendations"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:173
+#: priv/templates/resume/page.html.eex:180
 #, elixir-autogen
 msgid "resume.all_recommendations"
 msgstr ""
@@ -356,12 +356,12 @@ msgstr ""
 msgid "relationship.senior_colleague"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:156
+#: priv/templates/resume/page.html.eex:160
 #, elixir-autogen, elixir-format
 msgid "resume.read_full"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:156
+#: priv/templates/resume/page.html.eex:160
 #, elixir-autogen, elixir-format
 msgid "resume.show_less"
 msgstr ""
