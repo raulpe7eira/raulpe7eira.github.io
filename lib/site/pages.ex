@@ -11,9 +11,17 @@ defmodule Site.Pages do
 
   @sitemap_pages [:home, :resume, :privacy]
 
+  # The only inline script: applies the saved theme before the first paint.
+  # The CSP in `_headers` allows it by its hash (`headers/0`).
+  @theme_script ~s|try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}|
+
+  # Origins GA4 uses once the visitor accepts the cookies (docs/assets/js/analytics.js)
+  @analytics_script "https://www.googletagmanager.com"
+  @analytics_hosts "https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com"
+
   @doc """
   Returns `{relative_output_path, content}` for every page, in both
-  languages, plus `llms.txt` and `404.html`. The sitemap is separate
+  languages, plus `llms.txt`, `404.html` and `_headers`. The sitemap is separate
   (`sitemap/1`): its dates depend on what is already published.
 
   Pure: renders in memory and touches no files (apart from reading the
@@ -26,7 +34,7 @@ defmodule Site.Pages do
           page <- [home(lang), resume(lang, resume), privacy(lang)],
           do: page
 
-    pages ++ [llms(resume), not_found()]
+    pages ++ [llms(resume), not_found(), headers()]
   end
 
   @doc "`{output_path, url}` of every page listed in the sitemap, in sitemap order."
@@ -54,7 +62,7 @@ defmodule Site.Pages do
   def llms(resume) do
     text =
       Templates.llms(
-        base_url: Locale.base_url(),
+        home_en_us: Locale.url(:en_us, :home),
         home_pt_br: Locale.url(:pt_br, :home),
         resume_en_us: Locale.url(:en_us, :resume),
         resume_pt_br: Locale.url(:pt_br, :resume),
@@ -94,6 +102,36 @@ defmodule Site.Pages do
       |> Enum.reject(&(&1 == "/"))
 
     {"404.html", Templates.not_found(lang: Locale.get(default).lang, homes: JSON.encode!(homes))}
+  end
+
+  @doc """
+  Renders `_headers`, the response headers Cloudflare Pages sends (GitHub
+  Pages ignores the file). The CSP allows only this site, GA4 and the inline
+  theme script, by its hash.
+  """
+  def headers do
+    hash = :sha256 |> :crypto.hash(@theme_script) |> Base.encode64()
+
+    csp =
+      Enum.join(
+        [
+          "default-src 'self'",
+          "script-src 'self' 'sha256-#{hash}' #{@analytics_script}",
+          "style-src 'self'",
+          "font-src 'self'",
+          "img-src 'self' #{@analytics_hosts}",
+          "connect-src 'self' #{@analytics_hosts}",
+          "manifest-src 'self'",
+          "object-src 'none'",
+          "base-uri 'self'",
+          "form-action 'self'",
+          "frame-ancestors 'none'",
+          "upgrade-insecure-requests"
+        ],
+        "; "
+      )
+
+    {"_headers", Templates.headers(csp: csp, home_url: Locale.url(:en_us, :home))}
   end
 
   @doc "Renders the home page in `lang` (`:en_us` or `:pt_br`)."
@@ -145,7 +183,14 @@ defmodule Site.Pages do
         :pt_br -> Templates.home_pt_br([])
       end
 
-    jsonld = Templates.jsonld_home(job_title: job_title, description: description)
+    jsonld =
+      Templates.jsonld_home(
+        job_title: job_title,
+        description: description,
+        base_url: Locale.base_url(),
+        home_url: Locale.url(:en_us, :home),
+        languages: JSON.encode!(Enum.map(Locale.langs(), &Locale.get(&1).lang))
+      )
 
     assigns =
       Map.merge(base(lang, :home), %{
@@ -170,7 +215,9 @@ defmodule Site.Pages do
         title: title,
         lang: Locale.get(lang).lang,
         description: description,
-        job_title: gettext("profile.job_title")
+        job_title: gettext("profile.job_title"),
+        base_url: Locale.base_url(),
+        home_url: Locale.url(:en_us, :home)
       )
 
     section =
@@ -228,6 +275,7 @@ defmodule Site.Pages do
       lang_key: String.downcase(locale.lang),
       lang_code: locale.code,
       job_title: gettext("profile.job_title"),
+      theme_script: @theme_script,
       url: Locale.url(lang, page),
       url_en_us: Locale.url(:en_us, page),
       url_pt_br: Locale.url(:pt_br, page),

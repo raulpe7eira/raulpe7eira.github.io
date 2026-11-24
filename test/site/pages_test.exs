@@ -80,12 +80,28 @@ defmodule Site.PagesTest do
                ~s(<a class="page-btn" href="/pt/resume/" role="switch" aria-checked="false">)
     end
 
-    test "English JSON-LD is a valid Person with the English job title" do
-      assert %{"@type" => "Person", "jobTitle" => "Software Engineer"} = jsonld(home(:en_us))
+    test "English JSON-LD has a Person with the English job title" do
+      assert %{"jobTitle" => "Software Engineer"} = jsonld_node(home(:en_us), "Person")
     end
 
-    test "Portuguese JSON-LD is a valid Person with the Portuguese job title" do
-      assert %{"@type" => "Person", "jobTitle" => "Engenheiro de Software"} = jsonld(home(:pt_br))
+    test "Portuguese JSON-LD has a Person with the Portuguese job title" do
+      assert %{"jobTitle" => "Engenheiro de Software"} = jsonld_node(home(:pt_br), "Person")
+    end
+
+    test "JSON-LD identifies the Person by the home URL" do
+      assert %{"@id" => "https://raulpe7eira.tech/#person"} = jsonld_node(home(:en_us), "Person")
+    end
+
+    test "JSON-LD has a WebSite in both languages, published by the Person" do
+      assert %{
+               "@id" => "https://raulpe7eira.tech/#website",
+               "inLanguage" => ["en-US", "pt-BR"],
+               "publisher" => %{"@id" => "https://raulpe7eira.tech/#person"}
+             } = jsonld_node(home(:en_us), "WebSite")
+    end
+
+    test "applies the saved theme with the inline script before the first paint" do
+      assert home(:en_us) =~ ~s{<script>try{var t=localStorage.getItem("theme");}
     end
 
     test "English page uses only icons defined in the sprite" do
@@ -296,6 +312,16 @@ defmodule Site.PagesTest do
       assert %{"@type" => "ProfilePage", "inLanguage" => "en-US"} = jsonld(resume(:en_us, resume))
     end
 
+    test "JSON-LD Person is the same as on the home page", %{resume: resume} do
+      assert %{"mainEntity" => %{"@id" => "https://raulpe7eira.tech/#person"}} =
+               jsonld(resume(:en_us, resume))
+    end
+
+    test "JSON-LD ProfilePage is part of the WebSite", %{resume: resume} do
+      assert %{"isPartOf" => %{"@id" => "https://raulpe7eira.tech/#website"}} =
+               jsonld(resume(:en_us, resume))
+    end
+
     test "Portuguese JSON-LD is a ProfilePage in Portuguese", %{resume: resume} do
       assert %{"@type" => "ProfilePage", "inLanguage" => "pt-BR"} = jsonld(resume(:pt_br, resume))
     end
@@ -450,12 +476,13 @@ defmodule Site.PagesTest do
                "pt/resume/index.html",
                "pt/privacy/index.html",
                "llms.txt",
-               "404.html"
+               "404.html",
+               "_headers"
              ]
     end
 
     test "renders every file from the given resume", %{resume: resume} do
-      assert length(Pages.all(resume)) == 8
+      assert length(Pages.all(resume)) == 9
     end
   end
 
@@ -508,7 +535,15 @@ defmodule Site.PagesTest do
 
     test "links the Portuguese PDF", %{resume: resume} do
       assert llms(resume) =~
-               "- Resume PDF (PT): https://raulpe7eira.tech/downloads/raul-pereira-da-silva-resume-pt-br.pdf"
+               "- [Resume PDF (PT)](https://raulpe7eira.tech/downloads/raul-pereira-da-silva-resume-pt-br.pdf)"
+    end
+
+    test "links the home page with a trailing slash", %{resume: resume} do
+      assert llms(resume) =~ "- [Website](https://raulpe7eira.tech/)\n"
+    end
+
+    test "writes every link as a Markdown link", %{resume: resume} do
+      refute llms(resume) =~ ~r/^- [^\[\n]+: /m
     end
 
     test "takes the career highlights from the data", %{resume: resume} do
@@ -540,11 +575,52 @@ defmodule Site.PagesTest do
     end
 
     test "sends unknown Portuguese addresses to the Portuguese home" do
-      assert not_found() =~ ~s(var homes = ["/pt/"];)
+      assert not_found() =~ ~s(data-homes='["/pt/"]')
+    end
+
+    test "redirects with a script file, not inline code" do
+      assert not_found() =~ ~s(<script defer src="/assets/js/404.js"></script>)
+    end
+
+    test "has no inline script or style" do
+      refute not_found() =~ ~r/<script>|<style/
     end
 
     test "is in the default locale" do
-      assert not_found() =~ ~s(<html lang="en-US">)
+      assert not_found() =~ ~s(<html lang="en-US" )
+    end
+  end
+
+  describe "headers/0" do
+    test "writes to _headers" do
+      assert {"_headers", _text} = Pages.headers()
+    end
+
+    test "allows the inline theme script by its hash" do
+      [_, script] = Regex.run(~r{<script>(.*?)</script>}, home(:en_us))
+      hash = :sha256 |> :crypto.hash(script) |> Base.encode64()
+
+      assert headers() =~ "script-src 'self' 'sha256-#{hash}'"
+    end
+
+    test "allows GA4 to load its script" do
+      assert headers() =~ ~r/script-src [^;]*https:\/\/www\.googletagmanager\.com/
+    end
+
+    test "allows GA4 to send its hits" do
+      assert headers() =~ ~r/connect-src [^;]*https:\/\/\*\.google-analytics\.com/
+    end
+
+    test "never allows inline code at large" do
+      refute headers() =~ "unsafe-inline"
+    end
+
+    test "sends HSTS for a year with subdomains and without preload" do
+      assert headers() =~ "Strict-Transport-Security: max-age=31536000; includeSubDomains\n"
+    end
+
+    test "keeps the pages.dev addresses out of search engines" do
+      assert headers() =~ "https://:project.pages.dev/*\n  X-Robots-Tag: noindex"
     end
   end
 
@@ -554,6 +630,7 @@ defmodule Site.PagesTest do
   defp llms(resume), do: resume |> Pages.llms() |> elem(1)
   defp security, do: ~U[2027-01-01 00:00:00Z] |> Pages.security() |> elem(1)
   defp not_found, do: elem(Pages.not_found(), 1)
+  defp headers, do: elem(Pages.headers(), 1)
 
   defp lastmods do
     Pages.sitemap_pages()
@@ -575,6 +652,10 @@ defmodule Site.PagesTest do
     ~r{<symbol id="([\w-]+)"}
     |> Regex.scan(File.read!("docs/assets/icons.svg"), capture: :all_but_first)
     |> List.flatten()
+  end
+
+  defp jsonld_node(html, type) do
+    html |> jsonld() |> Map.fetch!("@graph") |> Enum.find(&(&1["@type"] == type))
   end
 
   defp jsonld(html) do

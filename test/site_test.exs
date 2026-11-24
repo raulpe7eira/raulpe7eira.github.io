@@ -12,6 +12,7 @@ defmodule SiteTest do
     "pt/privacy/index.html",
     "llms.txt",
     "404.html",
+    "_headers",
     "sitemap.xml",
     ".well-known/security.txt"
   ]
