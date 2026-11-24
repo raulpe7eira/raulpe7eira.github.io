@@ -158,6 +158,15 @@ defmodule Site.ResumeViewTest do
       assert hd(view.recommendations).omitted == %{before: true, after: false}
     end
 
+    test "leaves nothing out of a recommendation without a highlight" do
+      resume = Resume.load!()
+      [first | rest] = resume.recommendations
+      resume = %{resume | recommendations: [%{first | highlight: nil} | rest]}
+      view = Locale.with_locale(:en_us, fn -> ResumeView.build(resume, :en_us) end)
+
+      assert hd(view.recommendations).omitted == %{before: false, after: false}
+    end
+
     test "knows a middle highlight leaves text out on both sides", %{en_us: view} do
       gerson = Enum.find(view.recommendations, &(&1.name == "Gerson Scanapieco"))
       assert gerson.omitted == %{before: true, after: true}
