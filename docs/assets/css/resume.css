@@ -63,3 +63,4 @@
 .rs .tlm text{font-size:11px;font-family:ui-monospace,Menlo,monospace;fill:var(--comment)}
 .rs .it{scroll-margin-top:84px}
 @media(max-width:700px){.rs .rcs{grid-template-columns:1fr}}
+.rs .chips.lg{margin:4px 0 0}
