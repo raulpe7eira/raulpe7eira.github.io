@@ -96,7 +96,6 @@ msgstr "Education"
 msgid "resume.skills"
 msgstr "Skills"
 
-#: priv/templates/resume/page.html.eex:129
 #: priv/templates/resume/pdf.html.eex:92
 #, elixir-autogen
 msgid "resume.spoken_languages"
@@ -321,12 +320,12 @@ msgstr "Accept"
 msgid "consent.decline"
 msgstr "Decline"
 
-#: priv/templates/resume/page.html.eex:138
+#: priv/templates/resume/page.html.eex:130
 #, elixir-autogen
 msgid "resume.recommendations"
 msgstr "Recommendations"
 
-#: priv/templates/resume/page.html.eex:180
+#: priv/templates/resume/page.html.eex:172
 #, elixir-autogen
 msgid "resume.all_recommendations"
 msgstr "All recommendations on LinkedIn"
@@ -356,12 +355,12 @@ msgstr "Service provider"
 msgid "relationship.senior_colleague"
 msgstr "Senior colleague"
 
-#: priv/templates/resume/page.html.eex:160
+#: priv/templates/resume/page.html.eex:152
 #, elixir-autogen, elixir-format
 msgid "resume.read_full"
 msgstr "Read in full"
 
-#: priv/templates/resume/page.html.eex:160
+#: priv/templates/resume/page.html.eex:152
 #, elixir-autogen, elixir-format
 msgid "resume.show_less"
 msgstr "Show less"
@@ -375,3 +374,8 @@ msgstr "Career timeline"
 #, elixir-autogen, elixir-format
 msgid "timeline.end"
 msgstr "today"
+
+#: priv/templates/resume/page.html.eex:175
+#, elixir-autogen, elixir-format
+msgid "resume.languages"
+msgstr "Languages"

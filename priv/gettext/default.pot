@@ -96,7 +96,6 @@ msgstr ""
 msgid "resume.skills"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:129
 #: priv/templates/resume/pdf.html.eex:92
 #, elixir-autogen
 msgid "resume.spoken_languages"
@@ -321,12 +320,12 @@ msgstr ""
 msgid "consent.decline"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:138
+#: priv/templates/resume/page.html.eex:130
 #, elixir-autogen
 msgid "resume.recommendations"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:180
+#: priv/templates/resume/page.html.eex:172
 #, elixir-autogen
 msgid "resume.all_recommendations"
 msgstr ""
@@ -356,12 +355,12 @@ msgstr ""
 msgid "relationship.senior_colleague"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:160
+#: priv/templates/resume/page.html.eex:152
 #, elixir-autogen, elixir-format
 msgid "resume.read_full"
 msgstr ""
 
-#: priv/templates/resume/page.html.eex:160
+#: priv/templates/resume/page.html.eex:152
 #, elixir-autogen, elixir-format
 msgid "resume.show_less"
 msgstr ""
@@ -374,4 +373,9 @@ msgstr ""
 #: lib/site/labels.ex:15
 #, elixir-autogen, elixir-format
 msgid "timeline.end"
+msgstr ""
+
+#: priv/templates/resume/page.html.eex:175
+#, elixir-autogen, elixir-format
+msgid "resume.languages"
 msgstr ""

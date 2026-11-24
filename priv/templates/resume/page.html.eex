@@ -125,14 +125,6 @@
       </div>
     </div>
   <% end %>
-  <div class="sk">
-    <b><%= gettext("resume.spoken_languages") %></b>
-    <div class="chips">
-      <%= for language <- @view.languages do %>
-        <span><%= escape(language) %></span>
-      <% end %>
-    </div>
-  </div>
 
   <%= if @view.recommendations != [] do %>
     <h2 id="recommendations"><%= gettext("resume.recommendations") %></h2>
@@ -179,4 +171,11 @@
     </div>
     <p class="all"><a href="<%= @view.all_recommendations_url %>"><%= gettext("resume.all_recommendations") %></a></p>
   <% end %>
+
+  <h2 id="languages"><%= gettext("resume.languages") %></h2>
+  <div class="chips lg">
+    <%= for language <- @view.languages do %>
+      <span><%= escape(language) %></span>
+    <% end %>
+  </div>
 </section>
