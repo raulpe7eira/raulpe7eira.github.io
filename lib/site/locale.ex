@@ -8,7 +8,7 @@ defmodule Site.Locale do
   `/pt/`; another variant would get the full code (e.g. `/pt-pt/`).
   """
 
-  @base_url "https://raulpe7eira.tech"
+  @base_url "https://www.raulpe7eira.tech"
 
   @locales %{
     en_us: %{

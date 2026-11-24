@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal website for Raul Pereira (raulpe7eira) — a software engineer with 20+ years of experience. Hosted on GitHub Pages at https://raulpe7eira.tech.
+Personal website for Raul Pereira (raulpe7eira) — a software engineer with 20+ years of experience. Hosted on GitHub Pages at https://www.raulpe7eira.tech/ (canonical host; GitHub Pages redirects the bare domain to it).
 
 ## Architecture
 
@@ -84,7 +84,7 @@ Styles, scripts and images are source files edited directly in `docs/assets/`, s
 - `assets/js/analytics.js` — cookie consent banner and GA4 (loaded only after consent)
 - `downloads/raul-pereira-da-silva-resume-en-us.pdf` / `-pt-br.pdf` — resume PDFs (generated); the link's `download` attribute saves them as `raul-pereira-da-silva-resume.pdf` / `raul-pereira-da-silva-curriculo.pdf`
 - `assets/images/logos/` — company/client logos used by both resume pages: `sq-<slug>.png` square employer logos (slug of the display name, e.g. `sq-cloudwalk-inc`), `cl-<slug>.png` client/project logos (slug of the name, e.g. `cl-arca-fiocruz`); a test fails if a logo is missing
-- `CNAME` — custom domain config (`raulpe7eira.tech`)
+- `CNAME` — custom domain config (`www.raulpe7eira.tech`: GitHub Pages serves www and 301-redirects the bare domain, which keeps its A/AAAA records)
 - `.nojekyll` — serve files as-is (no Jekyll)
 - `404.html` — any unknown address redirects to the home page of its locale (`/pt/` for paths under `/pt`) (generated)
 - `robots.txt` — search engine directives
@@ -104,7 +104,7 @@ Styles, scripts and images are source files edited directly in `docs/assets/`, s
 - **Resume**: `/resume/` and `/pt/resume/`, reached via the Resume/Currículo toggle in the toolbar and the "professional experience" link; listed in `sitemap.xml` and `llms.txt`
 - **9 themes**: Dracula (default), Nord, Gruvbox, Catppuccin, Solarized Dark, Tokyo Night, Rose Pine, One Dark, Dark — defined in `base.css`, selected via `data-theme` on `<html>`, persisted in localStorage (`theme`)
 - **SEO**: Open Graph, Twitter Card, JSON-LD (home: `@graph` with `Person` `#person` and `WebSite` `#website`; resume: `ProfilePage` with `mainEntity` `#person`, `isPartOf` `#website`), canonical URL, meta description, hreflang alternates — all localized per page
-- **Analytics**: Google Analytics (G-4QXLD8YPLP), loaded by `docs/assets/js/analytics.js` only on raulpe7eira.tech and only after consent (LGPD): the layout has a hidden banner (`#consent`, Accept/Decline with the same weight) that the script shows while there is no choice; the choice is kept in `localStorage` (`analytics-consent`); the privacy page button (`[data-consent-reset]`) clears it, deletes the `_ga` cookies and shows the banner again. `?ga=debug` loads GA4 off production (e.g. localhost) in debug mode
+- **Analytics**: Google Analytics (G-4QXLD8YPLP), loaded by `docs/assets/js/analytics.js` only on www.raulpe7eira.tech and only after consent (LGPD): the layout has a hidden banner (`#consent`, Accept/Decline with the same weight) that the script shows while there is no choice; the choice is kept in `localStorage` (`analytics-consent`); the privacy page button (`[data-consent-reset]`) clears it, deletes the `_ga` cookies and shows the banner again. `?ga=debug` loads GA4 off production (e.g. localhost) in debug mode
 - **Privacy**: `/privacy/` and `/pt/privacy/`, linked from the shield in the bottom-left corner of the content box (a triangle at the end of `main`, `#shield` in the sprite), a toggle like the resume switch: on the privacy page it is on and links back home, elsewhere it links to the privacy page; `nav.js` turns the other toggle off before navigating. Also linked from the banner; listed in `sitemap.xml`
 - **Social icons**: GitHub, LinkedIn, X, Bluesky, Instagram, Facebook, Strava, IMDb, Last.fm, Email — using inline SVG from Simple Icons
 - **Responsive**: 3 breakpoints (480px, 768px, 1200px)

@@ -9,7 +9,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 
 # Keep the *.pages.dev addresses out of search engines; the site is indexed
-# only at https://raulpe7eira.tech/
+# only at https://www.raulpe7eira.tech/
 https://:project.pages.dev/*
   X-Robots-Tag: noindex
 

@@ -2,13 +2,13 @@
 // visitor chooses in the banner (#consent, in the layout) or if they decline.
 // The choice lives in localStorage; the privacy page has a button
 // ([data-consent-reset]) that clears it, deletes the _ga cookies and shows the
-// banner again. GA4 loads only on raulpe7eira.tech; add ?ga=debug to the URL to
+// banner again. GA4 loads only on www.raulpe7eira.tech; add ?ga=debug to the URL to
 // load it elsewhere (e.g. localhost) in debug mode, for the rest of the tab.
 (function () {
   var KEY = "analytics-consent";
   var ID = "G-4QXLD8YPLP";
   var debug = debugMode();
-  var enabled = location.hostname === "raulpe7eira.tech" || debug;
+  var enabled = location.hostname === "www.raulpe7eira.tech" || debug;
 
   // ?ga=debug is remembered for the tab (sessionStorage), so it survives
   // following links (e.g. to the privacy page) and reloads

@@ -43,23 +43,28 @@ defmodule Site.PagesTest do
     end
 
     test "English canonical points to itself" do
-      assert home(:en_us) =~ ~s(<link rel="canonical" href="https://raulpe7eira.tech/" />)
+      assert home(:en_us) =~ ~s(<link rel="canonical" href="https://www.raulpe7eira.tech/" />)
     end
 
     test "Portuguese canonical points to itself" do
-      assert home(:pt_br) =~ ~s(<link rel="canonical" href="https://raulpe7eira.tech/pt/" />)
+      assert home(:pt_br) =~ ~s(<link rel="canonical" href="https://www.raulpe7eira.tech/pt/" />)
     end
 
     test "hreflang en-US points to the English page" do
-      assert home(:pt_br) =~ ~s(hreflang="en-US" href="https://raulpe7eira.tech/")
+      assert home(:pt_br) =~ ~s(hreflang="en-US" href="https://www.raulpe7eira.tech/")
     end
 
     test "hreflang pt-BR points to the Portuguese page" do
-      assert home(:en_us) =~ ~s(hreflang="pt-BR" href="https://raulpe7eira.tech/pt/")
+      assert home(:en_us) =~ ~s(hreflang="pt-BR" href="https://www.raulpe7eira.tech/pt/")
     end
 
     test "hreflang x-default points to the English page" do
-      assert home(:pt_br) =~ ~s(hreflang="x-default" href="https://raulpe7eira.tech/")
+      assert home(:pt_br) =~ ~s(hreflang="x-default" href="https://www.raulpe7eira.tech/")
+    end
+
+    test "points the social preview image to the canonical host" do
+      assert home(:en_us) =~
+               ~s(<meta property="og:image" content="https://www.raulpe7eira.tech/assets/images/og-image.jpg" />)
     end
 
     test "English language switch links to the Portuguese page" do
@@ -89,14 +94,15 @@ defmodule Site.PagesTest do
     end
 
     test "JSON-LD identifies the Person by the home URL" do
-      assert %{"@id" => "https://raulpe7eira.tech/#person"} = jsonld_node(home(:en_us), "Person")
+      assert %{"@id" => "https://www.raulpe7eira.tech/#person"} =
+               jsonld_node(home(:en_us), "Person")
     end
 
     test "JSON-LD has a WebSite in both languages, published by the Person" do
       assert %{
-               "@id" => "https://raulpe7eira.tech/#website",
+               "@id" => "https://www.raulpe7eira.tech/#website",
                "inLanguage" => ["en-US", "pt-BR"],
-               "publisher" => %{"@id" => "https://raulpe7eira.tech/#person"}
+               "publisher" => %{"@id" => "https://www.raulpe7eira.tech/#person"}
              } = jsonld_node(home(:en_us), "WebSite")
     end
 
@@ -165,7 +171,7 @@ defmodule Site.PagesTest do
 
     test "English canonical points to itself" do
       assert privacy(:en_us) =~
-               ~s(<link rel="canonical" href="https://raulpe7eira.tech/privacy/" />)
+               ~s(<link rel="canonical" href="https://www.raulpe7eira.tech/privacy/" />)
     end
 
     test "English language switch links to the Portuguese privacy page" do
@@ -273,12 +279,12 @@ defmodule Site.PagesTest do
 
     test "English canonical points to itself", %{resume: resume} do
       assert resume(:en_us, resume) =~
-               ~s(<link rel="canonical" href="https://raulpe7eira.tech/resume/" />)
+               ~s(<link rel="canonical" href="https://www.raulpe7eira.tech/resume/" />)
     end
 
     test "Portuguese canonical points to itself", %{resume: resume} do
       assert resume(:pt_br, resume) =~
-               ~s(<link rel="canonical" href="https://raulpe7eira.tech/pt/resume/" />)
+               ~s(<link rel="canonical" href="https://www.raulpe7eira.tech/pt/resume/" />)
     end
 
     test "English language switch links to the Portuguese resume", %{resume: resume} do
@@ -313,12 +319,12 @@ defmodule Site.PagesTest do
     end
 
     test "JSON-LD Person is the same as on the home page", %{resume: resume} do
-      assert %{"mainEntity" => %{"@id" => "https://raulpe7eira.tech/#person"}} =
+      assert %{"mainEntity" => %{"@id" => "https://www.raulpe7eira.tech/#person"}} =
                jsonld(resume(:en_us, resume))
     end
 
     test "JSON-LD ProfilePage is part of the WebSite", %{resume: resume} do
-      assert %{"isPartOf" => %{"@id" => "https://raulpe7eira.tech/#website"}} =
+      assert %{"isPartOf" => %{"@id" => "https://www.raulpe7eira.tech/#website"}} =
                jsonld(resume(:en_us, resume))
     end
 
@@ -489,12 +495,12 @@ defmodule Site.PagesTest do
   describe "sitemap_pages/0" do
     test "lists each page with its URL, homes first" do
       assert Pages.sitemap_pages() == [
-               {"index.html", "https://raulpe7eira.tech/"},
-               {"pt/index.html", "https://raulpe7eira.tech/pt/"},
-               {"resume/index.html", "https://raulpe7eira.tech/resume/"},
-               {"pt/resume/index.html", "https://raulpe7eira.tech/pt/resume/"},
-               {"privacy/index.html", "https://raulpe7eira.tech/privacy/"},
-               {"pt/privacy/index.html", "https://raulpe7eira.tech/pt/privacy/"}
+               {"index.html", "https://www.raulpe7eira.tech/"},
+               {"pt/index.html", "https://www.raulpe7eira.tech/pt/"},
+               {"resume/index.html", "https://www.raulpe7eira.tech/resume/"},
+               {"pt/resume/index.html", "https://www.raulpe7eira.tech/pt/resume/"},
+               {"privacy/index.html", "https://www.raulpe7eira.tech/privacy/"},
+               {"pt/privacy/index.html", "https://www.raulpe7eira.tech/pt/privacy/"}
              ]
     end
   end
@@ -510,17 +516,17 @@ defmodule Site.PagesTest do
 
     test "dates each page with its lastmod" do
       assert sitemap() =~
-               ~r{<loc>https://raulpe7eira.tech/pt/resume/</loc>.*?<lastmod>2026-01-04</lastmod>}s
+               ~r{<loc>https://www.raulpe7eira.tech/pt/resume/</loc>.*?<lastmod>2026-01-04</lastmod>}s
     end
 
     test "links the Portuguese alternate of each page" do
       assert sitemap() =~
-               ~s(<xhtml:link rel="alternate" hreflang="pt-BR" href="https://raulpe7eira.tech/pt/resume/" />)
+               ~s(<xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.raulpe7eira.tech/pt/resume/" />)
     end
 
     test "points x-default to the English page" do
       assert sitemap() =~
-               ~s(<xhtml:link rel="alternate" hreflang="x-default" href="https://raulpe7eira.tech/resume/" />)
+               ~s(<xhtml:link rel="alternate" hreflang="x-default" href="https://www.raulpe7eira.tech/resume/" />)
     end
 
     test "has no changefreq or priority" do
@@ -535,11 +541,11 @@ defmodule Site.PagesTest do
 
     test "links the Portuguese PDF", %{resume: resume} do
       assert llms(resume) =~
-               "- [Resume PDF (PT)](https://raulpe7eira.tech/downloads/raul-pereira-da-silva-resume-pt-br.pdf)"
+               "- [Resume PDF (PT)](https://www.raulpe7eira.tech/downloads/raul-pereira-da-silva-resume-pt-br.pdf)"
     end
 
     test "links the home page with a trailing slash", %{resume: resume} do
-      assert llms(resume) =~ "- [Website](https://raulpe7eira.tech/)\n"
+      assert llms(resume) =~ "- [Website](https://www.raulpe7eira.tech/)\n"
     end
 
     test "writes every link as a Markdown link", %{resume: resume} do
@@ -565,7 +571,7 @@ defmodule Site.PagesTest do
     end
 
     test "points Canonical to its own URL" do
-      assert security() =~ "Canonical: https://raulpe7eira.tech/.well-known/security.txt\n"
+      assert security() =~ "Canonical: https://www.raulpe7eira.tech/.well-known/security.txt\n"
     end
   end
 

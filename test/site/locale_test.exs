@@ -13,7 +13,7 @@ defmodule Site.LocaleTest do
 
   describe "base_url/0" do
     test "is the site origin without a trailing slash" do
-      assert Locale.base_url() == "https://raulpe7eira.tech"
+      assert Locale.base_url() == "https://www.raulpe7eira.tech"
     end
   end
 
@@ -66,11 +66,11 @@ defmodule Site.LocaleTest do
 
   describe "url/2" do
     test "English home is the base url with a trailing slash" do
-      assert Locale.url(:en_us, :home) == "https://raulpe7eira.tech/"
+      assert Locale.url(:en_us, :home) == "https://www.raulpe7eira.tech/"
     end
 
     test "Portuguese resume joins the base url and its path" do
-      assert Locale.url(:pt_br, :resume) == "https://raulpe7eira.tech/pt/resume/"
+      assert Locale.url(:pt_br, :resume) == "https://www.raulpe7eira.tech/pt/resume/"
     end
   end
 

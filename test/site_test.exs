@@ -38,14 +38,14 @@ defmodule SiteTest do
     test "dates new pages with today in the sitemap", %{tmp_dir: dir} do
       Site.build(dir, today: @first)
 
-      assert lastmod(dir, "https://raulpe7eira.tech/resume/") == "2026-01-01"
+      assert lastmod(dir, "https://www.raulpe7eira.tech/resume/") == "2026-01-01"
     end
 
     test "keeps the date of a page that did not change", %{tmp_dir: dir} do
       Site.build(dir, today: @first)
       Site.build(dir, today: @second)
 
-      assert lastmod(dir, "https://raulpe7eira.tech/resume/") == "2026-01-01"
+      assert lastmod(dir, "https://www.raulpe7eira.tech/resume/") == "2026-01-01"
     end
 
     test "dates a page that changed with today", %{tmp_dir: dir} do
@@ -53,7 +53,7 @@ defmodule SiteTest do
       File.write!(Path.join(dir, "resume/index.html"), "outdated")
       Site.build(dir, today: @second)
 
-      assert lastmod(dir, "https://raulpe7eira.tech/resume/") == "2026-02-01"
+      assert lastmod(dir, "https://www.raulpe7eira.tech/resume/") == "2026-02-01"
     end
 
     test "keeps the date of the other pages when one changed", %{tmp_dir: dir} do
@@ -61,7 +61,7 @@ defmodule SiteTest do
       File.write!(Path.join(dir, "resume/index.html"), "outdated")
       Site.build(dir, today: @second)
 
-      assert lastmod(dir, "https://raulpe7eira.tech/") == "2026-01-01"
+      assert lastmod(dir, "https://www.raulpe7eira.tech/") == "2026-01-01"
     end
 
     test "makes a new security.txt expire a year from today", %{tmp_dir: dir} do
