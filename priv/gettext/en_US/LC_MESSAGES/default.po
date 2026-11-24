@@ -6,7 +6,7 @@ msgstr ""
 #: lib/site/pages.ex:138
 #: lib/site/pages.ex:173
 #: lib/site/pages.ex:179
-#: lib/site/pages.ex:228
+#: lib/site/pages.ex:230
 #, elixir-autogen
 msgid "profile.job_title"
 msgstr "Software Engineer"
@@ -16,32 +16,32 @@ msgstr "Software Engineer"
 msgid "home.description"
 msgstr "Software engineer with 20+ years of experience, focused on Elixir and AI. Cycling enthusiast who loves being with the family."
 
-#: lib/site/pages.ex:235
+#: lib/site/pages.ex:237
 #, elixir-autogen
 msgid "toolbar.resume"
 msgstr "Resume"
 
-#: lib/site/pages.ex:239
+#: lib/site/pages.ex:241
 #, elixir-autogen
 msgid "toolbar.switch_language"
 msgstr "View in English"
 
-#: lib/site/pages.ex:241
+#: lib/site/pages.ex:243
 #, elixir-autogen
 msgid "header.avatar_alt"
 msgstr "Photo of Raul Pereira (raulpe7eira)"
 
-#: lib/site/pages.ex:242
+#: lib/site/pages.ex:244
 #, elixir-autogen
 msgid "header.subtitle"
 msgstr "Passionate coder, and cycling enthusiast,<br />who loves being with the family"
 
-#: lib/site/pages.ex:243
+#: lib/site/pages.ex:245
 #, elixir-autogen
 msgid "footer.made_with"
 msgstr "Made with"
 
-#: lib/site/pages.ex:244
+#: lib/site/pages.ex:246
 #, elixir-autogen
 msgid "footer.by"
 msgstr "by"
@@ -84,274 +84,293 @@ msgstr "Experience"
 msgid "resume.earlier_experience"
 msgstr "Earlier experience"
 
-#: priv/templates/resume/page.html.eex:91
+#: priv/templates/resume/page.html.eex:106
 #: priv/templates/resume/pdf.html.eex:83
 #, elixir-autogen
 msgid "resume.education"
 msgstr "Education"
 
-#: priv/templates/resume/page.html.eex:102
+#: priv/templates/resume/page.html.eex:117
 #: priv/templates/resume/pdf.html.eex:88
 #, elixir-autogen
 msgid "resume.skills"
 msgstr "Skills"
 
-#: priv/templates/resume/page.html.eex:114
+#: priv/templates/resume/page.html.eex:129
 #: priv/templates/resume/pdf.html.eex:92
 #, elixir-autogen
 msgid "resume.spoken_languages"
 msgstr "Spoken languages"
 
-#: lib/site/labels.ex:47
+#: lib/site/labels.ex:50
 #, elixir-autogen
 msgid "resume.clients"
 msgstr "Clients"
 
-#: lib/site/labels.ex:48
+#: lib/site/labels.ex:51
 #, elixir-autogen
 msgid "resume.projects"
 msgstr "Projects"
 
-#: lib/site/templates.ex:44
-#: priv/templates/resume/page.html.eex:76
+#: lib/site/templates.ex:45
+#: priv/templates/resume/page.html.eex:90
 #, elixir-autogen
 msgid "resume.stack"
 msgstr "Stack"
 
-#: priv/templates/resume/page.html.eex:33
-#: priv/templates/resume/page.html.eex:37
+#: priv/templates/resume/page.html.eex:47
+#: priv/templates/resume/page.html.eex:51
 #, elixir-autogen
 msgid "resume.logo_alt"
 msgstr "%{name} logo"
 
-#: priv/templates/resume/page.html.eex:34
-#: priv/templates/resume/page.html.eex:68
+#: priv/templates/resume/page.html.eex:48
+#: priv/templates/resume/page.html.eex:82
 #, elixir-autogen
 msgid "resume.acquired"
 msgstr "acquired"
 
-#: priv/templates/resume/page.html.eex:33
-#: priv/templates/resume/page.html.eex:34
-#: priv/templates/resume/page.html.eex:34
-#: priv/templates/resume/page.html.eex:66
-#: priv/templates/resume/page.html.eex:68
-#: priv/templates/resume/page.html.eex:68
+#: priv/templates/resume/page.html.eex:47
+#: priv/templates/resume/page.html.eex:48
+#: priv/templates/resume/page.html.eex:48
+#: priv/templates/resume/page.html.eex:80
+#: priv/templates/resume/page.html.eex:82
+#: priv/templates/resume/page.html.eex:82
 #, elixir-autogen
 msgid "resume.acquired_by"
 msgstr "acquired by %{company}"
 
-#: priv/templates/resume/page.html.eex:95
-#: priv/templates/resume/page.html.eex:95
+#: priv/templates/resume/page.html.eex:110
+#: priv/templates/resume/page.html.eex:110
 #, elixir-autogen
 msgid "resume.closed_in"
 msgstr "Closed in %{year}"
 
-#: lib/site/labels.ex:15
+#: lib/site/labels.ex:18
 #, elixir-autogen
 msgid "date.present"
 msgstr "Present"
 
-#: lib/site/labels.ex:50
+#: lib/site/labels.ex:53
 #, elixir-autogen
 msgid "date.month.jan"
 msgstr "Jan"
 
-#: lib/site/labels.ex:51
+#: lib/site/labels.ex:54
 #, elixir-autogen
 msgid "date.month.feb"
 msgstr "Feb"
 
-#: lib/site/labels.ex:52
+#: lib/site/labels.ex:55
 #, elixir-autogen
 msgid "date.month.mar"
 msgstr "Mar"
 
-#: lib/site/labels.ex:53
+#: lib/site/labels.ex:56
 #, elixir-autogen
 msgid "date.month.apr"
 msgstr "Apr"
 
-#: lib/site/labels.ex:54
+#: lib/site/labels.ex:57
 #, elixir-autogen
 msgid "date.month.may"
 msgstr "May"
 
-#: lib/site/labels.ex:55
+#: lib/site/labels.ex:58
 #, elixir-autogen
 msgid "date.month.jun"
 msgstr "Jun"
 
-#: lib/site/labels.ex:56
+#: lib/site/labels.ex:59
 #, elixir-autogen
 msgid "date.month.jul"
 msgstr "Jul"
 
-#: lib/site/labels.ex:57
+#: lib/site/labels.ex:60
 #, elixir-autogen
 msgid "date.month.aug"
 msgstr "Aug"
 
-#: lib/site/labels.ex:58
+#: lib/site/labels.ex:61
 #, elixir-autogen
 msgid "date.month.sep"
 msgstr "Sep"
 
-#: lib/site/labels.ex:59
+#: lib/site/labels.ex:62
 #, elixir-autogen
 msgid "date.month.oct"
 msgstr "Oct"
 
-#: lib/site/labels.ex:60
+#: lib/site/labels.ex:63
 #, elixir-autogen
 msgid "date.month.nov"
 msgstr "Nov"
 
-#: lib/site/labels.ex:61
+#: lib/site/labels.ex:64
 #, elixir-autogen
 msgid "date.month.dec"
 msgstr "Dec"
 
-#: lib/site/labels.ex:18
+#: lib/site/labels.ex:21
 #, elixir-autogen
 msgid "work_mode.remote"
 msgstr "Remote"
 
-#: lib/site/labels.ex:19
+#: lib/site/labels.ex:22
 #, elixir-autogen
 msgid "work_mode.hybrid"
 msgstr "Hybrid"
 
-#: lib/site/labels.ex:20
+#: lib/site/labels.ex:23
 #, elixir-autogen
 msgid "work_mode.on_site"
 msgstr "On-site"
 
-#: lib/site/labels.ex:24
+#: lib/site/labels.ex:27
 #, elixir-autogen
 msgid "skills.ai"
 msgstr "AI"
 
-#: lib/site/labels.ex:25
+#: lib/site/labels.ex:28
 #, elixir-autogen
 msgid "skills.ai_coding"
 msgstr "AI coding assistants"
 
-#: lib/site/labels.ex:26
+#: lib/site/labels.ex:29
 #, elixir-autogen
 msgid "skills.programming"
 msgstr "Programming"
 
-#: lib/site/labels.ex:27
+#: lib/site/labels.ex:30
 #, elixir-autogen
 msgid "skills.frameworks"
 msgstr "Frameworks"
 
-#: lib/site/labels.ex:28
+#: lib/site/labels.ex:31
 #, elixir-autogen
 msgid "skills.data"
 msgstr "Data and messaging"
 
-#: lib/site/labels.ex:29
+#: lib/site/labels.ex:32
 #, elixir-autogen
 msgid "skills.observability"
 msgstr "Observability and infra"
 
-#: lib/site/labels.ex:30
+#: lib/site/labels.ex:33
 #, elixir-autogen
 msgid "skills.practices"
 msgstr "Practices"
 
-#: lib/site/labels.ex:33
+#: lib/site/labels.ex:36
 #, elixir-autogen
 msgid "proficiency.elementary"
 msgstr "elementary"
 
-#: lib/site/labels.ex:34
+#: lib/site/labels.ex:37
 #, elixir-autogen
 msgid "proficiency.limited_working"
 msgstr "limited working"
 
-#: lib/site/labels.ex:35
+#: lib/site/labels.ex:38
 #, elixir-autogen
 msgid "proficiency.professional_working"
 msgstr "professional"
 
-#: lib/site/labels.ex:36
+#: lib/site/labels.ex:39
 #, elixir-autogen
 msgid "proficiency.full_professional"
 msgstr "full professional"
 
-#: lib/site/labels.ex:37
+#: lib/site/labels.ex:40
 #, elixir-autogen
 msgid "proficiency.native_or_bilingual"
 msgstr "native"
 
-#: lib/site/pages.ex:208
+#: lib/site/pages.ex:210
 #, elixir-autogen
 msgid "privacy.title"
 msgstr "Privacy"
 
-#: lib/site/pages.ex:209
+#: lib/site/pages.ex:211
 #, elixir-autogen
 msgid "privacy.description"
 msgstr "What raulpe7eira.tech collects (Google Analytics, only with your consent) and how to change your cookie choice."
 
-#: lib/site/pages.ex:247
+#: lib/site/pages.ex:249
 #, elixir-autogen
 msgid "footer.privacy"
 msgstr "Privacy"
 
-#: lib/site/pages.ex:248
+#: lib/site/pages.ex:250
 #, elixir-autogen
 msgid "consent.label"
 msgstr "Cookie consent"
 
-#: lib/site/pages.ex:249
+#: lib/site/pages.ex:251
 #, elixir-autogen
 msgid "consent.text"
 msgstr "This site uses cookies for analytics (Google Analytics) only with your consent."
 
-#: lib/site/pages.ex:250
+#: lib/site/pages.ex:252
 #, elixir-autogen
 msgid "consent.accept"
 msgstr "Accept"
 
-#: lib/site/pages.ex:251
+#: lib/site/pages.ex:253
 #, elixir-autogen
 msgid "consent.decline"
 msgstr "Decline"
 
-#: priv/templates/resume/page.html.eex:123
+#: priv/templates/resume/page.html.eex:138
 #, elixir-autogen
 msgid "resume.recommendations"
 msgstr "Recommendations"
 
-#: priv/templates/resume/page.html.eex:144
+#: priv/templates/resume/page.html.eex:173
 #, elixir-autogen
 msgid "resume.all_recommendations"
 msgstr "All recommendations on LinkedIn"
 
-#: lib/site/labels.ex:40
+#: lib/site/labels.ex:43
 #, elixir-autogen
 msgid "relationship.same_team"
 msgstr "Same team"
 
-#: lib/site/labels.ex:41
+#: lib/site/labels.ex:44
 #, elixir-autogen
 msgid "relationship.different_teams"
 msgstr "Different teams"
 
-#: lib/site/labels.ex:42
+#: lib/site/labels.ex:45
 #, elixir-autogen
 msgid "relationship.teacher"
 msgstr "Teacher"
 
-#: lib/site/labels.ex:43
+#: lib/site/labels.ex:46
 #, elixir-autogen
 msgid "relationship.service_provider"
 msgstr "Service provider"
 
-#: lib/site/labels.ex:44
+#: lib/site/labels.ex:47
 #, elixir-autogen
 msgid "relationship.senior_colleague"
 msgstr "Senior colleague"
+
+#: priv/templates/resume/page.html.eex:156
+#, elixir-autogen, elixir-format
+msgid "resume.read_full"
+msgstr "Read in full"
+
+#: priv/templates/resume/page.html.eex:156
+#, elixir-autogen, elixir-format
+msgid "resume.show_less"
+msgstr "Show less"
+
+#: priv/templates/resume/page.html.eex:27
+msgid "resume.timeline"
+msgstr "Career timeline"
+
+#: lib/site/labels.ex:15
+#, elixir-autogen, elixir-format
+msgid "timeline.end"
+msgstr "today"

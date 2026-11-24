@@ -25,6 +25,25 @@ defmodule Site.HtmlTest do
     end
   end
 
+  describe "mark/2" do
+    test "wraps the part in a hit span" do
+      assert Html.mark("He is great. Hire him.", "Hire him.") ==
+               ~s(He is great. <span class="hit">Hire him.</span>)
+    end
+
+    test "escapes the text around the part" do
+      assert Html.mark("R&D & more", "more") == ~s(R&amp;D &amp; <span class="hit">more</span>)
+    end
+
+    test "leaves text without the part escaped as is" do
+      assert Html.mark("Amex's", "missing") == "Amex&#x27;s"
+    end
+
+    test "only escapes when there is no part" do
+      assert Html.mark("<b>", nil) == "&lt;b&gt;"
+    end
+  end
+
   describe "strip_whitespace_between_tags/1" do
     test "removes whitespace between tags" do
       assert Html.strip_whitespace_between_tags("<p>\n  <span>a</span>\n</p>") ==

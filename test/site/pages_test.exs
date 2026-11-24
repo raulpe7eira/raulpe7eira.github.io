@@ -222,9 +222,23 @@ defmodule Site.PagesTest do
                ~s(<blockquote lang="en"><p>I really enjoyed working with Raul.)
     end
 
+    test "shows each recommendation's highlight in large type", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<p class="pull" lang="en">Raul is that kind of professional that pushes the whole team forward.<span class="om">…</span></p>)
+    end
+
+    test "keeps the full recommendation behind read in full", %{resume: resume} do
+      assert resume(:pt_br, resume) =~
+               ~s(<details><summary><span class="rd-more">Ler completa</span><span class="rd-less">Mostrar menos</span></summary><blockquote lang="en">)
+    end
+
     test "links each recommendation to its author's profile", %{resume: resume} do
       assert resume(:en_us, resume) =~
-               ~s(<a class="who" href="https://www.linkedin.com/in/valeriia-maliarenko-941842bb">)
+               ~s(<a class="who" href="https://www.linkedin.com/in/valeriia-maliarenko-941842bb")
+    end
+
+    test "shows the recommender's headline on hover", %{resume: resume} do
+      assert resume(:en_us, resume) =~ ~s(title="Middle Business Analyst at DataArt")
     end
 
     test "shows the recommender's photo", %{resume: resume} do
@@ -324,6 +338,29 @@ defmodule Site.PagesTest do
 
     test "loads the tooltip script", %{resume: resume} do
       assert resume(:en_us, resume) =~ ~s(<script defer src="/assets/js/tooltip.js"></script>)
+    end
+
+    test "loads the career bar script", %{resume: resume} do
+      assert resume(:en_us, resume) =~ ~s(<script defer src="/assets/js/timeline.js"></script>)
+    end
+
+    test "links the career bar to each company", %{resume: resume} do
+      html = resume(:en_us, resume)
+
+      assert html =~
+               ~s(<a href="#xp-cloudwalk-inc-2024" aria-label="CloudWalk, Inc., Sep 2024 - Sep 2025">)
+
+      assert html =~ ~s(<div class="it" id="xp-cloudwalk-inc-2024">)
+    end
+
+    test "loads the recommendations script", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<script defer src="/assets/js/recommendations.js"></script>)
+    end
+
+    test "marks the highlight inside the full recommendation", %{resume: resume} do
+      assert resume(:en_us, resume) =~
+               ~s(<p><span class="hit">Raul is that kind of professional that pushes the whole team forward.</span> Being)
     end
 
     test "leaves no whitespace between the stack chips", %{resume: resume} do

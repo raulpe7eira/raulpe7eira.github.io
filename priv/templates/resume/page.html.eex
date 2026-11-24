@@ -23,9 +23,23 @@
   </div>
 
   <h2><%= gettext("resume.experience") %></h2>
+  <div class="xp">
+  <div class="tlm" role="navigation" aria-label="<%= gettext("resume.timeline") %>">
+    <svg>
+      <%= for company <- @view.timeline.companies do %>
+        <a href="#<%= company.id %>" aria-label="<%= escape(company.name) %>, <%= company.period %>">
+          <title><%= escape(company.name) %> · <%= company.period %></title>
+          <%= if company.parallel do %><rect class="c<%= company.color %> par" x="<%= company.x %>%" y="3" width="<%= company.width %>%" height="6" rx="3"></rect><% else %><rect class="c<%= company.color %>" x="<%= company.x %>%" y="15" width="<%= company.width %>%" height="16" rx="3"></rect><% end %>
+        </a>
+      <% end %>
+      <%= for tick <- @view.timeline.ticks do %>
+        <text x="<%= tick.x %>%" y="44" text-anchor="<%= tick.anchor %>"><%= tick.label %></text>
+      <% end %>
+    </svg>
+  </div>
   <div class="tl">
     <%= for experience <- @view.experiences do %>
-      <div class="it">
+      <div class="it" id="<%= experience.id %>">
         <div class="dot"></div>
         <a href="<%= experience.url %>">
           <%= if experience.acquired_by do %>
@@ -87,6 +101,7 @@
       </div>
     <% end %>
   </div>
+  </div>
 
   <h2><%= gettext("resume.education") %></h2>
   <%= for education <- @view.educations do %>
@@ -121,26 +136,47 @@
 
   <%= if @view.recommendations != [] do %>
     <h2 id="recommendations"><%= gettext("resume.recommendations") %></h2>
-    <%= for recommendation <- @view.recommendations do %>
-      <figure class="rc">
-        <blockquote lang="en">
-          <%= for paragraph <- recommendation.paragraphs do %>
-            <p><%= escape(paragraph) %></p>
+    <%!-- Two columns: the first two recommendations, then the rest; the cards stretch so both columns end level --%>
+    <div class="rcs">
+      <%= for column <- Tuple.to_list(Enum.split(@view.recommendations, 2)), column != [] do %>
+        <div class="rcc">
+          <%= for recommendation <- column do %>
+            <figure class="rc">
+              <figcaption>
+                <%= if recommendation.photo do %>
+                  <img class="av" src="<%= recommendation.photo %>" alt="" loading="lazy">
+                <% else %>
+                  <span class="av" aria-hidden="true"><%= escape(recommendation.initials) %></span>
+                <% end %>
+                <a class="who" href="<%= recommendation.url %>"<%= if recommendation.headline do %> title="<%= escape(recommendation.headline) %>"<% end %>>
+                  <b><%= escape(recommendation.name) %></b>
+                  <small><%= escape(recommendation.context) %></small>
+                </a>
+              </figcaption>
+              <%= if recommendation.highlight do %>
+                <div class="rq">
+                  <p class="pull" lang="en"><%= if recommendation.omitted.before do %><span class="om">…</span><% end %><%= escape(recommendation.highlight) %><%= if recommendation.omitted.after do %><span class="om">…</span><% end %></p>
+                  <details>
+                    <summary><span class="rd-more"><%= gettext("resume.read_full") %></span><span class="rd-less"><%= gettext("resume.show_less") %></span></summary>
+                    <blockquote lang="en">
+                      <%= for paragraph <- recommendation.paragraphs do %>
+                        <p><%= mark(paragraph, recommendation.highlight) %></p>
+                      <% end %>
+                    </blockquote>
+                  </details>
+                </div>
+              <% else %>
+                <blockquote lang="en">
+                  <%= for paragraph <- recommendation.paragraphs do %>
+                    <p><%= escape(paragraph) %></p>
+                  <% end %>
+                </blockquote>
+              <% end %>
+            </figure>
           <% end %>
-        </blockquote>
-        <figcaption>
-          <%= if recommendation.photo do %>
-            <img class="av" src="<%= recommendation.photo %>" alt="" loading="lazy">
-          <% else %>
-            <span class="av" aria-hidden="true"><%= escape(recommendation.initials) %></span>
-          <% end %>
-          <a class="who" href="<%= recommendation.url %>">
-            <span><b><%= escape(recommendation.name) %></b><%= if recommendation.headline do %> <span class="hl"><%= escape(recommendation.headline) %></span><% end %></span>
-            <small><%= escape(recommendation.context) %></small>
-          </a>
-        </figcaption>
-      </figure>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
     <p class="all"><a href="<%= @view.all_recommendations_url %>"><%= gettext("resume.all_recommendations") %></a></p>
   <% end %>
 </section>

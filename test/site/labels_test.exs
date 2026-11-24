@@ -28,6 +28,16 @@ defmodule Site.LabelsTest do
     end
   end
 
+  describe "timeline_end/0" do
+    test "is today in English" do
+      assert in_lang(:en_us, &Labels.timeline_end/0) == "today"
+    end
+
+    test "is hoje in Portuguese" do
+      assert in_lang(:pt_br, &Labels.timeline_end/0) == "hoje"
+    end
+  end
+
   describe "work_mode/1" do
     test "labels every work mode" do
       assert in_lang(:pt_br, fn -> Enum.map([:remote, :hybrid, :on_site], &Labels.work_mode/1) end) ==

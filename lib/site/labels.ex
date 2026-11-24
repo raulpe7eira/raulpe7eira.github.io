@@ -11,6 +11,9 @@ defmodule Site.Labels do
   @doc ~S|Month and year, e.g. "Oct 2025" (or "Out 2025" in Portuguese).|
   def month_year(%Date{month: month, year: year}), do: "#{month(month)} #{year}"
 
+  @doc "End of the career bar on the resume (the scale ends at the latest date in the data)."
+  def timeline_end, do: gettext("timeline.end")
+
   @doc "Shown instead of the end date of an open role."
   def present, do: gettext("date.present")
 

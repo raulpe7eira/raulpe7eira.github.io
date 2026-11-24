@@ -2,12 +2,13 @@ defmodule Site.Templates do
   @moduledoc """
   EEx templates from priv/templates, compiled into functions that take `assigns`.
 
-  Templates can call `gettext/1,2` (interface labels) and `escape/1` (data text).
+  Templates can call `gettext/1,2` (interface labels), `escape/1` (data text) and
+  `mark/2` (data text with a part of it wrapped in `<span class="hit">`).
   """
 
   use Gettext, backend: Site.Gettext
 
-  import Site.Html, only: [escape: 1]
+  import Site.Html, only: [escape: 1, mark: 2]
 
   require EEx
 
