@@ -40,6 +40,7 @@ defmodule Site.Resume do
     "BRQ IT Services" => "BRQ",
     "SUPPLY MIDIA - EDI & ERP SOLUTIONS" => "Supply Midia",
     "SONDA" => "Sonda",
+    "Drive Consultoria e Informática Ltda." => "Drive Consultoria e Informática",
     "Pontifícia Universidade Católica do Rio de Janeiro" => "PUC-Rio",
     "Centro Universitário da Cidade" => "UniverCidade"
   }
