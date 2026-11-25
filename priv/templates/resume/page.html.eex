@@ -148,7 +148,7 @@
               <%= if recommendation.highlight do %>
                 <div class="rq">
                   <p class="pull" lang="en"><%= if recommendation.omitted.before do %><span class="om">…</span><% end %><%= escape(recommendation.highlight) %><%= if recommendation.omitted.after do %><span class="om">…</span><% end %></p>
-                  <details>
+                  <details name="recommendations">
                     <summary><span class="rd-more"><%= gettext("resume.read_full") %></span><span class="rd-less"><%= gettext("resume.show_less") %></span></summary>
                     <blockquote lang="en">
                       <%= for paragraph <- recommendation.paragraphs do %>
