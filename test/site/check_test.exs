@@ -57,6 +57,12 @@ defmodule Site.CheckTest do
       assert Check.run(root) == [{"sitemap.xml", "https://www.raulpe7eira.tech/pt/"}]
     end
 
+    test "resolves the bare site URL to the root index.html", %{tmp_dir: root} do
+      write(root, "index.html", "")
+      write(root, "sitemap.xml", "<loc>https://www.raulpe7eira.tech</loc>")
+      assert Check.run(root) == []
+    end
+
     test "reports a missing path in JSON", %{tmp_dir: root} do
       write(root, "manifest.json", ~s({"icons": [{"src": "/icon.png"}]}))
       assert Check.run(root) == [{"manifest.json", "/icon.png"}]
