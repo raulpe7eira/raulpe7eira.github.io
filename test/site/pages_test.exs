@@ -251,7 +251,12 @@ defmodule Site.PagesTest do
 
     test "keeps the full recommendation behind read in full", %{resume: resume} do
       assert resume(:pt_br, resume) =~
-               ~s(<details><summary><span class="rd-more">Ler completa</span><span class="rd-less">Mostrar menos</span></summary><blockquote lang="en">)
+               ~s(<details name="recommendations"><summary><span class="rd-more">Ler completa</span><span class="rd-less">Mostrar menos</span></summary><blockquote lang="en">)
+    end
+
+    test "opens one recommendation at a time", %{resume: resume} do
+      assert resume(:en_us, resume) =~ ~s(<details name="recommendations">)
+      refute resume(:en_us, resume) =~ ~s(<details>)
     end
 
     test "links each recommendation to its author's profile", %{resume: resume} do
