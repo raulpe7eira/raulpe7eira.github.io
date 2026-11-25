@@ -62,6 +62,11 @@ defmodule Site.ResumeTest do
                "PUC-Rio"
     end
 
+    test "drops Ltda. from Drive's legal name" do
+      assert Resume.display_name("Drive Consultoria e Informática Ltda.") ==
+               "Drive Consultoria e Informática"
+    end
+
     test "keeps any other name as is" do
       assert Resume.display_name("Arionkoder") == "Arionkoder"
     end
